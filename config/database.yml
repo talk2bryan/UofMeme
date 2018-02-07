@@ -51,3 +51,4 @@ test:
 production:
   <<: *default
   database: uofmeme_app_production
+  username: uofmeme_app
