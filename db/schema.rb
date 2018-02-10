@@ -34,16 +34,16 @@ ActiveRecord::Schema.define(version: 2018_02_09_052003) do
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "commenter", limit: 255, null: false
+    t.text "commenter", limit: 255
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "poster", limit: 255, null: false
+    t.text "poster", limit: 255
     t.integer "vote", default: 0
-    t.binary "picture", null: false
+    t.binary "picture"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
