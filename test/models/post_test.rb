@@ -7,4 +7,14 @@ class PostTest < ActiveSupport::TestCase
     assert_equal("Riley", @post_1_poster)
     assert_equal("memes4dayz", @post_2_desc)
   end
+
+  test "should not save post without poster" do
+    post = Post.new
+    assert !post.save
+  end
+
+  test "should not save post without description" do
+    post = Post.new
+    assert !post.save
+  end
 end
