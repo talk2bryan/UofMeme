@@ -1,0 +1,21 @@
+<h2>Upload your own meme</h2>
+
+<%= form_for @post, html: { multipart: true } do |f| %>
+
+	<p>
+		<%= f.label :poster %>
+		<%= f.text_field :poster %>
+	</p>
+
+	<p>
+		<%= f.label :image %>
+		<%= f.file_field :image %>
+	</p>
+
+	<p>
+		<%= f.label :description %>
+		<%= f.text_field :description %>
+	</p>
+
+	<%= f.submit %>
+<% end %>
