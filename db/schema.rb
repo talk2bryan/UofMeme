@@ -34,14 +34,14 @@ ActiveRecord::Schema.define(version: 2018_02_11_034945) do
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "commenter", limit: 255, null: false
+    t.text "commenter", limit: 255
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "poster", limit: 255, null: false
+    t.text "poster", limit: 255
     t.integer "vote", default: 0
     t.text "description"
     t.datetime "created_at", null: false
@@ -50,13 +50,6 @@ ActiveRecord::Schema.define(version: 2018_02_11_034945) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
-  end
-
-  create_table "todos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.boolean "finished"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
