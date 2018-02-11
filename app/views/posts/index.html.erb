@@ -1,0 +1,17 @@
+
+<%= link_to "Upload Meme", new_post_path, class: "btn btn-primary" %><br><br>
+
+<% if @posts.blank? %>
+<p> There are no posts available at this time</p>
+<% else %>
+
+
+<strong>Posts</strong><br><br>
+<% @posts.each do |c| %>
+<%= link_to (image_tag (c.image(:medium))), {:action => 'show', :id => c.id} -%>
+<br><br>
+<% end %> 
+
+
+
+<% end %>

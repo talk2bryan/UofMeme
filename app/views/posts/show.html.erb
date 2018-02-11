@@ -1,0 +1,12 @@
+<h3>By: <%= @post.poster %></h3>
+
+<%= image_tag @post.image(:medium) %>
+
+<p>Votes: <%= @post.vote %></p>
+
+<p>Created Date: <%= @post.created_at %></p>
+
+<p>Description: <%= @post.description %></p>
+
+
+<%= link_to 'Back', {:action => 'index'} %>
