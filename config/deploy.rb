@@ -23,6 +23,14 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
+# Remove the need to deploy app to db server.
+set :migration_role,	:app
+
+set :migration_servers, -> { primary(fetch(:migration_role)) }
+
+# Skip migration if files in db/migrate were not modified
+set :conditionally_migrate, true
+
 ## Defaults:
 # set :scm,           :git
 # set :branch,        :master
@@ -67,7 +75,6 @@ namespace :deploy do
   end
 
   before :starting,     :check_revision
-  after "deploy:update_code", "deploy:migrate"
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
 end
