@@ -2,8 +2,13 @@
 
 ### tl;dr
 * https://github.com/talk2bryan/UofMeme/wiki/tl;dr
+
+### Project Documentation
+* https://github.com/talk2bryan/UofMeme/wiki/Documentation
+
 ### Project Proposal
-* https://docs.google.com/document/d/1zoB2RncRNt0_5C6VQj3Iw6y0-pstr5WQW590e5i851s/edit?usp=sharing
+* https://github.com/talk2bryan/UofMeme/wiki/Project-Proposal
+
 ### Our Trello board can be hound here:
 * https://trello.com/b/O7Ntftrz
 
