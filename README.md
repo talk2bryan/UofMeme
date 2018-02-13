@@ -36,7 +36,7 @@
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-  * https://github.com/talk2bryan/UofMeme/wiki/Deployment-Instructions
+  * https://github.com/talk2bryan/UofMeme/wiki/Deployment-and-Rollback-Instructions
 
 * Coding Standards
   * https://github.com/talk2bryan/UofMeme/wiki/Coding-Standards
