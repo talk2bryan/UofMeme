@@ -24,22 +24,12 @@
     * Ubuntu 14.04 LTS (32-bit version)
   * Production Environment
     * 14.04.5 LTS (64-bit version) hosted on AWS EC2
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
+    
 * Deployment instructions
   * https://github.com/talk2bryan/UofMeme/wiki/Deployment-and-Rollback-Instructions
 
 * Coding Standards
   * https://github.com/talk2bryan/UofMeme/wiki/Coding-Standards
 
-### Feeling a bit lost? Start from the Wiki Homepage:
+### Still feeling a bit lost? Start from the Wiki Homepage:
 * https://github.com/talk2bryan/UofMeme/wiki
