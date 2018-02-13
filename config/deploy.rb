@@ -31,12 +31,14 @@ set :migration_servers, -> { primary(fetch(:migration_role)) }
 # Skip migration if files in db/migrate were not modified
 set :conditionally_migrate, true
 
+# Keep the last 5 releases of the application.
+set :keep_releases, 5
+
 ## Defaults:
 # set :scm,           :git
 # set :branch,        :master
 # set :format,        :pretty
 # set :log_level,     :debug
-# set :keep_releases, 5
 
 ## Linked Files & Directories (Default None):
 # set :linked_files, %w{config/database.yml}
