@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta name="Likeport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Share Your U of Manitoba Memes!">
+    <meta name="author" content="UofMeme">
     <title>UofMeme</title>
     <%= csrf_meta_tags %>
 
@@ -9,6 +13,28 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <div class="navbar navbar-dark bg-warning box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <strong>UofMeme</strong>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+      <%= yield %>
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p align="center">
+          <a href="#">Back to top</a>
+        </p>
+        <br>
+      </div>
+    </footer>
+
   </body>
 </html>
