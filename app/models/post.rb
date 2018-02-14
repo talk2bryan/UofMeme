@@ -3,7 +3,7 @@ class Post < ApplicationRecord
 	has_attached_file :image, styles: 
 	{  
 		thumb:  "100x100>",
-		medium: "300x300>", 
+		medium: "300x300#", 
 		square: "200x200#",
 		large:  "600x600>"
 	}, default_url: "/images/:style/missing.png"

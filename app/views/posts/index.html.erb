@@ -10,16 +10,22 @@
 
 <div class="py-5 bg-light">
   <div class="container">
+    <div class="row">
+      <% if @posts.blank? %>
+        <p> There are no posts available at this time</p>
+      <% else %>
+        <% @posts.each do |c| %>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
 
-    <% if @posts.blank? %>
-      <p> There are no posts available at this time</p>
-    <% else %>
-      <strong>Posts</strong><br><br>
-      <% @posts.each do |c| %>
-      <%= link_to (image_tag (c.image(:medium))), {:action => 'show', :id => c.id} -%>
-      <br><br>
-    <% end %>
-    <% end %>
+        <%= link_to (image_tag (c.image(:medium))), {:action => 'show', :id => c.id}, class: "card-img-top" -%>
+        <br><br>
+
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 
