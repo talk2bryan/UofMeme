@@ -1,17 +1,25 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">UofMeme</h1>
+    <p class="lead text-muted">UofMeme is an application that allows students and employees of the University of Manitoba to create and share memes with each other. This application encourages users to express themselves creatively and reduce stress or anxiety through the use of humour.</p>
+    <p>
+      <%= link_to "Upload Meme Now!", new_post_path, class: "btn btn-primary my-2" %>
+    </p>
+  </div> 
+</section>
 
-<%= link_to "Upload Meme", new_post_path, class: "btn btn-primary" %><br><br>
+<div class="py-5 bg-light">
+  <div class="container">
 
-<% if @posts.blank? %>
-<p> There are no posts available at this time</p>
-<% else %>
+    <% if @posts.blank? %>
+      <p> There are no posts available at this time</p>
+    <% else %>
+      <strong>Posts</strong><br><br>
+      <% @posts.each do |c| %>
+      <%= link_to (image_tag (c.image(:medium))), {:action => 'show', :id => c.id} -%>
+      <br><br>
+    <% end %>
+    <% end %>
+  </div>
+</div>
 
-
-<strong>Posts</strong><br><br>
-<% @posts.each do |c| %>
-<%= link_to (image_tag (c.image(:medium))), {:action => 'show', :id => c.id} -%>
-<br><br>
-<% end %> 
-
-
-
-<% end %>
