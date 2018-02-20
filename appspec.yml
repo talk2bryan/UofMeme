@@ -3,3 +3,14 @@ os: linux
 files:
   - source: ./
     destination: /home/deploy/apps/Travis_Deployed_App
+permissions: 
+  - object: /home/deploy/apps/Travis_Deployed_App
+  - owner: deploy
+  - group: sudo
+AfterInstall:
+   - location: scripts/AfterInstall.sh
+   runas: deploy
+ApplicationStart:
+   - location: scripts/ApplicationStart.sh
+   runas: deploy
+
