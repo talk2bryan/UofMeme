@@ -2,8 +2,14 @@ language: ruby
 rvm:
  - 2.4.1
 
-services:
- - mysql
-before_install:
- - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
- - mysql -e 'CREATE DATABASE uofmeme_app_test;'
+env:
+  - DB=mysql
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec spec/
+before_script:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
+  - mysql -e 'CREATE DATABASE uofmeme_app_test;'
+bundler_args: --binstubs=./bundler_stubs
+
