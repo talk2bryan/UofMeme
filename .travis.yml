@@ -3,6 +3,8 @@ dist: trusty # Using Ububtu test environment.
 sudo: false # Container based tests using Docker images.
 
 language: ruby
+cache: bundler
+
 rvm:
  - 2.4.1
 
