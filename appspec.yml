@@ -1,0 +1,5 @@
+version: 0.0
+os: linux
+files:
+  - source: ./
+    destination: /home/deploy/apps/Travis_Deployed_App
