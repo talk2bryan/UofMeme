@@ -2,9 +2,9 @@ version: 0.0
 os: linux
 files:
   - source: ./
-    destination: /home/deploy/apps/Travis_Deployed_App
+    destination: /home/deploy/apps/UofMeme
 permissions: 
-  - object: /home/deploy/apps/Travis_Deployed_App
+  - object: /home/deploy/apps/UofMeme
   - owner: deploy
   - group: sudo
 AfterInstall:
