@@ -11,6 +11,8 @@ gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'puma', '3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '5.0.6'
+# Use bootstrap-sass to increase available files for this application
+gem 'bootstrap-sass', '3.3.7'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '3.2.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes

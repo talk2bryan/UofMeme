@@ -1,1 +1,52 @@
- @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+	padding-top: 250px;
+}
+
+header {
+	padding-top: 20px;
+	padding-bottom: 15px;
+}
+
+section {
+	overflow: auto;
+}
+
+footer {
+	margin-top: 20px;
+	padding-top: 10px;
+	border-top: 2px solid #f2dba1;
+	color: #777;
+}
+
+footer a{
+	color: #555;
+}
+
+footer a:hover{
+	color: #222;
+}
+
+footer h5{
+	float: left;
+}
+
+footer ul{
+	float: right;
+	list-style: none;
+}
+
+footer ul li{
+	float: left;
+	margin-left: 15px;
+}
+
+.thumbnail {
+	padding: 20px;
+}
+
+.btn {
+	padding: 2px;
+}

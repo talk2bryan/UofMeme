@@ -1,17 +1,22 @@
-
-<%= link_to "Upload Meme", new_post_path, class: "btn btn-primary" %><br><br>
-
 <% if @posts.blank? %>
 <p> There are no posts available at this time</p>
 <% else %>
 
-
-<strong>Posts</strong><br><br>
-<% @posts.each do |c| %>
-<%= link_to (image_tag (c.image(:medium))), {:action => 'show', :id => c.id} -%>
-<br><br>
-<% end %> 
-
-
+<div class="row">
+	<% @posts.each do |c| %>
+	<div class="col-xs-8 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+		<div class="thumbnail">
+			<%= link_to (image_tag (c.image(:medium)), :class => "posts img-circle img-fluid"), {:action => 'show', :id => c.id} -%>
+			<p>lorem ipsum doner...</p>
+			<p>
+				<a href="#" class="btn btn-success">Nice meme</a>
+				<a href="#" class="btn btn-warning">Lame meme</a>
+				<a href="#" class="btn btn-primary">Share</a>
+			</p>
+		</div>
+	</div>
+	<div class="clearfix>"></div>
+	<% end %>
+</div>
 
 <% end %>
