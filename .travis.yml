@@ -18,25 +18,26 @@ before_script:
   - mysql -e 'CREATE DATABASE uofmeme_app_test;'
 bundler_args: "--binstubs=./bundler_stubs"
 deploy:
-- provider: s3
-  access_key_id: "$AWS_ACCESS_KEY"
-  secret_access_key: "$AWS_SECRET_KEY"
-  local_dir: dpl_cd_upload
-  skip_cleanup: true
-  on: &1
-    repo: talk2bryan/UofMeme
-  bucket: uofmeme-s3-bucket
-  region: us-east-2
-- provider: codedeploy
-  access_key_id: "$AWS_ACCESS_KEY"
-  secret_access_key: "$AWS_SECRET_KEY"
-  bucket: uofmeme-s3-bucket
-  key: latest.zip
-  bundle_type: zip
-  application: UofMeme
-  deployment_group: UofMeme
-  region: us-east-2
-  on: *1
+  - provider: s3
+    access_key_id: "$AWS_ACCESS_KEY"
+    secret_access_key: "$AWS_SECRET_KEY"
+    local_dir: dpl_cd_upload
+    skip_cleanup: true
+    on: &1
+      repo: talk2bryan/UofMeme
+    bucket: uofmeme-s3-bucket
+    region: us-east-2
+  - provider: codedeploy
+    access_key_id: "$AWS_ACCESS_KEY"
+    secret_access_key: "$AWS_SECRET_KEY"
+    bucket: uofmeme-s3-bucket
+    key: latest.zip
+    bundle_type: zip
+    application: UofMeme
+    deployment_group: UofMeme
+    region: us-east-2
+    on: *1
+
 after_deploy:
   - echo "done deploying"
 notifications:
