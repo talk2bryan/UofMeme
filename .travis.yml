@@ -1,9 +1,16 @@
+dist: trusty
+sudo: false
 language: ruby
+cache: bundler
 rvm:
- - 2.4.1
-
-services:
- - mysql
+  - 2.4.1
+env:
+  - DB=mysql
 before_install:
- - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
- - mysql -e 'CREATE DATABASE uofmeme_app_test;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
+  - mysql -e 'CREATE DATABASE uofmeme_app_test;'
+
+notifications:
+  email: false
+  slack:
+    secure: D9Pgr5v5xfg7L+AcAllIpLQnjcXNCVbxH3KqKfwVr37AUceqt7hq7DoSKjZX/QBG2OkZjndizU0a+QHUEAVYMR6TE3xwkMOskPip3rZCsVZYmCNG1QcmqqFVTdRG+zJt8srKFtFnJOlYHz47snNiRikbPpHS4cBMirSMljwmoSvU24GhyeDN0Qyh5qq2Xdv3BnZkOuD03ee1B1EmU+GCPLhOPfNN+5bryow0YdZs6rjonutQaSR3w1KpqgOZfKUSMTps5WY+wYRnE+07rKUEwYT5k7lkHUes14ojh+T0EAauk3EgWleayHIUCmMugtmSeOiKx14qC4F82d/dAozflQEPANWKNNefmCxWw2pN0Tj6eSuaNSBY8jVtpmJHqiHFAl7KE5irb/5BY/tkziRg9rLtBXlk01BcxT2m/dF0sopWQp3/vbw45J2ZZqqG8Wn3CyLaCRdWF8KDHrd6DusTquANmOoDfmnPwAfVQIRBGTWJG4v+ZQfPv+qIPYcNk3CBVOBXzt0m+xBIrexn8zPoEVk4agSZxrY3I5Gx6fIv4uN7X1EfcdgmVhFbAmGgUIuTzSWPeige17aa0FI+qZpy+mk9MzMfxFQ4kMHBKs+7Gx9Ia6YxEfdrYMz9wF4TeSG/eaRNmnlinbxAalZ96JSV9mV20TFZb+VN9NNreKcpMn0=
