@@ -1,5 +1,11 @@
 # UofMeme
 
+
+### Ruby Version
+  * Rails: 5.2.0.beta2
+  * Ruby: 2.4.1
+  * RVM: 1.29.3
+  
 ### tl;dr
 * https://github.com/talk2bryan/UofMeme/wiki/tl;dr
 
@@ -24,7 +30,3 @@
 ### Still feeling a bit lost? Start from the Wiki Homepage:
 * https://github.com/talk2bryan/UofMeme/wiki
 
-### Ruby Version
-  * Rails: 5.2.0.beta2
-  * Ruby: 2.4.1
-  * RVM: 1.29.3
