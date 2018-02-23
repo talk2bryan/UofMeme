@@ -1,5 +1,6 @@
 # UofMeme
 [![Build Status](https://travis-ci.com/talk2bryan/UofMeme.svg?token=5zYcc4ywcxmJpaRTBL7b&branch=master)](https://travis-ci.com/talk2bryan/UofMeme.svg?token=5zYcc4ywcxmJpaRTBL7b&branch=master)
+[![HitCount](http://hits.dwyl.io/talk2bryan/UofMeme.svg)](http://hits.dwyl.io/talk2bryan/UofMeme)
 
 
 
