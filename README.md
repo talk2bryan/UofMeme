@@ -1,4 +1,6 @@
 # UofMeme
+[![Build Status](https://travis-ci.com/talk2bryan/UofMeme.svg?token=5zYcc4ywcxmJpaRTBL7b&branch=master)](https://travis-ci.com/talk2bryan/UofMeme.svg?token=5zYcc4ywcxmJpaRTBL7b&branch=master)
+
 
 
 ### Ruby Version
