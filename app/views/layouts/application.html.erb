@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>UofMeme</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,40 @@
   </head>
 
   <body>
-    <%= yield %>
+	<header class="navbar navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<nav>
+				<ul class="nav navbar-nav navbar-left">
+					<li><%= link_to image_tag('uofmeme_logo.png', alt: "uofmeme_logo"), '#' %><%= link_to "Upload Meme", new_post_path, class: "btn btn-primary" %></li>
+					
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+						<li><%= link_to "Memes", '#' %></li>
+						<li><%= link_to "Account", '#' %></li>
+						<li><%= link_to "Lorem", '#' %></li>
+						<li><%= link_to "Ipsum", '#' %></li>
+						<li><%= link_to "<<<<>>>>", '#' %></li>
+						<li><%= link_to "Help", '#' %></li>
+				</ul>
+			</nav>
+		</div>		
+	</header>
+	
+	<div class="container">
+		<%= yield %>
+	<footer class="footer">
+		<h5>Welcome to my meme page</h5>
+		<nav>
+			<ul class ="nav navbar-nav navbar-right">
+				<li><%= link_to "Farcebook", '#' %></li>
+				<li><%= link_to "Twetter", '#' %></li>
+				<li><%= link_to "Instogrim", '#' %></li>
+				<li><%= link_to "Down2learn", '#' %></li>
+				<li><%= link_to "News", '#' %></li>
+				<li><%= link_to "Report a bug", '#' %></li>
+			</ul>
+		</nav>
+	</footer>
+	</div>
   </body>
 </html>
