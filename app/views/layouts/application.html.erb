@@ -13,16 +13,20 @@
 		<div class="container">
 			<nav>
 				<ul class="nav navbar-nav navbar-left">
-					<li><%= link_to image_tag('uofmeme_logo.png', alt: "uofmeme_logo"), '#' %><%= link_to "Upload Meme", new_post_path, class: "btn btn-primary" %></li>
+					<li><%= link_to image_tag('uofmeme_logo.png', alt: "uofmeme_logo"), '#', class: "img-responsive" %></li>
+					<li><%= link_to "Upload Meme", new_post_path, class: "btn btn-primary" %></li>
 					
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-						<li><%= link_to "Memes", '#' %></li>
-						<li><%= link_to "Account", '#' %></li>
-						<li><%= link_to "Lorem", '#' %></li>
-						<li><%= link_to "Ipsum", '#' %></li>
-						<li><%= link_to "<<<<>>>>", '#' %></li>
-						<li><%= link_to "Help", '#' %></li>
+						<li class="nav-item">
+							<a class="glyphicon glyphicon-home" href="#"> Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="glyphicon glyphicon-question-sign" href="#"> Help</a>
+						</li>
+						<li class="nav-item">
+							<a class="glyphicon glyphicon-log-in" href="#"> Log in</a>
+						</li>
 				</ul>
 			</nav>
 		</div>		
@@ -30,16 +34,19 @@
 	
 	<div class="container">
 		<%= yield %>
-	<footer class="footer">
-		<h5>Welcome to my meme page</h5>
 		<nav>
+			<ul class="nav navbar-nav navbar-left">
+				<li class="nav-item">
+					<a class=""> UofMeme</a>
+				</li>
+			</ul>
 			<ul class ="nav navbar-nav navbar-right">
-				<li><%= link_to "Farcebook", '#' %></li>
-				<li><%= link_to "Twetter", '#' %></li>
-				<li><%= link_to "Instogrim", '#' %></li>
-				<li><%= link_to "Down2learn", '#' %></li>
-				<li><%= link_to "News", '#' %></li>
-				<li><%= link_to "Report a bug", '#' %></li>
+				<li class="nav-item">
+					<a class="glyphicon glyphicon-circle-arrow-up" href="#"> Back to top</a>
+				</li>
+				<li class="nav-item">
+					<a class="glyphicon glyphicon-eye-open" href="#"> Report a bug</a>
+				</li>
 			</ul>
 		</nav>
 	</footer>

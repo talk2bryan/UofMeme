@@ -7,13 +7,15 @@
 
 	<div class="col-xs-8 col-sm-6 col-md-4 col-lg-3 col-xl-2">
 		<div class="thumbnail">
-			<%= link_to (image_tag (c.image(:medium)), :class => "posts img-circle img-fluid"), {:action => 'show', :id => c.id} %>
+			<%= link_to (image_tag (c.image(:medium)), :class => "posts img-responsive img-fluid"), {:action => 'show', :id => c.id} %>
 			
-			<p class="p_desc"><h5><%= c.description %></h5></p>
+			<p class="p_desc">
+				<h5 class="p_desc_h"><%= c.description %></h5>
+			</p>
 			<p>
-				<a href="#" class="btn btn-success">Nice meme</a>
-				<a href="#" class="btn btn-warning">Lame meme</a>
-				<a href="#" class="btn btn-primary">Share</a>
+				<a href="#" class="glyphicon glyphicon-thumbs-up"></a>
+				<a href="#" class="glyphicon glyphicon-share"></a>
+				<a href="#" class="glyphicon glyphicon-thumbs-down"></a>
 			</p>
 		</div>
 	</div>
