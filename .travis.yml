@@ -1,14 +1,24 @@
 dist: trusty
 sudo: false
+git:
+  depth: 3
 language: ruby
 cache: bundler
 rvm:
-  - 2.4.1
+- 2.4.1
 env:
+  matrix:
   - DB=mysql
+  global:
+    secure: ROX+Wen6PjYmZ8p+ND08hXrhMk+LQfzqRN78fQmBm6B8ptXOYf8/u23um0jzPSG3FvegWpklALdVsOLk7RP9O/NRUuTLlgRZuysOoGjdIvkbmEsDdz2SlRXfgf8mKkzwUjgPOubTrurlDJPDdTggbbS1g1R5A1K5M4M8da38bYkAWgRAAPnHc+Msgo6NIxQAmCCPIQRorPMGD8B7yV2ThiIYvxm5EQ0b8oGxrXW08o0wo4EEHEDxy/TeKQ2AcoGiDZIK1pNOVyHiQqkYOwM5cTO7R8FQzSRHEfFOIxy4m5RjV4Y3emChO7A+LEYbI8D4+iy2Vw6CAE5h1oZfMO3z5sUwrwVU5K+orHLRrJB8g/f0kDIrLYZeQX5855dE4rmutpM9U1fakxIrE2XIVToGUyBhZamNW6nXNdAxKcXUrRysF4WCSaw3RvaunJhqoEaeLDSdUHXeOOrNKq3gmRm+1CFc8EPvyDUxiH99OVS7qLmB2PzZIRaLoL8qxBpy14AMiL39YydHVIdq5FFmrC7t7HgsC0Vwec4bUqlbnK1Mp5nV1jREDYgo1akLQuGAEMxGPZOQWNwZ5ShR5AwZoI4B22VVhsaVJzVrpFUrpiMKT/kDmDgqOe/LMsyeO9YE9hUaLz5V5eQb/1OuJgD6pzbPkOC8cZp0tNwfMMUmrxcStek=
+
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
   - mysql -e 'CREATE DATABASE uofmeme_app_test;'
+
+after_success:
+  - "openssl aes-256-cbc -k $DEPLOY_KEY -in config/deploy_id_rsa_enc_travis -d -a -out config/deploy_id_rsa"
+  - [[ $TRAVIS_BRANCH = 'master' ]] && bundle exec cap production deploy
 
 notifications:
   email: false
