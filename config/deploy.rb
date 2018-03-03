@@ -1,5 +1,5 @@
 # Change these
-server '18.221.244.183', port: 22, roles: [:web, :app, :db], primary: true
+server '18.188.3.137', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:talk2bryan/UofMeme.git'
 set :application,     'UofMeme'
