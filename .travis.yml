@@ -12,7 +12,7 @@ env:
   global:
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
 before_install:
-  - bundle exec cd server
+  - cd server
   - bash scripts/install.sh
 before_script:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
