@@ -25,6 +25,9 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
+# Setting subdir to include
+set :subdir, "server"
+
 # Remove the need to deploy app to db server.
 set :migration_role,	:app
 
@@ -57,7 +60,13 @@ namespace :puma do
   before :start, :make_dirs
 end
 
+after "deploy:update_code", "deploy:checkout_subdir"
+
 namespace :deploy do
+  desc "Checkout subdirectory and delete all the other stuff"
+  task :checkout_subdir do
+    run "mv #{current_release}/#{subdir}/ /tmp && rm -rf #{current_release}/* && mv /tmp/#{subdir}/* #{current_release}"
+  end
   desc "Make sure local git is in sync with remote."
   task :check_revision do
     on roles(:app) do
