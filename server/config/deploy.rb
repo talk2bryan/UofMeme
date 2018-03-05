@@ -11,6 +11,7 @@ set :puma_workers,    0
 set :pty,             true
 set :use_sudo,        false
 set :stage,           :production
+set :default_env,     { rvm_bin_path: '~/.rvm/bin' }
 set :deploy_via,      :copy_subdir
 set :deploy_subdir,   "server"
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
