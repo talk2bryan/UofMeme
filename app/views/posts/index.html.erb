@@ -1,25 +1,45 @@
-<% if @posts.blank? %>
-<p> There are no posts available at this time</p>
-<% else %>
+<section class="jumbotron text-center">
+ 	<div class="container">
 
-<div class="row">
-	<% @posts.each do |c| %>
+ 		<h1 class="jumbotron-heading">UofMeme</h1>
 
-	<div class="col-xs-8 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-		<div class="thumbnail">
-			<%= link_to (image_tag (c.image(:medium)), :class => "posts img-responsive img-fluid"), {:action => 'show', :id => c.id} %>
-			
-			<p class="p_desc">
-				<h5 class="p_desc_h"><%= c.description %></h5>
-			</p>
-			<p>
-				<a href="#" class="glyphicon glyphicon-thumbs-up"></a>
-				<a href="#" class="glyphicon glyphicon-share"></a>
-				<a href="#" class="glyphicon glyphicon-thumbs-down"></a>
-			</p>
+ 		<p class="lead text-muted">UofMeme is an application that allows students and employees of the University of Manitoba to create and share memes with each other. This application encourages users to express themselves creatively and reduce stress or anxiety through the use of humour.</p>
+    	
+    	<p>
+     		<%= link_to "Upload Meme Now!", new_post_path, class: "btn btn-primary my-2" %>
+    	</p>
+
+  	</div>
+</section>
+
+<div class="py-5 bg-light">
+ 	<div class="container">
+		<div class="row">
+			<% if @posts.blank? %>
+				<p> There are no posts available at this time</p>
+			<% else %>
+				<% @posts.each do |c| %>
+					<div class=" col-md-4 col-lg-3 col-xl-2">
+						<div class="thumbnail">
+							<div class="card mb-4 box-shadow">
+
+								<%= link_to (image_tag (c.image(:medium)), :class => "posts card-img-top img-responsive img-fluid"), {:action => 'show', :id => c.id} %>
+					
+								<p class="p_desc">
+									<h5 class="p_desc_h"><%= c.description %></h5>
+								</p>
+
+								<p>
+									<a href="#" class="glyphicon glyphicon-thumbs-up"></a>
+									<a href="#" class="glyphicon glyphicon-share"></a>
+									<a href="#" class="glyphicon glyphicon-thumbs-down"></a>
+								</p>
+
+							</div>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
 		</div>
 	</div>
-	<% end %>
 </div>
-
-<% end %>
