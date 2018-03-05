@@ -60,7 +60,7 @@ namespace :puma do
   before :start, :make_dirs
 end
 
-after "deploy:update_code", "deploy:checkout_subdir"
+before "deploy:updated", "deploy:checkout_subdir"
 
 namespace :deploy do
   desc "Checkout subdirectory and delete all the other stuff"
