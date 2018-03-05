@@ -1,0 +1,19 @@
+current directory: /home/vagrant/projects/UofMeme/server/vendor/bundle/ruby/2.4.0/gems/byebug-10.0.0/ext/byebug
+/home/vagrant/.rvm/rubies/ruby-2.4.1/bin/ruby -r ./siteconf20180305-8675-rv87.rb extconf.rb
+creating Makefile
+
+current directory: /home/vagrant/projects/UofMeme/server/vendor/bundle/ruby/2.4.0/gems/byebug-10.0.0/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /home/vagrant/projects/UofMeme/server/vendor/bundle/ruby/2.4.0/gems/byebug-10.0.0/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.so
+
+current directory: /home/vagrant/projects/UofMeme/server/vendor/bundle/ruby/2.4.0/gems/byebug-10.0.0/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20180305-8675-1j69a9e/byebug
