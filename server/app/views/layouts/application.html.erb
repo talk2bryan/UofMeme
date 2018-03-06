@@ -1,55 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= full_title(yield(:title)) %></title>
-    <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta name="Likeport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Share Your U of Manitoba Memes!">
+    <meta name="author" content="UofMeme">
+    <title>UofMeme</title>
 
+    <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-	<header class="navbar navbar-fixed-top navbar-inverse">
-		<div class="container">
-			<nav>
-				<ul class="nav navbar-nav navbar-left">
-					<li><%= link_to image_tag('uofmeme_logo.png', alt: "uofmeme_logo"), '#', class: "img-responsive" %></li>
-					<li><%= link_to "Upload Meme", new_post_path, class: "btn btn-primary" %></li>
-					
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-						<li class="nav-item">
-							<a class="glyphicon glyphicon-home" href="#"> Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="glyphicon glyphicon-question-sign" href="#"> Help</a>
-						</li>
-						<li class="nav-item">
-							<a class="glyphicon glyphicon-log-in" href="#"> Log in</a>
-						</li>
-				</ul>
-			</nav>
-		</div>		
+	<header class="navbar navbar-dark bg-warning box-shadow">
+		<div class="container d-flex justify-content-between">
+        	<a href="#" class="navbar-brand d-flex align-items-center">
+				<strong>UofMeme</strong>
+				<div class="nav navbar-right">
+					<a class="glyphicon glyphicon-home" href="#"> Home</a>
+					<a class="glyphicon glyphicon-question-sign" href="#"> Help</a>
+					<a class="glyphicon glyphicon-log-in" href="#"> Log in</a>
+				</div>
+			</a>
+	 	</div>		
 	</header>
 	
-	<div class="container">
-		<%= yield %>
-		<nav>
-			<ul class="nav navbar-nav navbar-left">
-				<li class="nav-item">
-					<a class=""> UofMeme</a>
-				</li>
-			</ul>
-			<ul class ="nav navbar-nav navbar-right">
-				<li class="nav-item">
-					<a class="glyphicon glyphicon-circle-arrow-up" href="#"> Back to top</a>
-				</li>
-				<li class="nav-item">
-					<a class="glyphicon glyphicon-eye-open" href="#"> Report a bug</a>
-				</li>
-			</ul>
-		</nav>
+	<main role="main">
+		<div class="container">
+			<%= yield %>
+		</div>
+	</main>
+
+	<footer class="nav navbar navbar-dark bg-warning box-shadow">
+		<div class="container d-flex justify-content-between">
+			<a class="glyphicon glyphicon-circle-arrow-up" href="#"> Back to top</a>
+			<a class="glyphicon glyphicon-eye-open" href="#"> Report a bug</a>
+		</div>
 	</footer>
-	</div>
+
   </body>
+
 </html>

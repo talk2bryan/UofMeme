@@ -1,10 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
-	padding-top: 250px;
-}
-
 header {
 	padding-top: 20px;
 	padding-bottom: 15px;
@@ -68,36 +64,4 @@ footer ul li{
 .glyphicon {
 	margin: 10px;
 	padding: 5px;
-}
-
-.like-btn {
-	padding: 2px;
-	background-color:#191970;
-	border: none;
-}
-
-.like-btn:hover {
-	text-decoration: none;
-}
-
-.like-btn.like-badge{
-	background-color:#191970; 
-	border: none; 
-	color:#ffffff
-}
-
-.dislike-btn {
-	padding: 2px;
-	background-color:#8B0000;
-	border: none;
-}
-
-.dislike-btn:hover {
-	text-decoration: none;
-}
-
-.dislike-btn.dislike-badge{
-	background-color:#8B0000; 
-	border: none; 
-	color:#ffffff
 }
