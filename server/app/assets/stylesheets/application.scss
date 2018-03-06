@@ -1,103 +1,99 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
-	padding-top: 250px;
-}
-
 header {
-	padding-top: 20px;
-	padding-bottom: 15px;
+    padding-top: 20px;
+    padding-bottom: 15px;
 }
 
 section {
-	overflow: auto;
+    overflow: auto;
 }
 
 footer {
-	margin-top: 20px;
-	padding-top: 10px;
-	border-top: 2px solid #f2dba1;
-	color: #777;
-	position: fixed;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 2px solid #f2dba1;
+    color: #777;
+    position: fixed;
 }
 
 footer a{
-	color: #555;
+    color: #555;
 }
 
 footer a:hover{
-	color: #222;
+    color: #222;
 }
 
 footer h5{
-	float: left;
+    float: left;
 }
 
 footer ul{
-	float: right;
-	list-style: none;
+    float: right;
+    list-style: none;
 }
 
 footer ul li{
-	float: left;
-	margin-left: 15px;
+    float: left;
+    margin-left: 15px;
 }
 
 .thumbnail {
-	padding: 20px;
+    padding: 20px;
 }
 
 
 .btn {
-	padding: 2px;
+    padding: 2px;
 }
 
 .p_desc {
-	width: auto;
-	float: left;
-	margin: 5px;
+    width: auto;
+    float: left;
+    margin: 5px;
 }
 
 .p_desc_h {
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .glyphicon {
-	margin: 10px;
-	padding: 5px;
+    margin: 10px;
+    padding: 5px;
 }
 
 .like-btn {
-	padding: 2px;
-	background-color:#191970;
-	border: none;
+    padding: 2px;
+    background-color:#191970;
+    border: none;
 }
 
 .like-btn:hover {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 .like-btn.like-badge{
-	background-color:#191970; 
-	border: none; 
-	color:#ffffff
+    background-color:#191970; 
+    border: none; 
+    color:#ffffff;
 }
 
 .dislike-btn {
-	padding: 2px;
-	background-color:#8B0000;
-	border: none;
+    padding: 2px;
+    background-color:#8B0000;
+    border: none;
 }
 
 .dislike-btn:hover {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 .dislike-btn.dislike-badge{
-	background-color:#8B0000; 
-	border: none; 
-	color:#ffffff
+    background-color:#8B0000; 
+    border: none; 
+    color: #ffffff;
 }
