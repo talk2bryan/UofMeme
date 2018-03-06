@@ -21,6 +21,16 @@ class PostsController < ApplicationController
 	  	end
 	end
 
+	def like
+		@post = Post.find(params[:id])
+		@post.increment! :like
+	end
+
+	def dislike
+		@post = Post.find(params[:id])
+		@post.increment! :dislike
+	end
+
 	private
 
 	def post_params

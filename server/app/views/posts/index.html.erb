@@ -29,13 +29,13 @@
 									<h5 class="p_desc_h"><%= c.description %></h5>
 								</p>
 
-								<div class="" style="text-align:center;">
-									<button type="button" class = "like-btn btn-info" arie-label="Left Align" > 
+								<div class="voting" style="text-align:center;" id="voting-div">
+									<button type="button" class = "like-btn btn-info" arie-label="Left Align" id="like-btn"> 
 										<span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
 										<span class="like-badge"> <%=c.like %> </span>
 									</button>
 
-									<button type="button" class = "dislike-btn btn-info" arie-label="Left Align"> 
+									<button type="button" class = "dislike-btn btn-info" arie-label="Left Align" id="dislike-btn"> 
 										<span class="glyphicon glyphicon-thumbs-down glyphicon-align-center" aria-hidden="true"></span>
 										<span class="dislike-badge" ><%=c.dislike%></span>
 									</button>
