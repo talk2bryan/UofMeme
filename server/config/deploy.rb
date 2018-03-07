@@ -12,7 +12,6 @@ set :pty,             true
 set :use_sudo,        false
 set :stage,           :production
 set :default_env,     { rvm_bin_path: '~/.rvm/bin' }
-set :deploy_subdir,   "UofMeme/server"
 set :deploy_via,      :remote_cache
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :git_strategy,    RemoteCacheWithProjectRootStrategy

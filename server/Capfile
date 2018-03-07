@@ -11,7 +11,28 @@ require 'capistrano/bundler'
 require 'capistrano/rvm'
 require 'capistrano/puma'
 
-require './lib/capistrano/remote_cache_with_project_root_strategy'
+
+module RemoteCacheWithProjectRootStrategy
+  def test
+    test! " [ -f #{repo_path}/HEAD ] "
+  end
+
+  def check
+    test! :git, :'ls-remote', repo_url
+  end
+
+  def clone
+    git :clone, '--mirror', repo_url, repo_path
+  end
+
+  def update
+    git :remote, :update
+  end
+
+  def release
+    git :archive, fetch(:branch), fetch(:project_root), '| tar -x -C', release_path, "--strip=#{fetch(:project_root).count('/')+1}"
+  end
+end
 
 # Loads default puma tasks
 install_plugin Capistrano::Puma
