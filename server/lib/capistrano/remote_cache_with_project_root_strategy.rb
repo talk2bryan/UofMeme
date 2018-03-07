@@ -1,6 +1,6 @@
 # Define a new SCM strategy, so we can deploy only a subdirectory of our repo.
 module RemoteCacheWithProjectRootStrategy
-  include Capistrano::Git::DefaultStrategy
+  include Capistrano::SCM::Git::DefaultStrategy
   def test
     test! " [ -f #{repo_path}/HEAD ] "
   end
