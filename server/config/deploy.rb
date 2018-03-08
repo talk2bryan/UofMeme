@@ -2,6 +2,7 @@
 server '18.188.3.137', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:talk2bryan/UofMeme.git'
+set :repo_tree,       'server'
 set :application,     'UofMeme'
 set :user,            'deploy'
 set :puma_threads,    [4, 16]
@@ -12,8 +13,7 @@ set :pty,             true
 set :use_sudo,        false
 set :stage,           :production
 set :default_env,     { rvm_bin_path: '~/.rvm/bin' }
-set :deploy_via,      :copy_subdir
-set :deploy_subdir,   "server"
+set :deploy_via,      :remote_cache
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
@@ -25,8 +25,6 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
-# Setting subdir to include
-set :subdir, "server"
 
 # Remove the need to deploy app to db server.
 set :migration_role,	:app
@@ -60,13 +58,8 @@ namespace :puma do
   before :start, :make_dirs
 end
 
-before "bundler:install", "deploy:checkout_subdir"
 
 namespace :deploy do
-  desc "Checkout subdirectory and delete all the other stuff"
-  task :checkout_subdir do
-    run "mv #{current_release}/#{subdir}/ /tmp && rm -rf #{current_release}/* && mv /tmp/#{subdir}/* #{current_release}"
-  end
   desc "Make sure local git is in sync with remote."
   task :check_revision do
     on roles(:app) do
