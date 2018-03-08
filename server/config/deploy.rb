@@ -2,6 +2,7 @@
 server '18.188.3.137', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:talk2bryan/UofMeme.git'
+set :repo_tree,       'server'
 set :application,     'UofMeme'
 set :user,            'deploy'
 set :puma_threads,    [4, 16]
@@ -14,8 +15,6 @@ set :stage,           :production
 set :default_env,     { rvm_bin_path: '~/.rvm/bin' }
 set :deploy_via,      :remote_cache
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
-set :git_strategy,    RemoteCacheWithProjectRootStrategy
-set :project_root,    'server'
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
 set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"

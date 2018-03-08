@@ -15,27 +15,3 @@ require 'capistrano/puma'
 install_plugin Capistrano::Puma
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
-
-module RemoteCacheWithProjectRootStrategy
-  def test
-    test! " [ -f #{repo_path}/HEAD ] "
-  end
-
-  def check
-    test! :git, :'ls-remote', repo_url
-  end
-
-  def clone
-    git :clone, '--mirror', repo_url, repo_path
-  end
-
-  def update
-    git :remote, :update
-  end
-
-  def release
-    git :archive, fetch(:branch), fetch(:project_root), '| tar -x -C', release_path, "--strip=#{fetch(:project_root).count('/')+1}"
-  end
-end
-
-
