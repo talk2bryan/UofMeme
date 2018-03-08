@@ -43,6 +43,7 @@ gem "paperclip", "~> 5.2.1"
 gem 'bootstrap', '~> 4.0.0'
 
 gem 'capistrano-copy-subdir'
+
 gem 'responders'
 
 gem 'jquery-rails'
