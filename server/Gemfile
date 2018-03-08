@@ -44,6 +44,8 @@ gem 'bootstrap', '~> 4.0.0'
 
 gem 'capistrano-copy-subdir'
 
+gem 'responders'
+
 gem 'jquery-rails'
 
 group :development, :test do
