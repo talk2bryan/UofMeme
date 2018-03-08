@@ -1,0 +1,6 @@
+<div id="votes_id">
+	<%= link_to " ",  post_like_path(post), class: 'glyphicon glyphicon-thumbs-up glyphicon-align-center' ,method: :post, data: {:remote=>true, :id => post.id}%>
+	<end>
+	<strong><%= post.like %></strong>
+</div>
+

@@ -12,42 +12,9 @@
   	</div>
 </section>
 
+
 <div class="py-5 bg-light">
- 	<div class="container">
-		<div class="row">
-			<% if @posts.blank? %>
-				<p> There are no posts available at this time</p>
-			<% else %>
-				<% @posts.each do |c| %>
-					<div class=" col-md-4 col-lg-3 col-xl-2">
-						<div class="thumbnail">
-							<div class="card mb-4 box-shadow">
-
-								<%= link_to (image_tag (c.image(:medium)), :class => "posts card-img-top img-responsive img-fluid"), {:action => 'show', :id => c.id} %>
-					
-								<p class="p_desc">
-									<h5 class="p_desc_h"><%= c.description %></h5>
-								</p>
-
-								<div class="voting" style="text-align:center;" id="voting-div">
-									<button type="button" class = "like-btn btn-info" arie-label="Left Align" id="like-btn"> 
-										<span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
-										<span class="like-badge"> <%=c.like %> </span>
-									</button>
-
-									<button type="button" class = "dislike-btn btn-info" arie-label="Left Align" id="dislike-btn"> 
-										<span class="glyphicon glyphicon-thumbs-down glyphicon-align-center" aria-hidden="true"></span>
-										<span class="dislike-badge" ><%=c.dislike%></span>
-									</button>
-									
-									<a href="#" class="glyphicon glyphicon-share"></a>
-								</div>
-
-							</div>
-						</div>
-					</div>
-				<% end %>
-			<% end %>
-		</div>
+ 	<div class="container" id="posts">
+		<%= render partial: 'posts/post_grid', locals: { posts: @posts} %>
 	</div>
 </div>
