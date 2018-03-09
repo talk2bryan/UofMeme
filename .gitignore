@@ -36,6 +36,7 @@ hs_err_pid*
 .byebug_history
 *.gem
 *.rbc
+*.orig
 capybara-*.html
 .rspec
 .rvmrc
@@ -45,11 +46,21 @@ capybara-*.html
 /coverage/
 /InstalledFiles
 /pkg/
+
 /spec/reports/
 /spec/examples.txt
+/spec/tmp
 /test/tmp/
 /test/version_tmp/
 /tmp
+
+## For bower-rails
+/vendor/assets/bower_components
+*.bowerrc
+bower.json
+
+# Ignore pow environment settings
+.powenv
 
 ## Documentation cache and generated files:
 /.yardoc/
@@ -63,4 +74,5 @@ capybara-*.html
 /vendor/bundle
 /lib/bundler/man/
 
+public/system
 public/system/posts/*
