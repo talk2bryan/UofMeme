@@ -14,6 +14,12 @@
   * react-native: 0.53.3
   * NodeJS: v9.5.0
   * openjdk version: 1.8.0_141
+
+### Design docs
+  * [Feature Breakdown](https://github.com/talk2bryan/UofMeme/wiki/Feature-Breakdown)
+  * [MVP](https://github.com/talk2bryan/UofMeme/wiki/Minimum-Viable-Product)
+  * [Server AArchitecture](https://github.com/talk2bryan/UofMeme/wiki/Server-Architecture)
+  * The rest can be found in the Project Documentation
   
 ### tl;dr
 * https://github.com/talk2bryan/UofMeme/wiki/tl;dr
