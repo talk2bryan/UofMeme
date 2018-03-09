@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
 	def new
    		@post = Post.new
 	end
@@ -22,13 +23,26 @@ class PostsController < ApplicationController
 	end
 
 	def like
-		@post = Post.find(params[:id])
-		@post.increment! :like
+		@post = Post.find(params[:post_id])
+		@post.increment! :like	
+		@post.save	
+		@posts= Post.all 
+
+		respond_to do |format|
+			format.js {render "/posts/like.js.erb" }
+		end	
+
 	end
 
 	def dislike
-		@post = Post.find(params[:id])
+		@post = Post.find(params[:post_id])
 		@post.increment! :dislike
+		@post.save
+		@posts= Post.all 
+
+		respond_to do |format|
+			format.js {render "/posts/dislike.js.erb" }
+		end	
 	end
 
 	private
