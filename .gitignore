@@ -36,6 +36,11 @@ hs_err_pid*
 .byebug_history
 *.gem
 *.rbc
+capybara-*.html
+.rspec
+.rvmrc
+
+
 /.config
 /coverage/
 /InstalledFiles
@@ -44,14 +49,15 @@ hs_err_pid*
 /spec/examples.txt
 /test/tmp/
 /test/version_tmp/
-/tmp/
+/tmp
 
 ## Documentation cache and generated files:
 /.yardoc/
 /_yardoc/
 /doc/
 /rdoc/
-
+/.idea
+/.idea *
 ## Environment normalization:
 /.bundle/
 /vendor/bundle
