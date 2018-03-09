@@ -1,7 +1,5 @@
 class PostsController < ApplicationController
 
-	#respond_to :js , only: :like
-
 	def new
    		@post = Post.new
 	end
