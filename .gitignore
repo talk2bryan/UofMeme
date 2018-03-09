@@ -95,8 +95,10 @@ mobile/gen/
 monile/out/
 
 # Gradle files
+build/
 mobile/.gradle/
 mobile/build/
+
 
 # Local configuration file (sdk path, etc)
 local.properties
