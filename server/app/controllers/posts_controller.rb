@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 
+	#before_action :authorize
 	def new
    		@post = Post.new
 	end
