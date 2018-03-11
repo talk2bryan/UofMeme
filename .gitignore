@@ -275,3 +275,4 @@ mobile/.expo/*
 mobile/.vscode/*
 mobile/.babelrc
 mobile/.watchmanconfig
+mobile/.gitignore
