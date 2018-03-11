@@ -10,14 +10,11 @@ class UsersController < ApplicationController
    		@user = User.find(params[:id])
    	end
 
-
-    def login
-    end
-
     def create
     	@user = User.new(user_params)
 
 	  	if @user.save
+	  		log_in @user
 	  		flash[:success] = "Welcome to Uofmeme!"
 	     	redirect_to @user
 	  	else
@@ -27,7 +24,7 @@ class UsersController < ApplicationController
 
     private
 
-    def user_params
-  		params.require(:user).permit(:username, :email, :password, :password_confirmation)
-	end
+	    def user_params
+	  		params.require(:user).permit(:username, :email, :password, :password_confirmation)
+		end
 end
