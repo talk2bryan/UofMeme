@@ -11,11 +11,11 @@
  * @format
  */
 
-const React = require('React');
-const ViewPropTypes = require('ViewPropTypes');
-const requireNativeComponent = require('requireNativeComponent');
+const React = require('react');
+const ViewPropTypes = require('../View/ViewPropTypes');
+const requireNativeComponent = require('../../ReactNative/requireNativeComponent');
 
-import type {ViewProps} from 'ViewPropTypes';
+import type {ViewProps} from '../View/ViewPropTypes';
 
 type Props = ViewProps & {
   children: any,

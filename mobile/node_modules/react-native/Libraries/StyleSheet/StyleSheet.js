@@ -11,12 +11,12 @@
  */
 'use strict';
 
-const PixelRatio = require('PixelRatio');
-const ReactNativePropRegistry = require('ReactNativePropRegistry');
-const ReactNativeStyleAttributes = require('ReactNativeStyleAttributes');
-const StyleSheetValidation = require('StyleSheetValidation');
+const PixelRatio = require('../Utilities/PixelRatio');
+const ReactNativePropRegistry = require('../Renderer/shims/ReactNativePropRegistry');
+const ReactNativeStyleAttributes = require('../Components/View/ReactNativeStyleAttributes');
+const StyleSheetValidation = require('./StyleSheetValidation');
 
-const flatten = require('flattenStyle');
+const flatten = require('./flattenStyle');
 
 import type {
   StyleSheetStyle as _StyleSheetStyle,
@@ -24,7 +24,7 @@ import type {
   StyleSheet as _StyleSheet,
   StyleValue as _StyleValue,
   StyleObj,
-} from 'StyleSheetTypes';
+} from './StyleSheetTypes';
 
 export type StyleProp = StyleObj;
 export type Styles = _Styles;

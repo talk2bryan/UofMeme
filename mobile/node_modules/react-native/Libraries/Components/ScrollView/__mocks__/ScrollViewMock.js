@@ -15,14 +15,14 @@
 
 declare var jest: any;
 
-const React = require('React');
-const View = require('View');
+const React = require('react');
+const View = require('../../View/View');
 
-const requireNativeComponent = require('requireNativeComponent');
+const requireNativeComponent = require('../../../ReactNative/requireNativeComponent');
 
 const RCTScrollView = requireNativeComponent('RCTScrollView');
 
-const ScrollViewComponent = jest.genMockFromModule('ScrollView');
+const ScrollViewComponent = jest.genMockFromModule('../ScrollView');
 
 class ScrollViewMock extends ScrollViewComponent {
   render() {

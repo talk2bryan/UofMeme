@@ -11,7 +11,7 @@
 'use strict';
 
 
-var parseErrorStack = require('parseErrorStack');
+var parseErrorStack = require('../parseErrorStack');
 
 function getFakeError() {
   return new Error('Happy Cat');

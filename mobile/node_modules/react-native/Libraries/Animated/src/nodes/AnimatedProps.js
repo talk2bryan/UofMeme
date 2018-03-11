@@ -16,7 +16,7 @@ const {AnimatedEvent} = require('../AnimatedEvent');
 const AnimatedNode = require('./AnimatedNode');
 const AnimatedStyle = require('./AnimatedStyle');
 const NativeAnimatedHelper = require('../NativeAnimatedHelper');
-const ReactNative = require('ReactNative');
+const ReactNative = require('../../../Renderer/shims/ReactNative');
 
 const invariant = require('fbjs/lib/invariant');
 

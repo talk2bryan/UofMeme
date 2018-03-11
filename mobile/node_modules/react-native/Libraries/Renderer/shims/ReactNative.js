@@ -9,14 +9,14 @@
  */
 'use strict';
 
-import type {ReactNativeType} from 'ReactNativeTypes';
+import type {ReactNativeType} from './ReactNativeTypes';
 
 let ReactNative;
 
 if (__DEV__) {
-  ReactNative = require('ReactNativeRenderer-dev');
+  ReactNative = require('../ReactNativeRenderer-dev');
 } else {
-  ReactNative = require('ReactNativeRenderer-prod');
+  ReactNative = require('../ReactNativeRenderer-prod');
 }
 
 module.exports = (ReactNative: ReactNativeType);

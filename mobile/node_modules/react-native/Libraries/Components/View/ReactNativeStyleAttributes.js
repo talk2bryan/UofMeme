@@ -12,17 +12,17 @@
 
 'use strict';
 
-var ImageStylePropTypes = require('ImageStylePropTypes');
-var TextStylePropTypes = require('TextStylePropTypes');
-var ViewStylePropTypes = require('ViewStylePropTypes');
+var ImageStylePropTypes = require('../../Image/ImageStylePropTypes');
+var TextStylePropTypes = require('../../Text/TextStylePropTypes');
+var ViewStylePropTypes = require('./ViewStylePropTypes');
 
 /* $FlowFixMe(>=0.54.0 site=react_native_oss) This comment suppresses an error
  * found when Flow v0.54 was deployed. To see the error delete this comment and
  * run Flow. */
 var keyMirror = require('fbjs/lib/keyMirror');
-var processColor = require('processColor');
-var processTransform = require('processTransform');
-var sizesDiffer = require('sizesDiffer');
+var processColor = require('../../StyleSheet/processColor');
+var processTransform = require('../../StyleSheet/processTransform');
+var sizesDiffer = require('../../Utilities/differ/sizesDiffer');
 
 var ReactNativeStyleAttributes = {
   ...keyMirror(ViewStylePropTypes),

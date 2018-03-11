@@ -10,7 +10,7 @@
  */
 'use strict';
 
-var deepDiffer = require('deepDiffer');
+var deepDiffer = require('../deepDiffer');
 
 describe('deepDiffer', function() {
   it('should diff primitives of the same type', () => {

@@ -13,13 +13,13 @@
 
 'use strict';
 
-const EmitterSubscription = require('EmitterSubscription');
+const EmitterSubscription = require('../vendor/emitter/EmitterSubscription');
 const PropTypes = require('prop-types');
-const RCTDeviceEventEmitter = require('RCTDeviceEventEmitter');
-const React = require('React');
-const ReactNative = require('ReactNative');
-const StyleSheet = require('StyleSheet');
-const View = require('View');
+const RCTDeviceEventEmitter = require('../EventEmitter/RCTDeviceEventEmitter');
+const React = require('react');
+const ReactNative = require('../Renderer/shims/ReactNative');
+const StyleSheet = require('../StyleSheet/StyleSheet');
+const View = require('../Components/View/View');
 
 type Context = {
   rootTag: number,
@@ -61,7 +61,7 @@ class AppContainer extends React.Component<Props, State> {
         this._subscription = RCTDeviceEventEmitter.addListener(
           'toggleElementInspector',
           () => {
-            const Inspector = require('Inspector');
+            const Inspector = require('../Inspector/Inspector');
             const inspector = this.state.inspector ? null : (
               <Inspector
                 inspectedViewTag={ReactNative.findNodeHandle(this._mainRef)}
@@ -93,7 +93,7 @@ class AppContainer extends React.Component<Props, State> {
     let yellowBox = null;
     if (__DEV__) {
       if (!global.__RCTProfileIsProfiling) {
-        const YellowBox = require('YellowBox');
+        const YellowBox = require('./YellowBox');
         yellowBox = <YellowBox />;
       }
     }

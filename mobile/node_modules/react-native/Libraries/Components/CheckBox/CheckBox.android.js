@@ -12,14 +12,14 @@
  */
 'use strict';
 
-const NativeMethodsMixin = require('NativeMethodsMixin');
+const NativeMethodsMixin = require('../../Renderer/shims/NativeMethodsMixin');
 const PropTypes = require('prop-types');
-const React = require('React');
-const StyleSheet = require('StyleSheet');
-const ViewPropTypes = require('ViewPropTypes');
+const React = require('react');
+const StyleSheet = require('../../StyleSheet/StyleSheet');
+const ViewPropTypes = require('../View/ViewPropTypes');
 
 const createReactClass = require('create-react-class');
-const requireNativeComponent = require('requireNativeComponent');
+const requireNativeComponent = require('../../ReactNative/requireNativeComponent');
 
 type DefaultProps = {
   value: boolean,

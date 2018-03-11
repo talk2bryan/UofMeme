@@ -11,18 +11,18 @@
  */
 'use strict';
 
-const ColorPropType = require('ColorPropType');
-const NativeMethodsMixin = require('NativeMethodsMixin');
-const Platform = require('Platform');
-const ProgressBarAndroid = require('ProgressBarAndroid');
+const ColorPropType = require('../../StyleSheet/ColorPropType');
+const NativeMethodsMixin = require('../../Renderer/shims/NativeMethodsMixin');
+const Platform = require('../../Utilities/Platform');
+const ProgressBarAndroid = require('../ProgressBarAndroid/ProgressBarAndroid');
 const PropTypes = require('prop-types');
-const React = require('React');
-const StyleSheet = require('StyleSheet');
-const View = require('View');
-const ViewPropTypes = require('ViewPropTypes');
+const React = require('react');
+const StyleSheet = require('../../StyleSheet/StyleSheet');
+const View = require('../View/View');
+const ViewPropTypes = require('../View/ViewPropTypes');
 
 const createReactClass = require('create-react-class');
-const requireNativeComponent = require('requireNativeComponent');
+const requireNativeComponent = require('../../ReactNative/requireNativeComponent');
 
 const GRAY = '#999999';
 

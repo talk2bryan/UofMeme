@@ -10,7 +10,7 @@
  */
 'use strict';
 
-var MatrixMath = require('MatrixMath');
+var MatrixMath = require('../MatrixMath');
 
 function degreesToRadians(degrees) {
   return degrees * Math.PI / 180;

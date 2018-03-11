@@ -11,8 +11,8 @@
  */
 'use strict';
 
-var React = require('React');
-var View = require('View');
+var React = require('react');
+var View = require('../Components/View/View');
 
 class BorderBox extends React.Component<$FlowFixMeProps> {
   render() {

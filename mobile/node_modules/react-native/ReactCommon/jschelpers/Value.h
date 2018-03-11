@@ -302,13 +302,6 @@ public:
     }
   }
 
-  double getNumberOrThrow() const {
-    if (!isNumber()) {
-      throwTypeException("Number");
-    }
-    return JSC_JSValueToNumber(context(), m_value, nullptr);
-  }
-
   int32_t asInteger() const {
     return static_cast<int32_t>(asNumber());
   }
@@ -362,9 +355,7 @@ private:
   JSContextRef m_context;
   JSValueRef m_value;
 
-  void throwTypeException(const std::string &expectedType) const;
   static JSValueRef fromDynamicInner(JSContextRef ctx, const folly::dynamic& obj);
-
 };
 
 } }

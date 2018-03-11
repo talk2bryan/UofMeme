@@ -12,7 +12,7 @@
  */
 'use strict';
 
-var ReactNativeStyleAttributes = require('ReactNativeStyleAttributes');
+var ReactNativeStyleAttributes = require('../Components/View/ReactNativeStyleAttributes');
 
 export type ComponentInterface =
   | React$ComponentType<any>

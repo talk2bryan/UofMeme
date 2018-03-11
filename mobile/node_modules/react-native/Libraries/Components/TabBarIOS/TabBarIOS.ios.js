@@ -11,17 +11,17 @@
  */
 'use strict';
 
-var ColorPropType = require('ColorPropType');
-var React = require('React');
+var ColorPropType = require('../../StyleSheet/ColorPropType');
+var React = require('react');
 const PropTypes = require('prop-types');
-var StyleSheet = require('StyleSheet');
-var TabBarItemIOS = require('TabBarItemIOS');
-const ViewPropTypes = require('ViewPropTypes');
+var StyleSheet = require('../../StyleSheet/StyleSheet');
+var TabBarItemIOS = require('./TabBarItemIOS');
+const ViewPropTypes = require('../View/ViewPropTypes');
 
-var requireNativeComponent = require('requireNativeComponent');
+var requireNativeComponent = require('../../ReactNative/requireNativeComponent');
 
-import type {StyleObj} from 'StyleSheetTypes';
-import type {ViewProps} from 'ViewPropTypes';
+import type {StyleObj} from '../../StyleSheet/StyleSheetTypes';
+import type {ViewProps} from '../View/ViewPropTypes';
 
 class TabBarIOS extends React.Component<ViewProps & {
   style?: StyleObj,

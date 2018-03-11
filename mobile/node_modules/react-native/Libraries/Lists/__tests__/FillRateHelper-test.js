@@ -12,7 +12,7 @@
  */
 'use strict';
 
-const FillRateHelper = require('FillRateHelper');
+const FillRateHelper = require('../FillRateHelper');
 
 let rowFramesGlobal;
 const dataGlobal = [

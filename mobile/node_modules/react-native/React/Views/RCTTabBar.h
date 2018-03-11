@@ -19,6 +19,4 @@
 @property (nonatomic, assign) UIBarStyle barStyle;
 #endif
 
-- (void)uiManagerDidPerformMounting;
-
 @end
