@@ -47,12 +47,12 @@ capybara-*.html
 /InstalledFiles
 /pkg/
 
-/spec/reports/
-/spec/examples.txt
-/spec/tmp
-/test/tmp/
-/test/version_tmp/
-/tmp
+server/spec/reports/
+server/spec/examples.txt
+server/spec/tmp
+server/test/tmp/
+server/test/version_tmp/
+server/tmp
 
 ## For bower-rails
 /vendor/assets/bower_components
