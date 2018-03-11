@@ -35,9 +35,9 @@ class UsersController < ApplicationController
 		UserMailer.account_activation(self).deliver!
 	end
 
-    private
+  private
 
-	    def user_params
+	  def user_params
 	  		params.require(:user).permit(:username, :email, :password, :password_confirmation)
 		end
 end
