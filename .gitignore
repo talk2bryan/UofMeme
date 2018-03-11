@@ -67,15 +67,17 @@ bower.json
 /_yardoc/
 /doc/
 /rdoc/
-/.idea
-/.idea *
+mobile/.idea
+mobile/.idea *
+server/.idea
+server/.idea *
 ## Environment normalization:
-/.bundle/
-/vendor/bundle
-/lib/bundler/man/
+server/.bundle/
+server/vendor/bundle
+server/lib/bundler/man/
 
-public/system
-public/system/posts/*
+server/public/system
+server/public/system/posts/*
 
 
 
