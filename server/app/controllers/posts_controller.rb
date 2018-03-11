@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
 
-	#before_action :authorize
 	def new
    		@post = Post.new
 	end
@@ -17,7 +16,8 @@ class PostsController < ApplicationController
 	  	@post = Post.new(post_params)
 
 	  	if @post.save
-	     	redirect_to :action => 'index'
+	  		flash[:info] = "Meme successfully created"
+	     	redirect_to root_url
 	  	else
 	  		render "new"
 	  	end

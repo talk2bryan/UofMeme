@@ -3,24 +3,37 @@ class UsersController < ApplicationController
     	@user = User.new
     end
 
+    #change this to display users profile
     def index
     end
 
     def show
    		@user = User.find(params[:id])
+    	redirect_to root_url 
    	end
 
     def create
     	@user = User.new(user_params)
 
 	  	if @user.save
-	  		log_in @user
-	  		flash[:success] = "Welcome to Uofmeme!"
-	     	redirect_to @user
+     		@user.send_activation_email
+      		flash[:info] = "Please check your email to activate your account."
+      		redirect_to root_url
 	  	else
 	  		render "new"
 	  	end
     end
+
+	# Activates an account.
+	def activate
+		update_attribute(:activated,    true)
+		update_attribute(:activated_at, Time.zone.now)
+	end
+
+	# Sends the activation email.
+	def send_activation_email
+		UserMailer.account_activation(self).deliver!
+	end
 
     private
 
