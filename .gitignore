@@ -30,17 +30,17 @@ hs_err_pid*
 !/log/.keep
 !/tmp/.keep
 
-/node_modules
-/yarn-error.log
+mobile/node_modules
+mobile/yarn-error.log
 
 .byebug_history
 *.gem
 *.rbc
 *.orig
 capybara-*.html
-.rspec
-.rvmrc
-.tmp
+server/.rspec
+server/.rvmrc
+server/.tmp
 
 /.config
 /coverage/
