@@ -3,8 +3,8 @@ class UsersController < ApplicationController
     	@user = User.new
     end
 
-    #change this to display users profile
     def index
+      @posts = Post.all
     end
 
     def show

@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
   
+  resources :users
   get 'sessions/new'
-  resources :posts do
-  	post :like 
-  	post :dislike 
-  end
+  resources :posts 
 
   resources :users 
   resources :account_activations, only: [:edit]
+
+  resources :likes, only: [:create, :show] do 
+    post :create
+  end
+
+  resources :dislikes, only: [:create, :show] do 
+    post :create
+  end
 
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
