@@ -42,6 +42,8 @@ gem "paperclip", "~> 5.2.1"
 
 gem 'bootstrap', '~> 4.0.0'
 
+gem 'responders'
+
 gem 'jquery-rails'
 
 group :development, :test do

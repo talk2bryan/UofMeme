@@ -2,11 +2,14 @@
 
 <%= image_tag @post.image(:large) %>
 
-<p>Votes: <%= @post.vote %></p>
+<p>Likes: <%= @post.like %></p>
+<p>DisLikes: <%= @post.dislike %></p>
 
 <p>Created Date: <%= @post.created_at %></p>
 
 <p>Description: <%= @post.description %></p>
+
+<p><a href="#" class="glyphicon glyphicon-flag"> Flag as inappropriate</a></p>
 
 
 <%= link_to 'Back', {:action => 'index'} %>

@@ -2,6 +2,7 @@
 server '18.188.3.137', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:talk2bryan/UofMeme.git'
+set :repo_tree,       'server'
 set :application,     'UofMeme'
 set :user,            'deploy'
 set :puma_threads,    [4, 16]
@@ -11,6 +12,7 @@ set :puma_workers,    0
 set :pty,             true
 set :use_sudo,        false
 set :stage,           :production
+set :default_env,     { rvm_bin_path: '~/.rvm/bin' }
 set :deploy_via,      :remote_cache
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
@@ -22,6 +24,7 @@ set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: ["~/.ssh/
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
+
 
 # Remove the need to deploy app to db server.
 set :migration_role,	:app
@@ -41,7 +44,6 @@ set :keep_releases, 5
 # set :log_level,     :debug
 
 ## Linked Files & Directories (Default None):
-# set :linked_files, %w{config/database.yml}
 set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :puma do
@@ -55,6 +57,7 @@ namespace :puma do
 
   before :start, :make_dirs
 end
+
 
 namespace :deploy do
   desc "Make sure local git is in sync with remote."
