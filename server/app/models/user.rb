@@ -12,6 +12,7 @@ class User < ApplicationRecord
 	validates :email,  presence: true,length: { maximum: 255 }, format: {with: VALID_EMAIL_REGEX, message: ": Enter a valid uofm email address"}, uniqueness: { case_sensitive: false }
 	
 	validates :password,  presence: true, length: {minimum: 8}, confirmation: { case_sensitive: true }
+	validates :password_confirmation,  presence: true, length: {minimum: 8}, confirmation: { case_sensitive: true }
 	validates_uniqueness_of :username
 	validates_uniqueness_of :email
 
