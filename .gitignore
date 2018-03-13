@@ -216,7 +216,7 @@ mobile/.lock-wscript
 mobile/build/Release
 
 # Dependency directories
-mobile/node_modules/
+mobile/node_modules/*
 mobile/jspm_packages/
 
 # Typescript v1 declaration files
