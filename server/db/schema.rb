@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2018_03_12_043625) do
     t.datetime "updated_at", null: false
     t.string "remember_digest"
     t.string "activation_digest"
-    t.boolean "activated"
+    t.boolean "activated", default: true
     t.datetime "activated_at"
     t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
