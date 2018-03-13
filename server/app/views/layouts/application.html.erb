@@ -16,31 +16,25 @@
   <body>
     <header class="navbar navbar-dark bg-warning box-shadow">
       <div class="container d-flex justify-content-between">
-        <a href="#" class="navbar-brand d-flex align-items-center">
-	  <strong>UofMeme</strong>
-	</a>
+	<strong><%= link_to 'UofMeme', root_path, {:class => "navbar-brand d-flex align-items-center"} %></strong>
 	<div class="nav navbar-right">
-	  <a class="glyphicon glyphicon-home" href="#"> Home</a>
-	  <a class="glyphicon glyphicon-question-sign" href="#"> Help</a>
-	  <a class="glyphicon glyphicon-log-in" href="#"> Log in</a>
+	  <span class="glyphicon glyphicon-home"></span><%= link_to 'Home', root_path %>
+	  <span class="glyphicon glyphicon-question-sign"></span><a href="#">Help</a>
+	  <span class="glyphicon glyphicon-log-in"></span><a href="#">Log in</a>
 	</div>
       </div>		
     </header>
 	
-	<main role="main">
-		<div class="container">
-			<%= yield %>
-		</div>
-	</main>
+    <main role="main">
+      <%= yield %>
+    </main>
 
-	<footer class="nav navbar navbar-dark bg-warning box-shadow">
-		<div class="container d-flex justify-content-between">
-			<a class="navbar-left glyphicon glyphicon-copyright-mark" href="#">  UofMeme 2018</a>
-			<a class="navbar-right glyphicon glyphicon-circle-arrow-up" href="#"> Back to top</a>
-			<a class="navbar-right glyphicon glyphicon-eye-open" href="#"> Report a bug</a>
-		</div>
-	</footer>
-
+    <footer class="nav navbar navbar-dark bg-warning box-shadow">
+      <div class="container d-flex justify-content-between">
+        <a href="http://uofmeme.solutions" class="navbar-left"><span class="glyphicon glyphicon-copyright-mark"></span>UofMeme 2018</a>
+	<a href="#" class="navbar-right"><span class="glyphicon glyphicon-circle-arrow-up"></span>Back to top</a>
+	<a href="#" class="navbar-right"><span class="glyphicon glyphicon-eye-open"></span>Report a bug</a>
+      </div>
+    </footer>
   </body>
-
 </html>
