@@ -23,7 +23,7 @@ class DislikesController < ApplicationController
 					remove_like
 				end
 
-				@dislike = Dislike.new(username: current_user.username, postid: @post.id)
+				@dislike = Dislike.new(user_id: current_user.id, post_id: @post.id)
 
 				if @dislike.save
 					dislike
@@ -46,11 +46,11 @@ class DislikesController < ApplicationController
 	private
 
 	def dislike_params
-		params.require(:dislike).permit(:username, :postid)
+		params.require(:dislike).permit(:user_id, :post_id)
 	end
 
 	def already_disliked
-		@dislike = Dislike.where(username: current_user.username, postid: @post.id).first
+		@dislike = Dislike.where(user_id: current_user.id, post_id: @post.id).first
 		!@dislike.nil?
 	end
 
@@ -66,7 +66,7 @@ class DislikesController < ApplicationController
 	end
 
 	def already_liked
-		@like = Like.where(username: current_user.username, postid: @post.id).first
+		@like = Like.where(user_id: current_user.id, post_id: @post.id).first
 		!@like.nil?
 	end
 

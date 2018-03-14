@@ -1,6 +1,11 @@
 class User < ApplicationRecord
 	has_many :posts
 	has_many :comments
+	has_many :likes
+	has_many :dislikes
+	has_many :posts, through: :likes
+	has_many :posts, through: :dislikes
+
 	has_secure_password
 	before_save { self.email = email.downcase }
 	before_create :create_activation_digest

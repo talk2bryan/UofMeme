@@ -1,4 +1,8 @@
 class Like < ApplicationRecord
-	validates  :username, presence: true
-	validates  :postid, presence: true, numericality: { only_integer: true }
+	belongs_to :post
+	belongs_to :user
+	validates :post, presence: true
+	validates :user, presence: true
+	validates :user_id, presence: true
+	validates :post_id, presence: true
 end
