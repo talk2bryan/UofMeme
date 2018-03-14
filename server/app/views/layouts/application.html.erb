@@ -16,6 +16,9 @@
   <body>
     <header class="navbar navbar-dark bg-warning box-shadow">
       <div class="container d-flex justify-content-between">
+	<%= link_to root_path do %>
+	  <%= image_tag 'icon.png', {:class => "navbar-left", :style => "vertical-align: middle; max-width: 50px;"} %>
+	<% end %>
 	<strong><%= link_to 'UofMeme', root_path, {:class => "navbar-brand d-flex align-items-center"} %></strong>
 	<div class="nav navbar-right">
 	  <span class="glyphicon glyphicon-home"></span><%= link_to 'Home', root_path %>
