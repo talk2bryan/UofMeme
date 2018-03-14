@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2018_03_05_050828) do
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "poster", limit: 255, null: false
-    t.integer "vote", default: 0
+    t.integer "like", default: 0
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -51,13 +51,6 @@ ActiveRecord::Schema.define(version: 2018_03_05_050828) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.integer "dislike", default: 0
-  end
-
-  create_table "todos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.boolean "finished"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
