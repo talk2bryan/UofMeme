@@ -30,29 +30,29 @@ hs_err_pid*
 !/log/.keep
 !/tmp/.keep
 
-/node_modules
-/yarn-error.log
+mobile/node_modules
+mobile/yarn-error.log
 
 .byebug_history
 *.gem
 *.rbc
 *.orig
 capybara-*.html
-.rspec
-.rvmrc
-.tmp
+server/.rspec
+server/.rvmrc
+server/.tmp
 
 /.config
 /coverage/
 /InstalledFiles
 /pkg/
 
-/spec/reports/
-/spec/examples.txt
-/spec/tmp
-/test/tmp/
-/test/version_tmp/
-/tmp
+server/spec/reports/
+server/spec/examples.txt
+server/spec/tmp
+server/test/tmp/
+server/test/version_tmp/
+server/tmp
 
 ## For bower-rails
 /vendor/assets/bower_components
@@ -67,15 +67,17 @@ bower.json
 /_yardoc/
 /doc/
 /rdoc/
-/.idea
-/.idea *
+mobile/.idea
+mobile/.idea *
+server/.idea
+server/.idea *
 ## Environment normalization:
-/.bundle/
-/vendor/bundle
-/lib/bundler/man/
+server/.bundle/
+server/vendor/bundle
+server/lib/bundler/man/
 
-public/system
-public/system/posts/*
+server/public/system
+server/public/system/posts/*
 
 
 
