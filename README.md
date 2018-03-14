@@ -11,10 +11,9 @@
 
 ## Mobile (Android) Development
   * react-native-cli: 2.0.1
-  * react-native: 0.53.3
-  * NodeJS: v9.5.0
+  * react-native: 0.52.0
+  * NodeJS: v9.8.0
   * openjdk version: 1.8.0_141
-  
 
 ### tl;dr
 * https://github.com/talk2bryan/UofMeme/wiki/tl;dr
