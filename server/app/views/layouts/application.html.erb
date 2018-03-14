@@ -5,48 +5,27 @@
     <meta name="Likeport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Share Your U of Manitoba Memes!">
     <meta name="author" content="UofMeme">
+    <%= favicon_link_tag 'favicon.ico' %>
     <title>UofMeme</title>
 
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': true %>
   </head>
 
   <body>
-	<header class="navbar navbar-dark bg-warning box-shadow">
-		<div class="container d-flex justify-content-between">
-        	<a href="#" class="navbar-brand d-flex align-items-center">
-				<strong>UofMeme</strong>
-				<div class="nav navbar-right">
-					<a class="glyphicon glyphicon-home" href="#"> Home</a>
-					<a class="glyphicon glyphicon-question-sign" href="#"> Help</a
-
-					<% if logged_in? %>	
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								Account <b class="caret"></b>
-							</a>
-							<ul class="dropdown-menu">
-								<li><%= link_to "Profile", current_user %></li>
-								<li><%= link_to "Settings", '#' %></li>
-								<li class="divider"></li>
-								<li>
-									<%= link_to "Log out", logout_path, method: :delete %>
-								</li>
-							</ul>
-						</li>
-					<% else %>
-          				<li ><%= link_to " Log in", login_path, class: "glyphicon glyphicon-log-in" %></li>
-        			<% end %>
-
-				</div>
-			</a>
-	 	</div>		
-	</header>
-
-	<% flash.each do |message_type, message| %>
-		<%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-	<% end %>
+    <header class="navbar navbar-dark bg-warning box-shadow">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+	  <strong>UofMeme</strong>
+	</a>
+	<div class="nav navbar-right">
+	  <a class="glyphicon glyphicon-home" href="#"> Home</a>
+	  <a class="glyphicon glyphicon-question-sign" href="#"> Help</a>
+	  <a class="glyphicon glyphicon-log-in" href="#"> Log in</a>
+	</div>
+      </div>		
+    </header>
 	
 	<main role="main">
 		<div class="container-fluid">

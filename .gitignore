@@ -7,8 +7,6 @@
 # BlueJ files
 *.ctxt
 
-server/tmp*
-
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
@@ -80,9 +78,6 @@ server/lib/bundler/man/
 
 server/public/system
 server/public/system/posts/*
-
-server/.rspec
-mobile/node_modules
 
 
 
@@ -275,4 +270,3 @@ mobile/.AppleDesktop
 mobile/Network Trash Folder
 mobile/Temporary Items
 mobile/.apdisk
-
