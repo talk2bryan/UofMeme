@@ -34,7 +34,7 @@ class CardComponent extends Component {
         <CardItem cardBody>
           <Image
             source={images[this.props.imageSource]}
-            style={{ height: 250, width: null, flex: 1 }}
+            style={{ height: 300, width: null, flex: 1 }}
           />
         </CardItem>
         <CardItem>
