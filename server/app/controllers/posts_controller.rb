@@ -9,45 +9,24 @@ class PostsController < ApplicationController
 	end
    
    	def show
-   		@post = Post.find(params[:id])
+   		@post = Post.find(params[:post_id])
    	end
 
 	def create
 	  	@post = Post.new(post_params)
 
 	  	if @post.save
-	     	redirect_to :action => 'index'
+	  		flash[:info] = "Meme successfully created"
+	     	redirect_to root_url
 	  	else
+	  		flash[:info] = "There was an error. Your Meme wasn't created"
 	  		render "new"
 	  	end
-	end
-
-	def like
-		@post = Post.find(params[:post_id])
-		@post.increment! :like	
-		@post.save	
-		@posts= Post.all 
-
-		respond_to do |format|
-			format.js {render "/posts/like.js.erb" }
-		end	
-
-	end
-
-	def dislike
-		@post = Post.find(params[:post_id])
-		@post.increment! :dislike
-		@post.save
-		@posts= Post.all 
-
-		respond_to do |format|
-			format.js {render "/posts/dislike.js.erb" }
-		end	
 	end
 
 	private
 
 	def post_params
-   		params.require(:post).permit(:poster, :image, :description)
+   		params.require(:post).permit(:poster, :image, :description, :user_id)
 	end
 end
