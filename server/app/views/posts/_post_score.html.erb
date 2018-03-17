@@ -1,0 +1,7 @@
+<div id="score_id">
+	<%if (post.dislike+post.like) ==0 %>
+		Score: 0%
+	<%else%>
+		Score: <%= (post.like/(post.dislike+post.like)) * 100 %>%
+	<%end%>
+</div>
