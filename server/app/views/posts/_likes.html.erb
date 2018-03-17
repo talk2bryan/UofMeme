@@ -1,6 +1,6 @@
 <div id="like_id">
 	<p>
-		<%= link_to " ",  post_like_path(post), class: 'glyphicon glyphicon-thumbs-up glyphicon-align-center' ,method: :post, data: {:remote=>true, :id => post.id}%>
+		<%= link_to " ",  like_create_path(post), class: 'glyphicon glyphicon-thumbs-up glyphicon-align-center' ,method: :post, data: {:remote=>true, :id => post.id}%>
 		<end>
 		<span id="likes_count">
 			<strong><%= post.like %></strong>
@@ -8,7 +8,7 @@
 	</p>
 
 	<p>
-		<%= link_to " ",  post_dislike_path(post), class: 'glyphicon glyphicon-thumbs-down glyphicon-align-center',style: "color:#8B0000" ,method: :post, data: {:remote=>true, :id => post.id}%>
+		<%= link_to " ",   dislike_create_path(post), class: 'glyphicon glyphicon-thumbs-down glyphicon-align-center',style: "color:#8B0000" ,method: :post, data: {:remote=>true, :id => post.id}%>
 		<end>
 		<span id="dislikes_count">
 			<strong><%= post.dislike %></strong>
