@@ -464,13 +464,8 @@ mobile/Network Trash Folder
 mobile/Temporary Items
 mobile/.apdisk
 
-<<<<<<< HEAD
 
 # Expo/VSCode
 mobile/.expo/*
 mobile/.vscode/*
-mobile/.babelrc
-mobile/.watchmanconfig
 mobile/.gitignore
-=======
->>>>>>> a4ae156c160a1081236e036dc5fbfc253630ef89
