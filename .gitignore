@@ -7,6 +7,8 @@
 # BlueJ files
 *.ctxt
 
+server/tmp*
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
@@ -78,6 +80,9 @@ server/lib/bundler/man/
 
 server/public/system
 server/public/system/posts/*
+
+server/.rspec
+mobile/node_modules
 
 
 
@@ -459,6 +464,7 @@ mobile/Network Trash Folder
 mobile/Temporary Items
 mobile/.apdisk
 
+<<<<<<< HEAD
 
 # Expo/VSCode
 mobile/.expo/*
@@ -466,3 +472,5 @@ mobile/.vscode/*
 mobile/.babelrc
 mobile/.watchmanconfig
 mobile/.gitignore
+=======
+>>>>>>> a4ae156c160a1081236e036dc5fbfc253630ef89
