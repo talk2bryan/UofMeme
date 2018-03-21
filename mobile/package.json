@@ -7,6 +7,21 @@
     "native-base": "^2.3.10",
     "react": "16.2.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
-    "react-navigation": "^1.5.1"
+    "react-native-vector-icons": "^4.0.1",
+    "react-navigation": "^1.5.7"
+  },
+  "devDependencies": {
+    "babel-jest": "^23.0.0-alpha.0",
+    "jest": "^22.4.2",
+    "react-test-renderer": "^16.2.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|expo|react-navigation|native-base-shoutem-theme|@shoutem/theme|@shoutem/animation|@shoutem/ui|tcomb-form-native)"	  
+    ]
   }
 }
