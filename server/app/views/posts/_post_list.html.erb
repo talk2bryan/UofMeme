@@ -14,6 +14,8 @@
 
 					<div class="voting" style="text-align:center;" id="voting-div">
 						<%= render partial: 'posts/likes', locals: {post: post}  %>
+						<%= render partial: 'posts/dislikes', locals: {post: post}  %>
+						<%= render partial: 'posts/post_score', locals: {post: post}  %>
 					</div>
 
 				</div>
