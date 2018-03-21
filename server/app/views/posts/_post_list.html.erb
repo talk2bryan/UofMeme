@@ -1,12 +1,12 @@
-<% if @posts.blank? %>
+<% if posts.blank? %>
 	<p> There are no posts available at this time</p>
 <% else %>
-	<% @posts.each do |post| %>
+	<% posts.each do |post| %>
 		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 col-xl-1">
 			<div class="thumbnail">
 				<div class="card mb-4 box-shadow">
 
-					<%= link_to (image_tag (post.image(:medium)), :class => "posts card-img-top img-responsive img-fluid"), {:action => 'show', :id => post.id} %>
+					<%= link_to (image_tag (post.image(:medium)),:class => "posts card-img-top img-responsive img-fluid"), post_show_path(post), method: :post, data:{ :id => post.id} %>
 		
 					<p class="p_desc">
 						<h5 class="p_desc_h"><%= post.description %></h5>
@@ -14,6 +14,8 @@
 
 					<div class="voting" style="text-align:center;" id="voting-div">
 						<%= render partial: 'posts/likes', locals: {post: post}  %>
+						<%= render partial: 'posts/dislikes', locals: {post: post}  %>
+						<%= render partial: 'posts/post_score', locals: {post: post}  %>
 					</div>
 
 				</div>
