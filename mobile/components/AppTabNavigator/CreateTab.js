@@ -119,7 +119,7 @@ class CreateTab extends Component {
                 onPress={() => {
                   this.setModalVisible(!this.state.modalVisible);
                 }}>
-                <Text>close</Text>
+                <Icon name="ios-close-circle" style={{textAlign: 'right'}}/>
               </TouchableHighlight>     
             
           </View>

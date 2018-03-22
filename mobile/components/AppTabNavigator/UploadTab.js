@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, StyleSheet, Button, Image, Modal, TouchableHighlight} from "react-native";
 
 import { Icon } from "native-base";
 import { ImagePicker } from "expo";
+
 
 class UploadTab extends React.Component {
   static navigationOptions = {
@@ -12,32 +13,43 @@ class UploadTab extends React.Component {
   };
 
   state = {
-    image: null
+    image: null,
+    modalVisible: false,
   };
+
+  setModalVisible(visible) {
+    this.setState({modalVisible: visible});
+  }
 
   render() {
     let { image } = this.state;
 
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <View style={styles.container}>
         <Button
           title="Pick an image from camera roll"
           onPress={this._pickImage}
         />
-        {image && (
-          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
-        )}
+        <Modal animationType="slide" visible={this.state.modalVisible}>
+          <View style={{marginTop: 22  }}> 
+
+          
+              <TouchableHighlight 
+                onPress={() => {
+                  this.setModalVisible(!this.state.modalVisible);
+                }}>
+                <Icon name="ios-close-circle" style={{textAlign: 'right'}} />
+              </TouchableHighlight> 
+              {image && (
+                  <Image source={{ uri: image }} style={styles.images} />
+             )}            
+          </View>
+        </Modal>    
+      
       </View>
     );
   }
-
-  // return (
-  //   <View style={styles.container}>
-  //     <Text>UploadTab</Text>
-  //   </View>
-  // );
-  // }
-
+     
   _pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       allowsEditing: true,
@@ -48,6 +60,7 @@ class UploadTab extends React.Component {
 
     if (!result.cancelled) {
       this.setState({ image: result.uri });
+      this.setState({modalVisible: true});
     }
   };
 }
@@ -60,5 +73,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
+  },
+  images: {    
+    width: 200, 
+    height: 200,
+    justifyContent: "center",
+    alignItems: "center"    
   }
 });
