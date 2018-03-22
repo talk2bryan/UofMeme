@@ -33,16 +33,19 @@ class UploadTab extends React.Component {
         <Modal animationType="slide" visible={this.state.modalVisible}>
           <View style={{marginTop: 22  }}> 
 
-          
+             <View>
               <TouchableHighlight 
                 onPress={() => {
                   this.setModalVisible(!this.state.modalVisible);
                 }}>
                 <Icon name="ios-close-circle" style={{textAlign: 'right'}} />
               </TouchableHighlight> 
+             </View>
+             <View style={{alignItems: "center"}}>
               {image && (
-                  <Image source={{ uri: image }} style={styles.images} />
-             )}            
+                  <Image source={{ uri: image }} style={styles.image} />
+             )} 
+            </View>            
           </View>
         </Modal>    
       
@@ -74,10 +77,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  images: {    
+  image: {    
     width: 200, 
-    height: 200,
-    justifyContent: "center",
-    alignItems: "center"    
+    height: 200      
   }
 });
