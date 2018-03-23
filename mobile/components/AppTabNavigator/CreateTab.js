@@ -86,7 +86,7 @@ class CreateTab extends Component {
             
           }
 
-          
+          //console.log({source});
           images.push(
             <TouchableOpacity onPress= {() => {this.setModalVisible(!this.state.modalVisible);}}>
               <Image style={styles.child} 
