@@ -8,7 +8,8 @@
     "react": "16.2.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
     "react-native-vector-icons": "^4.0.1",
-    "react-navigation": "^1.5.7"
+    "react-navigation": "^1.5.7",
+    "tcomb-form-native": "^0.6.11"
   },
   "devDependencies": {
     "babel-jest": "^23.0.0-alpha.0",
