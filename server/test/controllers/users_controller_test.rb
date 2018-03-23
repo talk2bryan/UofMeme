@@ -1,4 +1,4 @@
-require 'test_helper'
+require './test/test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
 	test "can create a new valid user" do

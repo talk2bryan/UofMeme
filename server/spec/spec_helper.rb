@@ -96,4 +96,8 @@ RSpec.configure do |config|
 =end
   #for testing paperclip
   config.include Paperclip::Shoulda::Matchers
+
+  Capybara.register_driver :selenium do |app|
+    Capybara::Selenium::Driver.new(app, :browser => :firefox)
+  end
 end
