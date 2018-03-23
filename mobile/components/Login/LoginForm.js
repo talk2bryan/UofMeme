@@ -1,21 +1,24 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar } from 'react-native';
-import { StackNavigator } from "react-navigation";
+import React, { Component } from "react";
+import {
+  StyleSheet,
+  View,
+  TextInput,
+  TouchableOpacity,
+  Text,
+  StatusBar
+} from "react-native";
+import { StackNavigator, SwitchNavigator } from "react-navigation";
 
-import HomeTab from '../AppTabNavigator/HomeTab';
+import HomeTab from "../AppTabNavigator/HomeTab";
+import MainScreen from "../MainScreen";
 
 class LoginForm extends React.Component {
-
   render() {
     return (
-
       <View style={styles.container}>
-        <StatusBar
-          barStyle="dark-content"
-        />
+        <StatusBar barStyle="dark-content" />
 
-
-        <TextInput 
+        <TextInput
           placeholder="username@myumanitoba.ca"
           placeholderTextColor="white"
           returnKeyType="next"
@@ -25,16 +28,19 @@ class LoginForm extends React.Component {
           autoCorrect={false}
           style={styles.input}
         />
-        <TextInput 
+        <TextInput
           placeholder="Password"
           placeholderTextColor="white"
           secureTextEntry
           returnKeyType="go"
           style={styles.input}
-          ref={(input) => this.passwordInput = input}
+          ref={input => (this.passwordInput = input)}
         />
 
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')} style={styles.buttonContainer}>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate("MainScreen")}
+          style={styles.buttonContainer}
+        >
           <Text style={styles.buttonText}>LOGIN</Text>
         </TouchableOpacity>
       </View>
@@ -42,28 +48,37 @@ class LoginForm extends React.Component {
   }
 }
 
-const AppStackNavigator = StackNavigator({
-  Log: {
+// const AppStackNavigator = StackNavigator(
+//   {
+//     MainScreen: {
+//       screen: MainScreen
+//     }
+//   },
+//   {
+//     // initialRouteName: "Log"
+//   }
+// );
+
+export default SwitchNavigator({
+  LoginForm: {
     screen: LoginForm
   },
-    Home: {
-    screen: HomeTab
-  }
-},
-{
-  initialRouteName: 'Log',
+  MainScreen: {
+    screen: MainScreen
+  },
+  initialRouteName: "LoginForm"
 });
 
- export default class App extends React.Component {
-   render() {
-     return <AppStackNavigator />;
-   }
-}
+// export default class App extends React.Component {
+//   render() {
+//     return <AppStackNavigator />;
+//   }
+// }
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
-    padding: 20,
+    padding: 20
   },
   input: {
     height: 40,
@@ -73,12 +88,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10
   },
   buttonContainer: {
-     backgroundColor: "darkgrey",
-     paddingVertical: 15 
+    backgroundColor: "darkgrey",
+    paddingVertical: 15
   },
   buttonText: {
-    textAlign: 'center',
+    textAlign: "center",
     color: "white",
-    fontWeight: '700'
+    fontWeight: "700"
   }
 });
