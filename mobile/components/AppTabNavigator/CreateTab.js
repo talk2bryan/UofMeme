@@ -23,6 +23,7 @@ class CreateTab1 extends Component {
   setModalVisible(visible) {
     this.setState({modalVisible: visible});
   }
+
  
  GetItem (image_url) {  
   this.setModalVisible(!this.state.modalVisible);
@@ -91,7 +92,7 @@ class CreateTab1 extends Component {
         </View>
          }
        />
-       <Modal animationType="slide" visible={this.state.modalVisible}>
+       <Modal animationType="slide" visible={this.state.modalVisible}> 
           <View style={{marginTop: 22}}> 
 
             <TouchableHighlight
@@ -99,6 +100,7 @@ class CreateTab1 extends Component {
                   this.setModalVisible(!this.state.modalVisible);
                 }}>
                 <Icon name="ios-close-circle" style={{textAlign: 'right'}}/>
+
             </TouchableHighlight>     
              <Image source = {{ uri: this.state.url  }} style={styles.imageViewContainer} />
           </View>
