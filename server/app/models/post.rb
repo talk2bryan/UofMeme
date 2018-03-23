@@ -21,6 +21,7 @@ class Post < ApplicationRecord
 	validates_presence_of :description
 	validates :user, presence: true
 	validates :user_id, presence: true
+
 end
 
 
