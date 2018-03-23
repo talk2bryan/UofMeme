@@ -1,6 +1,6 @@
 class Api::V1::PostSerializer < Api::V1::BaseSerializer
 
-	attributes :id, :poster, :like, :description, :created_at, :updated_at, :dislike, :user_id, :image, :file_name,  :uploaded_image_for_io_adapters
+	attributes :id, :poster, :like, :description, :created_at, :updated_at, :dislike, :user_id, :image
 #need to modify this class like bryans
 
  	has_one :user

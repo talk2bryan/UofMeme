@@ -76,7 +76,8 @@ describe Api::V1::UsersController, type: :api do
 	end
 
 	describe "/api/v1/users" do
-
+		#Test if it retrieves posts if any
+		#should return blank if none
 	end
 
 
