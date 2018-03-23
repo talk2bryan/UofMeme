@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar } from 'react-native';
 import { StackNavigator } from "react-navigation";
 
-import HomeTab from '../AppTabNavigator/HomeTab';
+import LoginForm from '../Login/LoginForm';
 
-class LoginForm extends React.Component {
+class SignUpForm extends React.Component {
 
   render() {
     return (
@@ -14,9 +14,17 @@ class LoginForm extends React.Component {
           barStyle="dark-content"
         />
 
+        <TextInput 
+          placeholder="Username"
+          placeholderTextColor="white"
+          returnKeyType="next"
+          onSubmitEditing={() => this.emailInput.focus()}
+          autoCorrect={false}
+          style={styles.input}
+        />
 
         <TextInput 
-          placeholder="username@myumanitoba.ca"
+          placeholder="example@myumanitoba.ca"
           placeholderTextColor="white"
           returnKeyType="next"
           onSubmitEditing={() => this.passwordInput.focus()}
@@ -24,18 +32,31 @@ class LoginForm extends React.Component {
           autoCapitalize="none"
           autoCorrect={false}
           style={styles.input}
+          ref={(input) => this.emailInput = input}
+
         />
         <TextInput 
           placeholder="Password"
           placeholderTextColor="white"
           secureTextEntry
-          returnKeyType="go"
+          returnKeyType="next"
           style={styles.input}
           ref={(input) => this.passwordInput = input}
+          onSubmitEditing={() => this.passwordConfirmInput.focus()}
+
         />
 
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')} style={styles.buttonContainer}>
-          <Text style={styles.buttonText}>LOGIN</Text>
+        <TextInput 
+          placeholder="Confirm Password"
+          placeholderTextColor="white"
+          secureTextEntry
+          returnKeyType="go"
+          style={styles.input}
+          ref={(input) => this.passwordConfirmInput = input}
+        />        
+
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Log')} style={styles.buttonContainer}>
+          <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
       </View>
     );
@@ -46,12 +67,12 @@ const AppStackNavigator = StackNavigator({
   Log: {
     screen: LoginForm
   },
-    Home: {
-    screen: HomeTab
+  SignUp: {
+    screen: SignUpForm
   }
 },
 {
-  initialRouteName: 'Log',
+  initialRouteName: 'SignUp',
 });
 
  export default class App extends React.Component {

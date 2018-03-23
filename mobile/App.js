@@ -4,6 +4,7 @@ import { StackNavigator } from "react-navigation";
 //import MainScreen from "./components/MainScreen";
 import Login from "./components/Login/Login";
 
+
 export default class App extends React.Component {
   render() {
     return <AppStackNavigator />;
@@ -11,7 +12,7 @@ export default class App extends React.Component {
 }
 
 const AppStackNavigator = StackNavigator({
-  Main: {
+  Login: {
     screen: Login
   }
 });

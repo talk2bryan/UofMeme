@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Image, Text, KeyboardAvoidingView } from 'react-native';
-import LoginForm from './LoginForm';
+import SignUpForm from './SignUpForm';
 
-class Login extends Component {
+class SignUp extends Component {
   render() {
     return (
       <KeyboardAvoidingView style={styles.container} behavior={'padding'}>
@@ -13,17 +13,17 @@ class Login extends Component {
       		/>
 
       		<Text style={styles.title}>Welcome to UofMeme</Text>
-      		<Text style={styles.subtitle}>Local, fresh, Manitoban memes</Text>
+      		<Text style={styles.subtitle}>Become a meme-ber today!</Text>
       	</View>
       	<View style={styles.formContainer}>
-      		<LoginForm/>
+      		<SignUpForm/>
       	</View>
       </KeyboardAvoidingView>
     );
   }
 }
 
-export default Login;
+export default SignUp;
 
 const styles = StyleSheet.create({
   container: {
