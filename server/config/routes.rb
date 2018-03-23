@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+
+  #api
+  namespace :api do
+    namespace :v1 do
+      resources :users, only: [:index, :create, :show ]
+      resources :posts, only: [:create, :show, :update]
+      resources :likes, only: [:create] do 
+        post :create
+      end
+      resources :dislikes, only: [:create] do 
+        post :create
+      end
+    end
+  end
   
   resources :users
  
