@@ -25,9 +25,7 @@ class Login extends Component {
           <Text style={styles.subtitle}>Local, fresh, Manitoban memes</Text>
         </View>
         <Container style={styles.formContainer}>
-          <Content>
             <LoginForm />
-          </Content>
         </Container>
       </KeyboardAvoidingView>
     );

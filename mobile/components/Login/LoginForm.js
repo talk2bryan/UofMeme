@@ -5,12 +5,16 @@ import {
   TextInput,
   TouchableOpacity,
   Text,
-  StatusBar
+  StatusBar,
+  KeyboardAvoidingView,
+  Image
 } from "react-native";
 import { StackNavigator, SwitchNavigator } from "react-navigation";
+import { Container, Content } from "native-base";
 
 import HomeTab from "../AppTabNavigator/HomeTab";
 import MainScreen from "../MainScreen";
+import SignUpForm from "../SignUp/SignUpForm";
 
 class LoginForm extends React.Component {
   render() {
@@ -18,46 +22,58 @@ class LoginForm extends React.Component {
       <View style={styles.container}>
         <StatusBar barStyle="dark-content" />
 
-        <TextInput
-          placeholder="username@myumanitoba.ca"
-          placeholderTextColor="white"
-          returnKeyType="next"
-          onSubmitEditing={() => this.passwordInput.focus()}
-          keyboardType="email-address"
-          autoCapitalize="none"
-          autoCorrect={false}
-          style={styles.input}
-        />
-        <TextInput
-          placeholder="Password"
-          placeholderTextColor="white"
-          secureTextEntry
-          returnKeyType="go"
-          style={styles.input}
-          ref={input => (this.passwordInput = input)}
-        />
+        <KeyboardAvoidingView style={styles.container} behavior={"padding"}>
+          <View style={styles.logoContainer}>
+            <Image
+              style={styles.logo}
+              source={require("../../assets/splash.png")}
+            />
 
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate("MainScreen")}
-          style={styles.buttonContainer}
-        >
-          <Text style={styles.buttonText}>LOGIN</Text>
-        </TouchableOpacity>
+            <Text style={styles.title}>Welcome to UofMeme</Text>
+            <Text style={styles.subtitle}>Local, fresh, Manitoban memes</Text>
+          </View>
+          
+          <View style={styles.formContainer}>
+      
+            <TextInput
+              placeholder="username@myumanitoba.ca"
+              placeholderTextColor="white"
+              returnKeyType="next"
+              onSubmitEditing={() => this.passwordInput.focus()}
+              keyboardType="email-address"
+              autoCapitalize="none"
+              autoCorrect={false}
+               style={styles.input}
+            />
+              
+            <TextInput
+              placeholder="Password"
+              placeholderTextColor="white"
+              secureTextEntry
+              returnKeyType="go"
+              style={styles.input}
+              ref={input => (this.passwordInput = input)}
+            />
+
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("MainScreen")}
+              style={styles.buttonContainer}
+            >
+              <Text style={styles.buttonText}>LOGIN</Text>
+            </TouchableOpacity>
+
+             <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("SignUpForm")}
+              style={styles.buttonContainer}
+            >
+              <Text style={styles.buttonText}>Not a meme-ber? Sign up now!</Text>
+            </TouchableOpacity>           
+          </View>
+        </KeyboardAvoidingView>
       </View>
     );
   }
 }
-
-// const AppStackNavigator = StackNavigator(
-//   {
-//     MainScreen: {
-//       screen: MainScreen
-//     }
-//   },
-//   {
-//     // initialRouteName: "Log"
-//   }
-// );
 
 export default SwitchNavigator({
   LoginForm: {
@@ -66,18 +82,16 @@ export default SwitchNavigator({
   MainScreen: {
     screen: MainScreen
   },
+  SignUpForm: {
+    screen: SignUpForm
+  },
   initialRouteName: "LoginForm"
 });
-
-// export default class App extends React.Component {
-//   render() {
-//     return <AppStackNavigator />;
-//   }
-// }
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
+    marginBottom: 40,
     padding: 20
   },
   input: {
@@ -89,11 +103,41 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     backgroundColor: "darkgrey",
-    paddingVertical: 15
+    paddingVertical: 15,
+    marginBottom: 20
+
   },
   buttonText: {
     textAlign: "center",
     color: "white",
     fontWeight: "700"
+  },
+  logoContainer: {
+    alignItems: "center",
+    flexGrow: 1,
+    justifyContent: "center"
+  },
+  logo: {
+    width: 100,
+    height: 100
+  },
+  title: {
+    color: "black",
+    marginTop: 10,
+    fontSize: 20,
+    fontWeight: "bold",
+    width: 200,
+    textAlign: "center"
+  },
+  subtitle: {
+    color: "black",
+    marginTop: 5,
+    fontSize: 18,
+    width: 250,
+    textAlign: "center",
+    opacity: 0.8
+  },
+    formContainer: {
+    flex: 1
   }
 });
