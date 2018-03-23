@@ -1,8 +1,24 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, StyleSheet, Button, Image, Modal, TouchableHighlight} from "react-native";
 
 import { Icon } from "native-base";
 import { ImagePicker } from "expo";
+import t from 'tcomb-form-native';
+
+const Form = t.form.Form;
+
+const upload = t.struct({
+    description: t.String
+  });
+
+var options = {
+  auto: 'placeholders',
+  fields:{
+    description: {
+      error: 'Must have a meme description'
+    }
+  }  
+};
 
 class UploadTab extends React.Component {
   static navigationOptions = {
@@ -12,47 +28,71 @@ class UploadTab extends React.Component {
   };
 
   state = {
-    image: null
+    image: null,
+    modalVisible: false,
   };
+
+  setModalVisible(visible) {
+    this.setState({modalVisible: visible});
+  }
+
+  handleSubmit = () => {
+    const value = this._form.getValue();    
+    //console.log(this.props.navigator.navigate('HomeTab'));
+    //console.log('value', value);
+    //console.log(this.state.image);
+  }
 
   render() {
     let { image } = this.state;
-
+   
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <View style={styles.container}>
         <Button
           title="Pick an image from camera roll"
           onPress={this._pickImage}
         />
-        {image && (
-          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
-        )}
-      </View>
+        <Modal animationType="slide" visible={this.state.modalVisible}>
+          <View style={{marginTop: 22  }}>
+            <View>
+              <TouchableHighlight 
+                onPress={() => {
+                this.setModalVisible(!this.state.modalVisible);
+              }}>
+                <Icon name="ios-close-circle" style={{textAlign: 'right'}} />
+              </TouchableHighlight> 
+            </View>
+            <View style={{alignItems: "center"}}>
+              {image && (
+                <Image source={{ uri: image }} style={styles.image} />
+              )}
+            </View>   
+              <View style={{marginTop: 22 }}></View>
+            <View>  
+              <Form ref ={c => this._form = c} type={upload} options={options}/>
+              <Button title='Post my meme!' onPress ={this.handleSubmit}/>
+            </View>            
+          </View>
+        </Modal>        
+      </View>      
     );
   }
-
-  // return (
-  //   <View style={styles.container}>
-  //     <Text>UploadTab</Text>
-  //   </View>
-  // );
-  // }
-
+     
   _pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       allowsEditing: true,
       aspect: [4, 3]
     });
 
-    console.log(result);
-
+    
     if (!result.cancelled) {
       this.setState({ image: result.uri });
+      this.setState({modalVisible: true});
     }
   };
 }
 
-//make this component available to the app
+
 export default UploadTab;
 
 const styles = StyleSheet.create({
@@ -60,5 +100,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
+  },
+  image: {    
+    width: 200, 
+    height: 200      
   }
 });

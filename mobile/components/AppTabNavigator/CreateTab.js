@@ -1,152 +1,133 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity, StatusBar, ScrollView, Dimensions, Modal, Alert, TouchableHighlight } from "react-native";
-
+import { AppRegistry, StyleSheet, ActivityIndicator, ListView, Text, View, Alert,Image, Platform, TouchableHighlight, Modal} from 'react-native';
 import { Icon } from "native-base";
-
-
-StatusBar.setBarStyle('light-content');
-console.disableYellowBox = true;
-
-const placeholder = require('../../assets/icon.png');
-
-const windowDims = Dimensions.get('window'),
-      itemSize   = (windowDims.width / 2) - 20; 
-
-class CreateTab extends Component {
  
+class CreateTab1 extends Component {
+ 
+ constructor(props) {
+   super(props);
+   this.state = {
+     modalVisible: false,
+     isLoading: true,
+     dataSource: [],
+     url: ''
+   }
+ }
+
   static navigationOptions = {
     tabBarIcon: ({ tintColor }) => (
       <Icon name="ios-add-circle" style={{ color: tintColor }} />
     )
   };
 
-  state = {
-    modalVisible: false,
-    data : [] // empty data array
-  };
-
   setModalVisible(visible) {
     this.setState({modalVisible: visible});
   }
 
-  onAfterLoad = (data) => {
-      this.setState({
-          data : data.data
-      });
-  };
-
-
-  componentWillMount() {
-        // The URL below has an 'r' parameter that is used as a 'cache buster' and is only intended for demonstration purposes
-      let url = 'http://api.giphy.com/v1/gifs/search?q=javascript&api_key=dc6zaTOxFJmzC&limit=30&r=' + Math.random();
-      console.log('Loading data')
-
-        // Initiate query, parse, then update view via callback
-      fetch(url)
-          .then(function(r) {
-              return r.json();
-          })
-          .then(this.onAfterLoad) // Success callback registration
-          .catch(function(e) {    // Failure callback registartion
-              alert('Failure fetching data');
-              console.log(e)
-          });
-  }  
-
-  buildImages(data){
-    let images = [],
-        length = data.length,
-        i      = 0,
-        randVal = '?r=' + Math.random(),  // Cache busting for testing only can be removed
-        source,
-        item;
-
-    if (data.length == 0) {
-            // This console.log() call can be removed.
-          console.log('Rendering placeholders');
-            // Fill the array with 10 undefines
-          data.length = length = 10;
-    }
-    else {
-            // This else branch is here just for debugging and can be removed.
-         console.log(`Got data. Rendering ${length} images.`);
-    } 
-      
-
-    for (; i < length; i++) {
-          item = data[i];
-
-            // For when we actually have data
-          if (item) {
-            source = {
-                uri    : item.images.original_still.url + randVal, 
-                width  : itemSize, 
-                height : itemSize
-            }
-            
-          }
-
-          
-          images.push(
-            <TouchableOpacity onPress= {() => {this.setModalVisible(!this.state.modalVisible);}}>
-              <Image style={styles.child} 
-                      source={source} 
-                      key={'img' + i}/>
-            </TouchableOpacity>          
-            
-          )
-
-    }
-    return images;
-  }  
-
-  render() {
-    let state  = this.state,
-        data   = state.data,
-        images = this.buildImages(data);
-
-       
-    return (
-      
-      <View style={{flex:1}}>                
-        <ScrollView contentContainerStyle={styles.container}>
-            {images}                             
-        </ScrollView>  
-        <Modal animationType="slide" visible={this.state.modalVisible}>
+ 
+ GetItem (image_url) {  
+  this.setModalVisible(!this.state.modalVisible);
+  this.setState({url: image_url}); 
+  //console.log(this.state.url);
+ }
+ 
+ 
+ componentDidMount() {
+ 
+   return fetch('http://api.giphy.com/v1/gifs/search?q=javascript&api_key=dc6zaTOxFJmzC&limit=9')
+     .then((response) => response.json())
+     .then((responseJson) => {
+       let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});       
+       this.setState({
+         isLoading: false,
+         dataSource: ds.cloneWithRows(responseJson.data),
+       }, function() {
+         
+       });
+     })
+     .catch((error) => {
+       console.error(error);
+     });
+ }
+ 
+ ListViewItemSeparator = () => {
+   return (
+     <View
+       style={{
+         height: .5,
+         width: "100%",
+         backgroundColor: "#000",
+       }}
+     />
+   );
+ }
+ 
+ 
+ render() {
+   if (this.state.isLoading) {
+     return (
+       <View style={{flex: 1, paddingTop: 10}}>
+         <ActivityIndicator />
+       </View>
+     );
+   }
+ 
+   return (
+ 
+     <View style={styles.MainContainer}>
+ 
+       <ListView
+ 
+         dataSource={this.state.dataSource}
+ 
+         renderSeparator= {this.ListViewItemSeparator}
+ 
+         renderRow={(rowData) =>
+ 
+        <View style={{flex:1, flexDirection: 'row'}}>
+          <TouchableHighlight onPress={this.GetItem.bind(this, rowData.images.original_still.url)} style={styles.imageViewContainer}>
+             <Image source = {{ uri: rowData.images.original_still.url  }} style={styles.imageViewContainer} />
+          </TouchableHighlight>       
+ 
+        </View>
+         }
+       />
+       <Modal animationType="slide" visible={this.state.modalVisible}> 
           <View style={{marginTop: 22}}> 
 
             <TouchableHighlight
                 onPress={() => {
                   this.setModalVisible(!this.state.modalVisible);
                 }}>
-                <Text>close</Text>
-              </TouchableHighlight>     
-            
+                <Icon name="ios-close-circle" style={{textAlign: 'right'}}/>
+
+            </TouchableHighlight>     
+             <Image source = {{ uri: this.state.url  }} style={styles.imageViewContainer} />
           </View>
-        </Modal>                                   
-      </View>        
-    );  
-  }
+        </Modal> 
+ 
+     </View>
+   );
+ }
 }
 
-
-export default CreateTab;
-
+export default CreateTab1;
+ 
 const styles = StyleSheet.create({
-  container : {
-        paddingTop      :  20,
-        justifyContent  : 'center',
-        alignItems      : 'center',
-        backgroundColor : 'white',
-        flexDirection   : 'row',
-        flexWrap        : 'wrap'
-  },
+ 
+MainContainer :{
 
-  child : {
-        width  : itemSize,
-        height : itemSize,
-        margin : 7
-  }  
+justifyContent: 'center',
+flex:1,
+margin: 5,
+paddingTop: (Platform.OS === 'ios') ? 5 : 0 
+},
+ 
+imageViewContainer: {
+width: '75%',
+height: 175 ,
+margin: 5,
+borderRadius : 10 
+} 
 });
-
-
+ 
