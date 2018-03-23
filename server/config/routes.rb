@@ -11,12 +11,17 @@ Rails.application.routes.draw do
       resources :dislikes, only: [:create] do 
         post :create
       end
+
+      get    '/login',   to: 'sessions#new'
+      post   '/login',   to: 'sessions#create'
+      delete '/logout',  to: 'sessions#destroy'
     end
   end
   
   resources :users
  
   resources :posts do
+    resources :comments
     post :show
   end
 

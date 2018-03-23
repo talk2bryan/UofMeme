@@ -1,8 +1,10 @@
 class Post < ApplicationRecord
-	has_many :comments
-	has_many :likes
-	has_many :dislikes
 	belongs_to :user
+	has_many :comments, dependent: :destroy
+	has_many :likes, dependent: :destroy
+	has_many :dislikes, dependent: :destroy
+	attr_accessor :uploaded_image_for_io_adapters, :file_name	
+
 	
 	has_attached_file :image, styles: 
 	{   
@@ -15,13 +17,12 @@ class Post < ApplicationRecord
 	:convert_options => {
     :medium => "-quality 100 -strip"}, 
     default_url: "/images/:style/missing.png"
-  	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   	validates_attachment :image, presence: true
-  	validates_presence_of :poster
-	validates_presence_of :description
+  	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+	validates_attachment_file_name :image, matches: [/png\Z/, /gif\Z/, /jpe?g\Z/]
+  	validates_presence_of :poster, :description, :file_name
 	validates :user, presence: true
 	validates :user_id, presence: true
-
 end
 
 

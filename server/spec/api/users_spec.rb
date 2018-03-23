@@ -5,9 +5,6 @@ describe Api::V1::UsersController, type: :api do
 
 	#user2 = User.new(username: "user", email: "user@myumanitoba.ca", password: "12345678", password_confirmation: "12345678")
 
-
-
-
 	describe "POST api/v1/users#create" do
 
 		context "when parameters are valid" do
