@@ -1,39 +1,45 @@
 require 'test_helper'
 
 class DislikeTest < ActiveSupport::TestCase
-	test "Testing the field id" do
-		dislike = Dislike.new(id: "")
-		assert_not dislike.save, "id cannot be null"
-		dislike = Dislike.new(id: "123456")
-		assert_not dislike.save, "id cannot be string"
+	def setup
+		@user = users(:user1)
+		@post = posts(:valid_post)
 	end
 
-	test "Testing the field created_at" do
-		dislike = Dislike.new(created_at: "")
-		assert_not dislike.save, "created_at cannot be null"
-		dislike = Dislike.new(created_at: "today")
-		assert_not dislike.save, "created_at cannot be string"
+	test "Testing valid dislike input" do
+		# since there are existing user in user_id and post in post_id
+		# so this test should pass
+		dislike = Dislike.new(user_id: @user.id, post_id: @post.id)
+		assert dislike.save
 	end
 
-	test "Testing the field updated_at" do
-		dislike = Dislike.new(updated_at: "")
-		assert_not dislike.save, "updated_at cannot be null"
-		dislike = Dislike.new(updated_at: "today")
-		assert_not dislike.save, "updated_at cannot be string"
+	test "Testing invalid user_id input" do
+		# missing out user_id input
+		dislike = Dislike.new(post_id: @post.id)
+		assert_not dislike.save
+		# using user_id that does not exist
+		dislike = Dislike.new(user_id: 123456, post_id: @post.id)
+		assert_not dislike.save
+		# putting empty string for user_id
+		dislike = Dislike.new(user_id: "", post_id: @post.id)
+		assert_not dislike.save
 	end
 
-	test "Testing the field user_id" do
-		dislike = Dislike.new(user_id: "")
-		assert_not dislike.save, "user_id cannot be null"
-		dislike = Dislike.new(user_id: "mememememememe")
-		assert_not dislike.save, "user_id cannot be string"
+	test "Testing invalid post_id input" do
+		# missing out post_id input
+		dislike = Dislike.new(user_id: @user.id)
+		assert_not dislike.save
+		# using post_id that does not exist
+		dislike = Dislike.new(user_id: @user.id, post_id: 123456)
+		assert_not dislike.save
+		# putting empty string for post_id
+		dislike = Dislike.new(user_id: @user.id, post_id: "")
+		assert_not dislike.save
 	end
 
-	test "wrong type for post_id" do
-		dislike = Dislike.new(post_id: "")
-		assert_not dislike.save, "post_id cannot be null"
-		dislike = Dislike.new(post_id: "mememememememe")
-		assert_not dislike.save, "post_id cannot be a string"
+	test "Testing null input" do
+		dislike = Dislike.new
+		assert_not dislike.save
 	end
 
 	test "should report error" do
