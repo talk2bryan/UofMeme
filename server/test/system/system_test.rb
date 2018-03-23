@@ -35,4 +35,6 @@ class SystemTest < ApplicationSystemTestCase
 		# file modal from appearing and adding the file behind the scenes. Because of that you really can't write a 
 		# test that detects the presence of the choose file window.	
 	end
+
+	
 end
