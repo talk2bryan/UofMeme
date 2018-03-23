@@ -49,8 +49,9 @@ server/.tmp
 /InstalledFiles
 /pkg/
 
-server/spec/reports/
 server/spec/examples.txt
+server/spec/reports/
+server/spec/test_files
 server/spec/tmp
 server/test/tmp/
 server/test/version_tmp/
