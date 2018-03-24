@@ -3,7 +3,9 @@ require 'test_helper'
 class DislikeTest < ActiveSupport::TestCase
 	def setup
 		@user = users(:user1)
-		@post = posts(:valid_post)
+		@post = Post.new(poster: @user.username, description: 'I love meme', user_id: @user.id)
+		@post.image = File.new("test/fixtures/files/test.png")
+		@post.save
 	end
 
 	test "Testing valid dislike input" do
