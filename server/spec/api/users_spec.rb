@@ -72,9 +72,20 @@ describe Api::V1::UsersController, type: :api do
 		end
 	end
 
-	describe "/api/v1/users" do
-		#Test if it retrieves posts if any
-		#should return blank if none
+	describe "GET api/v1/users#index" do
+
+		context "It returns all the posts" do
+			let!(:user) { FactoryBot.create(:user) }
+			let(:user_id) { user.id }
+			let!(:post){FactoryBot.create(:post, user_id: user_id)}
+			let(:post_id) { post.id }
+
+			before do
+				get	"/api/v1/users"
+			end
+
+			it_returns_status(200)
+		end
 	end
 
 

@@ -11,7 +11,7 @@ describe Api::V1::PostsController, type: :api do
 		context "return the post if it exists" do
 
 			before do
-				get "/api/v1/posts/#{post_id}"
+				get "/api/v1/posts/#{post_id}", format: :json
 			end
 
 			it_returns_status(200)
@@ -25,6 +25,16 @@ describe Api::V1::PostsController, type: :api do
 			end
 
 			it_returns_status(404)
+		end
+	end
+
+	describe "POST api/v1/posts#create  /api/v1/posts" do
+
+		let!(:user) { FactoryBot.create(:user) }
+		let(:user_id) { user.id }
+
+		context "should return successful if post is created" do
+
 		end
 	end
 	
