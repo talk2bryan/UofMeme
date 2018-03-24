@@ -13,7 +13,7 @@ class Post < ApplicationRecord
 		medium: "350x400!", 
 		square: "200x200#",
 		large:  "500x550!"
-	},  
+	},
 	:convert_options => {
     :medium => "-quality 100 -strip"}, 
     default_url: "/images/:style/missing.png"
