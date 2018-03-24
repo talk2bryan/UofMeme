@@ -7,9 +7,9 @@ end
 describe Api::V1::PostsController, type: :api do 
 
 	describe "GET /api/v1/posts/:id" do 
-		let!(:user) { FactoryBot.create(:user) }
+		let(:user) { create(:user) }
 		let(:user_id) { user.id }
-		let!(:post){FactoryBot.create(:post, user_id: user_id)}
+		let(:post){create(:post, user_id: user_id)}
 		let(:post_id) { post.id }
 
 		context "return the post if it exists" do
@@ -33,7 +33,7 @@ describe Api::V1::PostsController, type: :api do
 
 	describe "POST api/v1/posts#create  /api/v1/posts" do
 
-		let!(:user) { FactoryBot.create(:user) }
+		let(:user) {create(:user) }
 		let(:user_id) { user.id }
 
 		context "should return successful if post is created" do

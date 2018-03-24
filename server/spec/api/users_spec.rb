@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 describe Api::V1::UsersController, type: :api do
 
 	describe "POST api/v1/users#create" do
@@ -8,7 +7,7 @@ describe Api::V1::UsersController, type: :api do
 		context "when parameters are valid" do
 			before do
 				#create_ user
-				@user = FactoryBot.attributes_for(:user)
+				@user = attributes_for(:user, username: "John" , email: "John@myumanitoba.ca", password: "12345678",password_confirmation: "12345678")
 				post "http://api.domain.com/v1/users", user: @user.as_json, format: :json
 			end
 
@@ -18,7 +17,7 @@ describe Api::V1::UsersController, type: :api do
 		context "when parameters are invalid: password is different from password_confirmation" do
 			before do
 				#create_ user
-				@user = FactoryBot.attributes_for(:user, username: "John" , email: "John@myumanitoba.ca", password: "1234678",password_confirmation: "12345678")
+				@user = attributes_for(:user, username: "John" , email: "John@myumanitoba.ca", password: "1234678",password_confirmation: "12345678")
 				post "http://api.domain.com/v1/users", user: @user.as_json, format: :json
 			end
 
@@ -28,7 +27,7 @@ describe Api::V1::UsersController, type: :api do
 		context "when parameters are invalid: email is not a muymanitoba domain" do
 			before do
 				#create_ user
-				@user = FactoryBot.attributes_for(:user, username: "John" , email: "John@mumanitoba.ca", password: "1234678",password_confirmation: "12345678")
+				@user = attributes_for(:user, username: "John" , email: "John@mumanitoba.ca", password: "12345678",password_confirmation: "12345678")
 				post "http://api.domain.com/v1/users", user: @user.as_json, format: :json
 			end
 
@@ -38,7 +37,7 @@ describe Api::V1::UsersController, type: :api do
 		context "when parameters are invalid: username less than 3 characters" do
 			before do
 				#create_ user
-				@user = FactoryBot.attributes_for(:user, username: "Jo" , email: "John@mumanitoba.ca", password: "1234678",password_confirmation: "12345678")
+				@user = attributes_for(:user, username: "Jo" , email: "John@mumanitoba.ca", password: "12345678",password_confirmation: "12345678")
 				post "http://api.domain.com/v1/users", user: @user.as_json, format: :json
 			end
 
@@ -48,7 +47,7 @@ describe Api::V1::UsersController, type: :api do
 	end
 
 	describe "GET api/v1/users#show" do
-		let!(:user) { FactoryBot.create(:user) }
+		let(:user) { create(:user) }
 		let(:user_id) { user.id }
 
 		context "gets an existing user" do
@@ -73,9 +72,9 @@ describe Api::V1::UsersController, type: :api do
 	describe "GET api/v1/users#index" do
 
 		context "It returns all the posts" do
-			let!(:user) { FactoryBot.create(:user) }
+			let(:user) { create(:user) }
 			let(:user_id) { user.id }
-			let!(:post){FactoryBot.create(:post, user_id: user_id)}
+			let(:post){create(:post, user_id: user_id)}
 			let(:post_id) { post.id }
 
 			before do

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api' }, path: '/'  do
     namespace :v1 do
       resources :users, only: [:index, :create, :show ]
-      resources :posts, only: [:create, :show, :update]
+      resources :posts, only: [:create, :show, :update] do
+        resources :comments
+      end
       resources :likes, only: [:create] do 
         post :create
       end

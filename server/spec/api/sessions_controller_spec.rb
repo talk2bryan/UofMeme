@@ -1,11 +1,8 @@
 require 'rails_helper'
 
-
 describe Api::V1::SessionsController, type: :api do
-
-
 	describe "POST /api/v1/login" do
-		let!(:user) { FactoryBot.create(:user) }
+		let(:user) { create(:user) }
 		let(:u_email) { user.email }
 
 		before do
