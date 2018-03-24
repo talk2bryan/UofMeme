@@ -16,6 +16,13 @@ describe Api::V1::PostsController, type: :api do
 
 			it_returns_status(200)
 
+#this is failing
+
+			it "returns the data" do
+				body = JSON.parse(last_response.body, symbolize_names: true)
+				expect(body.dig(:data, :attributes, :id)).to eql(post_id)
+			end
+
 
 		end
 
