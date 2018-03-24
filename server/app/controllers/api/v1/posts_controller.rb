@@ -1,8 +1,8 @@
 class Api::V1::PostsController < Api::V1::BaseController
 
 	def show
-		@posts = Post.find(params[:id])
-		render json: @posts
+		@post = Post.find(params[:id])
+		render json: @post
 	end
 
 	def create
