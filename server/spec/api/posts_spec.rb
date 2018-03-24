@@ -15,7 +15,7 @@ describe Api::V1::PostsController, type: :api do
 		context "return the post if it exists" do
 
 			before do
-				get "/api/v1/posts/#{post_id}", format: :json
+				get "http://api.domain.com/v1/posts/#{post_id}", format: :json
 			end
 
 			it_returns_status(200)
@@ -24,7 +24,7 @@ describe Api::V1::PostsController, type: :api do
 
 		context "Returns Not Found if it doesn't exist" do
 			before do
-				get "/api/v1/posts/33" 
+				get "http://api.domain.com/v1/posts/33" 
 			end
 
 			it_returns_status(404)
