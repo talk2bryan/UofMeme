@@ -99,7 +99,7 @@ class CreateTab1 extends Component {
         </View>
          }
        />
-       <Modal animationType="slide" visible={this.state.modalVisible}> 
+       <Modal animationType="slide" visible={this.state.modalVisible} onRequestClose={() => {alert('Modal has been closed.');}}> 
           <View style={{marginTop: 22}}> 
             <TouchableHighlight
                 onPress={() => {
