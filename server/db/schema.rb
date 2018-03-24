@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2018_03_14_021236) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "post_id"
   end
 
   create_table "dislikes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 2018_03_14_021236) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -93,4 +95,5 @@ ActiveRecord::Schema.define(version: 2018_03_14_021236) do
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
+
 end
