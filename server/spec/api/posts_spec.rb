@@ -1,5 +1,9 @@
 require 'rails_helper'
 
+RSpec.configure do |config|
+  config.render_views = true
+end
+
 describe Api::V1::PostsController, type: :api do 
 
 	describe "GET /api/v1/posts/:id" do 
@@ -15,7 +19,6 @@ describe Api::V1::PostsController, type: :api do
 			end
 
 			it_returns_status(200)
-
 
 		end
 

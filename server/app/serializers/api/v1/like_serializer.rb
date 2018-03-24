@@ -1,11 +1,9 @@
-class Api::V1::PostSerializer < Api::V1::BaseSerializer
+class Api::V1::LikeSerializer < Api::V1::BaseSerializer
 
-	attributes :poster, :description, :user_id, :file_name, :image, :uploaded_image_for_io_adapters
-	
+	attributes :user_id, :post_id
+
  	has_one :user
- 	has_many :likes
- 	has_many :dislikes
-  
+ 	has_one :post 
 
 	def created_at
 		object.created_at.in_time_zone.iso8601 if object.created_at
@@ -16,7 +14,11 @@ class Api::V1::PostSerializer < Api::V1::BaseSerializer
 	end
 
 	class Api::V1::UserSerializer < Api::V1::BaseSerializer
-		attributes :id, :username
+		attributes :id
+	end
+
+	class Api::V1::PostSerializer < Api::V1::BaseSerializer
+		attributes :id
 	end
 
 end
