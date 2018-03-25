@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   Text,
   StatusBar,
-  KeyboardAvoidingView,
+  KeyboardAvoidingView,  
   Image
 } from "react-native";
 import { StackNavigator, SwitchNavigator } from "react-navigation";
@@ -64,7 +64,7 @@ class LoginForm extends React.Component {
 
              <TouchableOpacity
               onPress={() => this.props.navigation.navigate("SignUpForm")}
-              style={styles.buttonContainer}
+              style={styles.signUpContainer}
             >
               <Text style={styles.buttonText}>Not a meme-ber? Sign up now!</Text>
             </TouchableOpacity>           
@@ -91,8 +91,9 @@ export default SwitchNavigator({
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
-    marginBottom: 40,
-    padding: 20
+    marginBottom: 10,
+    padding: 20,
+    flex : 1
   },
   input: {
     height: 40,
@@ -107,6 +108,11 @@ const styles = StyleSheet.create({
     marginBottom: 20
 
   },
+  signUpContainer: {
+    backgroundColor: "#337ab7",
+    paddingVertical: 15,
+    marginBottom: 20
+  },
   buttonText: {
     textAlign: "center",
     color: "white",
@@ -114,7 +120,7 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: "center",
-    flexGrow: 1,
+    
     justifyContent: "center"
   },
   logo: {
@@ -132,6 +138,7 @@ const styles = StyleSheet.create({
   subtitle: {
     color: "black",
     marginTop: 5,
+    marginBottom: 5,
     fontSize: 18,
     width: 250,
     textAlign: "center",

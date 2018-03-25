@@ -91,7 +91,9 @@ export default SwitchNavigator({
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
+    marginBottom: 10,
     padding: 20,
+    flex : 1
   },
   input: {
     height: 40,
@@ -102,20 +104,18 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
      backgroundColor: "darkgrey",
-     paddingVertical: 15 
+     paddingVertical: 15, 
+     marginBottom: 20
   },
   buttonText: {
     textAlign: 'center',
     color: "white",
     fontWeight: '700'
   },
-    container: {
-    marginBottom: 40,
-    backgroundColor: "white"
-  },
+ 
   logoContainer: {
     alignItems: 'center',
-    flexGrow: 1,
+    
     justifyContent: 'center'
   },
   logo: {
@@ -133,6 +133,7 @@ const styles = StyleSheet.create({
   subtitle: {
     color: "black",
     marginTop: 5,
+    marginBottom: 5,
     fontSize: 18,
     width: 250,
     textAlign: 'center',
