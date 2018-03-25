@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
     post :show
+    get  :show
   end
 
   resources :account_activations, only: [:edit]

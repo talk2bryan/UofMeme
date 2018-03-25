@@ -22,7 +22,7 @@
         <strong><%= link_to 'UofMeme', root_path, {:class => "navbar-brand d-flex align-items-center"} %></strong>
         <div class="nav navbar-right">
           <span class="glyphicon glyphicon-home"></span><%= link_to 'Home', root_path %>
-          <span class="glyphicon glyphicon-question-sign"></span><a href="#"> Help</a>
+          <span class="glyphicon glyphicon-question-sign"></span><%= link_to 'Help', root_path %>
 
           <% if logged_in? %>
             <div class="dropdown navbar-right">
