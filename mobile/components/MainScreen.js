@@ -14,7 +14,7 @@ class MainScreen extends Component {
   static navigationOptions =({navigation}) => {
     const{navigate} =  navigation;
     return{
-      title: "U of Meme",
+      title: "UofMeme",
       headerRight: 
       <TouchableOpacity onPress={() => navigate("LoginForm")}>
         <Icon style={{ paddingRight: 15 }} name="ios-log-out-outline" />
