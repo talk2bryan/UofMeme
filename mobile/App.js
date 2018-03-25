@@ -1,7 +1,8 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { StackNavigator } from "react-navigation";
-import MainScreen from "./components/MainScreen";
+
+import LoginForm from "./components/Login/LoginForm";
 
 export default class App extends React.Component {
   render() {
@@ -10,8 +11,8 @@ export default class App extends React.Component {
 }
 
 const AppStackNavigator = StackNavigator({
-  Main: {
-    screen: MainScreen
+  LoginForm: {
+    screen: LoginForm
   }
 });
 
