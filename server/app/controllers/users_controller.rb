@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
-	
+
     def new
     	@user = User.new
     end
 
     def index
       @posts = Post.all
+      save_my_previous_url
     end
 
     def show
