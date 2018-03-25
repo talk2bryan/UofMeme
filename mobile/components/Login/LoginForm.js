@@ -17,7 +17,7 @@ import MainScreen from "../MainScreen";
 import SignUpForm from "../SignUp/SignUpForm";
 
 class LoginForm extends React.Component {
-  render() {
+  render() {  
     return (
       <View style={styles.container}>
         <StatusBar barStyle="dark-content" />
@@ -79,10 +79,10 @@ export default SwitchNavigator({
   LoginForm: {
     screen: LoginForm
   },
-  MainScreen: {
+   MainScreen: {
     screen: MainScreen
-  },
-  SignUpForm: {
+  }, 
+   SignUpForm: {
     screen: SignUpForm
   },
   initialRouteName: "LoginForm"

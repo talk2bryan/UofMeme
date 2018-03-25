@@ -6,7 +6,7 @@ import Login from "./components/Login/Login";
 import LoginForm from "./components/Login/LoginForm";
 
 export default class App extends React.Component {
-  render() {
+  render() {    
     return <AppStackNavigator />;
   }
 }
