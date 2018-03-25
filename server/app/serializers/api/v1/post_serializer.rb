@@ -1,6 +1,6 @@
 class Api::V1::PostSerializer < Api::V1::BaseSerializer
 
-	attributes :poster, :description, :user_id, :file_name, :uploaded_image_for_io_adapters
+	attributes :poster, :description, :user_id, :file_name, :uploaded_image_for_io_adapters, :like, :dislike
 	
  	has_one :user
  	has_many :likes
