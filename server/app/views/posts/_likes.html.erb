@@ -2,7 +2,7 @@
 		<%= link_to " ",  like_create_path(post), class: 'glyphicon glyphicon-thumbs-up glyphicon-align-center' ,method: :post, data: {:remote=>true, :id => post.id}%>
 		<end>
 		<span id="likes_count">
-			<strong><%= post.like %></strong>
+			<strong id="likes"><%= post.like %></strong>
 		</span>
 </div>
 
