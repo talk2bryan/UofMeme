@@ -4,6 +4,13 @@ class Api::V1::UsersController < Api::V1::BaseController
 
 	def index
 		@posts = Post.all
+
+		@posts.each do |post|
+
+			post.file_name = post.image_file_name
+			post.uploaded_image_for_io_adapters =Base64.encode64(post.image.url)
+		end
+
 		render json: @posts
 	end
 
