@@ -1,5 +1,5 @@
 import React from 'react';
-import Intro from '../components/MainScreen';
+import MainScreen from '../components/MainScreen';
 
 import renderer from 'react-test-renderer';
 

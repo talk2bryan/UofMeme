@@ -17,6 +17,7 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.3",
     "jest": "^22.4.2",
+    "jest-expo": "^25.1.0",
     "jest-serializer-enzyme": "^1.0.0",
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.2.0",
@@ -26,7 +27,7 @@
     "test": "jest"
   },
   "jest": {
-    "preset": "react-native",
+    "preset": "jest-expo",
     "transformIgnorePatterns": [
       "node_modules/(?!react-native|expo|react-navigation|native-base-shoutem-theme|@shoutem/theme|@shoutem/animation|@shoutem/ui|tcomb-form-native)"
     ],

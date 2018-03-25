@@ -158,11 +158,7 @@ exports[`renders correctly 1`] = `
           virtual={undefined}
         >
           <Image
-            source={
-              Object {
-                "testUri": "../../../assets/feed_images/1.jpg",
-              }
-            }
+            source={1}
             style={
               Object {
                 "flex": 1,
@@ -628,11 +624,7 @@ exports[`renders correctly 1`] = `
           virtual={undefined}
         >
           <Image
-            source={
-              Object {
-                "testUri": "../../../assets/feed_images/2.jpg",
-              }
-            }
+            source={1}
             style={
               Object {
                 "flex": 1,
@@ -1098,11 +1090,7 @@ exports[`renders correctly 1`] = `
           virtual={undefined}
         >
           <Image
-            source={
-              Object {
-                "testUri": "../../../assets/feed_images/3.jpg",
-              }
-            }
+            source={1}
             style={
               Object {
                 "flex": 1,

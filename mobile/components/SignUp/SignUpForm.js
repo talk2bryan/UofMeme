@@ -3,7 +3,6 @@ import { StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar, Keyboar
 import { SwitchNavigator } from "react-navigation";
 import { Container, Content } from "native-base";
 
-import LoginForm from '../Login/LoginForm';
 import MainScreen from "../MainScreen";
 
 class SignUpForm extends React.Component {

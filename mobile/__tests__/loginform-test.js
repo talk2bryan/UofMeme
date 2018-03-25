@@ -1,12 +1,13 @@
 import 'react-native';
 import React from 'react';
-import CreateTab from '../components/AppTabNavigator/CreateTab';
-import "isomorphic-fetch";
+import LoginForm from '../components/Login/LoginForm';
+
 import renderer from 'react-test-renderer';
+
 
 it('renders correctly', () => {
   const tree = renderer.create(
-    <CreateTab />
+    <LoginForm />
     ).toJSON();
   expect(tree).toMatchSnapshot();
 });

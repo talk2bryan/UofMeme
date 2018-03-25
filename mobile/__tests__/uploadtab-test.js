@@ -1,12 +1,12 @@
 import 'react-native';
 import React from 'react';
-import CreateTab from '../components/AppTabNavigator/CreateTab';
+import UploadTab from '../components/AppTabNavigator/UploadTab';
 import "isomorphic-fetch";
 import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
   const tree = renderer.create(
-    <CreateTab />
+    <UploadTab />
     ).toJSON();
   expect(tree).toMatchSnapshot();
 });
