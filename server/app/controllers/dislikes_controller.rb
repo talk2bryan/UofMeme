@@ -8,10 +8,12 @@ class DislikesController < ApplicationController
 
 	def create
 		@post = Post.find_by(id: params[:dislike_id])
+		@current_page = session[:my_previous_url]
+		
 		if already_disliked
 			#undo like
 			remove_dislike
-			@posts= Post.all
+			get_posts
 			respond_to do |format|
 				format.js {render "/likes/create.js.erb" } 
 			end
@@ -27,7 +29,7 @@ class DislikesController < ApplicationController
 
 				if @dislike.save
 					dislike
-					@posts= Post.all
+					get_posts
 					respond_to do |format|
 						format.js {render "/dislikes/create.js.erb"} 
 					end
@@ -74,6 +76,15 @@ class DislikesController < ApplicationController
 		@like.destroy
 		@post.decrement! :like
 		@post.save
+	end
+
+	def get_posts
+		if @current_page.include?("users/#{current_user.id}")
+			@posts = Post.where(user_id: current_user.id).all
+
+		else
+			@posts= Post.all
+		end
 	end
 
 
