@@ -62,24 +62,6 @@ exports[`renders correctly 1`] = `
       >
         Welcome to UofMeme
       </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "black",
-            "fontSize": 18,
-            "marginBottom": 5,
-            "marginTop": 5,
-            "opacity": 0.8,
-            "textAlign": "center",
-            "width": 250,
-          }
-        }
-      >
-        Local, fresh, Manitoban memes
-      </Text>
     </View>
     <View
       style={

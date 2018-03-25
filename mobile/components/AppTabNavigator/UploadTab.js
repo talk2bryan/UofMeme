@@ -46,9 +46,6 @@ class UploadTab extends React.Component {
 
   handleSubmit = () => {
     const value = this._form.getValue();
-    //console.log(this.props.navigator.navigate('HomeTab'));
-    //console.log('value', value);
-    //console.log(this.state.image);
   };
 
   render() {
