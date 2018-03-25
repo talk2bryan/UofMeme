@@ -1,8 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { StackNavigator } from "react-navigation";
-//import MainScreen from "./components/MainScreen";
-import Login from "./components/Login/Login";
+
 import LoginForm from "./components/Login/LoginForm";
 
 export default class App extends React.Component {

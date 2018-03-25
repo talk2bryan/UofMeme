@@ -30,7 +30,6 @@ class LoginForm extends React.Component {
             />
 
             <Text style={styles.title}>Welcome to UofMeme</Text>
-            <Text style={styles.subtitle}>Local, fresh, Manitoban memes</Text>
           </View>
           
           <View style={styles.formContainer}>
@@ -134,15 +133,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     width: 200,
     textAlign: "center"
-  },
-  subtitle: {
-    color: "black",
-    marginTop: 5,
-    marginBottom: 5,
-    fontSize: 18,
-    width: 250,
-    textAlign: "center",
-    opacity: 0.8
   },
     formContainer: {
     flex: 1
