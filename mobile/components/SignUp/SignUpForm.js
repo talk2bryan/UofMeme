@@ -9,7 +9,6 @@ class SignUpForm extends React.Component {
 
   render() {
     return (
-
       <View style={styles.container}>
         <StatusBar
           barStyle="dark-content"
@@ -81,7 +80,7 @@ export default SwitchNavigator({
   SignUpForm: {
     screen: SignUpForm
   },
-  MainScreen: {
+   MainScreen: {
     screen: MainScreen
   },
   initialRouteName: "SignUpForm"
