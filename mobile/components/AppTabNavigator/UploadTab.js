@@ -46,9 +46,6 @@ class UploadTab extends React.Component {
 
   handleSubmit = () => {
     const value = this._form.getValue();
-    //console.log(this.props.navigator.navigate('HomeTab'));
-    //console.log('value', value);
-    //console.log(this.state.image);
   };
 
   render() {
@@ -60,8 +57,9 @@ class UploadTab extends React.Component {
           title="Pick an image from camera roll"
           onPress={this._pickImage}
         />
-        <Modal animationType="slide" visible={this.state.modalVisible}>
-          <View style={{ marginTop: 22 }}>
+
+        <Modal animationType="slide" visible={this.state.modalVisible} onRequestClose={() => {alert('Modal has been closed.');}}>
+          <View style={{marginTop: 22  }}>
             <View>
               <TouchableHighlight
                 onPress={() => {

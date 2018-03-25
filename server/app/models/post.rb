@@ -1,8 +1,10 @@
 class Post < ApplicationRecord
-	has_many :comments
-	has_many :likes
-	has_many :dislikes
 	belongs_to :user
+	has_many :comments, dependent: :destroy
+	has_many :likes, dependent: :destroy
+	has_many :dislikes, dependent: :destroy
+	attr_accessor :uploaded_image_for_io_adapters, :file_name	
+
 	
 	has_attached_file :image, styles: 
 	{   

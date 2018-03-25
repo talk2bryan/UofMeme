@@ -1,1 +1,32 @@
-<%= @user.username %>, <%= @user.email %>
+<div class="container">
+
+	<div>
+		<strong>
+			Username: <%= @user.username %>
+		</strong>
+	</div>
+
+	<div>
+		<strong>
+			Email: <%= @user.email %>
+		</strong>
+	</div>
+	<div>	
+		<strong>
+			Your posts
+		</strong>
+	</div>
+
+</div>
+
+<% if logged_in? %>	
+	<div class="py-5 bg-light">
+		<div class="container" id="posts">
+			<%= render partial: 'posts/post_grid', locals: { posts: @posts} %>
+		</div>
+	</div>
+<%end%>
+
+<div>
+	<%= link_to 'Back', url_for(:back) %>
+</div>
