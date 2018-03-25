@@ -5,7 +5,7 @@ import { StackNavigator } from "react-navigation";
 import LoginForm from "./components/Login/LoginForm";
 
 export default class App extends React.Component {
-  render() {
+  render() {    
     return <AppStackNavigator />;
   }
 }
