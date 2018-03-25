@@ -24,6 +24,8 @@ gem 'coffee-rails', '4.2.2'
 gem 'turbolinks', '5.0.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '2.7.0'
+# Enable cross-origin resource sharing with CORS
+gem 'rack-cors'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -44,11 +46,21 @@ gem "paperclip", "~> 5.2.1"
 
 gem 'bootstrap', '~> 4.0.0'
 
+gem 'active_model_serializers', '~> 0.9.3'
+
 gem 'responders'
 
 gem 'jquery-rails'
 
 gem 'rails-controller-testing'
+
+
+group :test do
+  gem 'factory_bot_rails', '~> 4.0'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'faker'
+  gem 'database_cleaner'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -61,6 +73,9 @@ group :development, :test do
   # For running CI tests using Travis
   gem 'travis'
   gem 'rspec-rails'
+  gem 'rspec-api_helpers', '1.0.4', require: false
+  gem 'jsonapi-rspec', require: false
+  
 end
 
 group :development do

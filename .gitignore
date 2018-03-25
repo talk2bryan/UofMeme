@@ -55,6 +55,9 @@ server/spec/tmp
 server/test/tmp/
 server/test/version_tmp/
 server/tmp
+server/spec/test_files
+server/spec/test_files/
+server/spec/test_files/.
 
 ## For bower-rails
 /vendor/assets/bower_components
