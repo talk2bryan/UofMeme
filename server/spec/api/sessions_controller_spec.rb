@@ -12,7 +12,7 @@ describe Api::V1::SessionsController, type: :api do
 		context "when credentials are valid" do
 			before do
 				credentials =  {email: u_email, password: "12345678"}
-				post 'http://api.domain.com/v1/login', session: credentials
+				post '/api/v1/login', session: credentials
 			end
 			it_returns_status(201)
 		end
@@ -20,7 +20,7 @@ describe Api::V1::SessionsController, type: :api do
 		context "when credentials are invalid" do
 			before do
 				credentials =  {email: u_email, password: "123456789"}
-				post 'http://api.domain.com/v1/login', session: credentials
+				post '/api/v1/login', session: credentials
 			end
 			it_returns_status(401)
 

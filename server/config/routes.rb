@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   #api
-  namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api' }, path: '/'  do
+  namespace :api, defaults: { format: :json }  do
     namespace :v1 do
       resources :users, only: [:index, :create, :show ]
       resources :posts, only: [:create, :show, :update] do

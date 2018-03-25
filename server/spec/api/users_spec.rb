@@ -8,7 +8,7 @@ describe Api::V1::UsersController, type: :api do
 			before do
 				#create_ user
 				@user = attributes_for(:user, username: "John" , email: "John@myumanitoba.ca", password: "12345678",password_confirmation: "12345678")
-				post "http://api.domain.com/v1/users", user: @user.as_json, format: :json
+				post "/api/v1/users", user: @user.as_json, format: :json
 			end
 
 			it_returns_status(201)
@@ -18,7 +18,7 @@ describe Api::V1::UsersController, type: :api do
 			before do
 				#create_ user
 				@user = attributes_for(:user, username: "John" , email: "John@myumanitoba.ca", password: "1234678",password_confirmation: "12345678")
-				post "http://api.domain.com/v1/users", user: @user.as_json, format: :json
+				post "/api/v1/users", user: @user.as_json, format: :json
 			end
 
 			it_returns_status(422)
@@ -28,7 +28,7 @@ describe Api::V1::UsersController, type: :api do
 			before do
 				#create_ user
 				@user = attributes_for(:user, username: "John" , email: "John@mumanitoba.ca", password: "12345678",password_confirmation: "12345678")
-				post "http://api.domain.com/v1/users", user: @user.as_json, format: :json
+				post "/api/v1/users", user: @user.as_json, format: :json
 			end
 
 			it_returns_status(422)
@@ -38,7 +38,7 @@ describe Api::V1::UsersController, type: :api do
 			before do
 				#create_ user
 				@user = attributes_for(:user, username: "Jo" , email: "John@mumanitoba.ca", password: "12345678",password_confirmation: "12345678")
-				post "http://api.domain.com/v1/users", user: @user.as_json, format: :json
+				post "/api/v1/users", user: @user.as_json, format: :json
 			end
 
 			it_returns_status(422)
@@ -53,7 +53,7 @@ describe Api::V1::UsersController, type: :api do
 		context "gets an existing user" do
 			before do
 				@user = user
-				get "http://api.domain.com/v1/users/#{user_id}"
+				get "/api/v1/users/#{user_id}"
 			end
 
 			it_returns_status(200)
@@ -61,7 +61,7 @@ describe Api::V1::UsersController, type: :api do
 
 		context "gets a non existing user" do
 			before do
-				get "http://api.domain.com/v1/users/12"
+				get "/api/v1/users/12"
 			end
 
 			it_returns_status(404)
@@ -78,7 +78,7 @@ describe Api::V1::UsersController, type: :api do
 			let(:post_id) { post.id }
 
 			before do
-				get	"http://api.domain.com/v1/users"
+				get	"/api/v1/users"
 			end
 
 			it_returns_status(200)
