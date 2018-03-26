@@ -49,7 +49,6 @@ class SignUpForm extends React.Component {
         password_confirmation: this.state.confirmpw
       })
     })
-      // .then(response => response.json())
       .then(responseData => {
         console.log(responseData);
         if (responseData.ok) {
