@@ -57,7 +57,21 @@ class SignUpForm extends React.Component {
             Alert.alert("Signup Success!"),
             Actions.LoginForm();
         } else {
-          Alert.alert(responseData._bodyInit);
+          var response = JSON.parse(responseData._bodyInit);
+          var errorMsg = "";
+
+          console.log(response);
+          if(typeof response.username != 'undefined'){
+            errorMsg += "Username " + response.username[0].message + "\n"
+          } else if(typeof response.email != 'undefined') {
+            errorMsg += "Email " + response.email[0].message + "\n"
+          } else if(typeof response.password != 'undefined') {
+            errorMsg += "Password " + response.password[0].message + "\n"
+          } else if(typeof response.password_confirmation != 'undefined') {
+            errorMsg += "Password confirmation " + response.password_confirmation[0].message
+          }
+
+          Alert.alert(errorMsg);
         }
       })
       .done();
