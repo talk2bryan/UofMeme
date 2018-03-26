@@ -39,19 +39,9 @@ class LoginForm extends React.Component {
     Actions.SignUpForm();
   }
 
-  processResponse(responseData) {
-        if(responseData.errors == null){
-          this.saveItem("id", responseData.id),
-          Alert.alert("Login Success!"),
-          Actions.MainScreen();
-        } else {
-          Alert.alert(responseData);
-        }
-  }
-
   userLogin() {
     if (!this.state.email || !this.state.pw) return;
-    fetch("http://uofmeme.solutions/login", {
+    fetch("http://uofmeme.solutions/api/v1/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -62,9 +52,11 @@ class LoginForm extends React.Component {
         pw: this.state.pw
       })
     })
-      .then(response => response.json())
       .then(responseData => {
-        processResponse(responseData){};
+        console.log(responseData);
+        this.saveItem("id", responseData.id),
+          Alert.alert("Login Success!"),
+          Actions.MainScreen();
       })
       .done();
   }
