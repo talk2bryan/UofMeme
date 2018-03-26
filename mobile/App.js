@@ -36,12 +36,7 @@ class App extends React.Component {
             key="SignUpForm"
             title="Sign Up"
           />
-          <Scene
-            component={MainScreen}
-            hideNavBar={true}
-            key="MainScreen"
-            title="Home Page"
-          />
+          <Scene component={MainScreen} key="MainScreen" title="Home Page" />
         </Scene>
       </Router>
     );

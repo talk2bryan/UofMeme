@@ -39,16 +39,6 @@ class LoginForm extends React.Component {
     Actions.SignUpForm();
   }
 
-  processResponse(responseData) {
-        if(responseData.errors == null){
-          this.saveItem("id", responseData.id),
-          Alert.alert("Login Success!"),
-          Actions.MainScreen();
-        } else {
-          Alert.alert(responseData);
-        }
-  }
-
   userLogin() {
     if (!this.state.email || !this.state.pw) return;
     fetch("http://uofmeme.solutions/api/v1/login", {
@@ -59,12 +49,18 @@ class LoginForm extends React.Component {
       },
       body: JSON.stringify({
         email: this.state.email,
-        pw: this.state.pw
+        password: this.state.pw
       })
     })
-      .then(response => response.json())
       .then(responseData => {
-        processResponse(responseData){};
+        console.log(responseData.ok);
+        if (responseData.ok) {
+          this.saveItem("id", responseData.id),
+            Alert.alert("Login Success!"),
+            Actions.MainScreen();
+        } else {
+          Alert.alert("Invalid email or password.");
+        }
       })
       .done();
   }
