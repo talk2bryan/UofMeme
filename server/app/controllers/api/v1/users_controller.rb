@@ -31,13 +31,7 @@ class Api::V1::UsersController < Api::V1::BaseController
 	private
 
 	def user_params
-		normalized_params.permit(:username, :email, :password, :password_confirmation)
-	end
-
-	def normalized_params
-		ActionController::Parameters.new(
-		ActiveModelSerializers::Deserialization.jsonapi_parse(params)
-		)
+		params.permit(:username, :email, :password, :password_confirmation)
 	end
 
 end

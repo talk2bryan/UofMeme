@@ -31,7 +31,7 @@ class Api::V1::PostsController < Api::V1::BaseController
 	private
 
 	def post_params
-		normalized_params.permit(:poster, :description, :user_id, :file_name, :uploaded_image_for_io_adapters)
+		params.permit(:poster, :description, :user_id, :file_name, :uploaded_image_for_io_adapters)
 	end
 
 end
