@@ -57,10 +57,9 @@ class LoginForm extends React.Component {
         if (responseData.ok) {
           this.saveItem("id", responseData.id),
             Alert.alert("Login Success!"),
-            // Alert.alert(responseData.ok),
             Actions.MainScreen();
-          // } else {
-          //   Alert.alert("Invalid email or password."),
+        } else {
+          Alert.alert("Invalid email or password.");
         }
       })
       .done();
