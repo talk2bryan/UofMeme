@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, View, AsyncStorage } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ActivityIndicator,
+  AsyncStorage
+} from "react-native";
 import { Router, Scene } from "react-native-router-flux";
 
 import LoginForm from "./components/Login/LoginForm";
@@ -19,27 +25,31 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <Router>
-        <Scene key="root">
-          <Scene
-            component={LoginForm}
-            hideNavBar={true}
-            initial={true}
-            key="LoginForm"
-            title="Login"
-          />
-          <Scene
-            component={SignUpForm}
-            hideNavBar={true}
-            initial={true}
-            key="SignUpForm"
-            title="Sign Up"
-          />
-          <Scene component={MainScreen} key="MainScreen" title="Home Page" />
-        </Scene>
-      </Router>
-    );
+    if (!this.state.isLoaded) {
+      return <ActivityIndicator />;
+    } else {
+      return (
+        <Router>
+          <Scene key="root">
+            <Scene
+              component={LoginForm}
+              hideNavBar={true}
+              initial={true}
+              key="LoginForm"
+              title="Login"
+            />
+            <Scene
+              component={SignUpForm}
+              hideNavBar={true}
+              initial={true}
+              key="SignUpForm"
+              title="Sign Up"
+            />
+            <Scene component={MainScreen} key="MainScreen" title="Home Page" />
+          </Scene>
+        </Router>
+      );
+    }
   }
 }
 

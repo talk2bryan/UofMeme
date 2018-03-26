@@ -55,7 +55,7 @@ class LoginForm extends React.Component {
       .then(responseData => {
         console.log(responseData.ok);
         if (responseData.ok) {
-          this.saveItem("id", responseData.id),
+          this.saveItem("id_token", responseData.id),
             Alert.alert("Login Success!"),
             Actions.MainScreen();
         } else {
