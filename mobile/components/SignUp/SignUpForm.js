@@ -20,7 +20,7 @@ import LoginForm from "../Login/LoginForm";
 class SignUpForm extends React.Component {
   constructor() {
     super();
-    this.state = { username: "", email: "", pw: "", confirmpw: "" };
+    this.state = { username: null, email: null, pw: null, confirmpw: null };
   }
   static navigationOptions = ({ navigation }) => {
     return { headerLeft: <View /> };
@@ -43,17 +43,22 @@ class SignUpForm extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
+        password: this.state.pw,
         username: this.state.username,
         email: this.state.email,
-        pw: this.state.pw,
-        confirmpw: this.state.confirmpw
+        password_confirmation: this.state.confirmpw
       })
     })
-      .then(response => response.json())
+      // .then(response => response.json())
       .then(responseData => {
-        this.saveItem("id", responseData.id),
-          Alert.alert("Signup Success!"),
-          Actions.LoginForm();
+        console.log(responseData);
+        if (responseData.ok) {
+          this.saveItem("id", responseData.id),
+            Alert.alert("Signup Success!"),
+            Actions.LoginForm();
+        } else {
+          Alert.alert(responseData._bodyInit);
+        }
       })
       .done();
   }
@@ -82,6 +87,7 @@ class SignUpForm extends React.Component {
               placeholderTextColor="white"
               returnKeyType="next"
               onSubmitEditing={() => this.emailInput.focus()}
+              autoCapitalize="none"
               autoCorrect={false}
               style={styles.input}
               onChangeText={username => this.setState({ username })}
