@@ -82,16 +82,11 @@ describe Api::V1::UsersController, type: :api do
 
 			it_returns_status(404)
 
-			it 'responds with a message of Not found' do 
-			#message = json["errors"].first["detail"] 
-			#expect(message).to eq("Not found")
+			it_returns_no_attributes(
+					resource: 'user', attrs: [:id, :name, :username]
+				)
+
 			end
-
-		it_returns_no_attributes(
-				resource: 'user', attrs: [:id, :name, :username]
-			)
-
-		end
 	end
 
 	describe "GET api/v1/users#index" do
