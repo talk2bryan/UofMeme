@@ -27,14 +27,14 @@ class SystemTest < ApplicationSystemTestCase
 		click_button "Log in"
 	end
 	
-	test "Users can upload their own memes" do
+	#test "Users can upload their own memes" do
 		# taken from: https://stackoverflow.com/questions/45121846/how-could-i-test-that-chose-file-dialog-opensrails-capybara
 		# The file selection box is a system modal, which basically freezes everything until a file is selected. 
 		# Because of this (and for security reasons) drivers handle attaching files to file inputs differently than 
 		# most fields. It isn't done by sending keystrokes to fields on the page, but rather by shortcutting the 
 		# file modal from appearing and adding the file behind the scenes. Because of that you really can't write a 
 		# test that detects the presence of the choose file window.	
-	end
+	#end
 
 	
 end
