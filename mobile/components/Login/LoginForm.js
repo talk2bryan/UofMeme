@@ -7,17 +7,59 @@ import {
   Text,
   StatusBar,
   KeyboardAvoidingView,  
-  Image
+  Image,
+  AsyncStorage
 } from "react-native";
-import { StackNavigator, SwitchNavigator } from "react-navigation";
 import { Container, Content } from "native-base";
+import { Actions } from 'react-native-router-flux';
 
 import HomeTab from "../AppTabNavigator/HomeTab";
 import MainScreen from "../MainScreen";
 import SignUpForm from "../SignUp/SignUpForm";
 
 class LoginForm extends React.Component {
-  render() {  
+  constructor() {
+    super();
+    this.state = {email: '', pw: ''};
+  }
+
+  static navigationOptions =({navigation}) => {
+    return{ headerLeft: (<View></View>) };
+  };
+
+  async saveItem(item, selectedValue) {
+    try {
+      await AsyncStorage.setItem(item, selectedValue);
+    } catch (error) {
+      console.error('AsyncStorage error: ' + error.message);
+    }
+  }
+  
+  userSignup() {
+    Actions.SignUpForm();
+  }
+
+  userLogin() {
+    if (!this.state.email || !this.state.password) return;
+    fetch('http://uofmeme.solutions/api/v1/login', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email:  this.state.email,
+        pw:     this.state.pw,
+      })
+    })
+    console.error()
+    .then((response) => response.json())
+    .then((responseData) => {
+      this.saveItem('id', responseData.id),
+      Alert.alert('Login Success!'),
+      Actions.MainScreen();
+    })
+    .done();
+  }
+
+  render() {
     return (
       <View style={styles.container}>
         <StatusBar barStyle="dark-content" />
@@ -35,14 +77,15 @@ class LoginForm extends React.Component {
           <View style={styles.formContainer}>
       
             <TextInput
-              placeholder="username@myumanitoba.ca"
+              placeholder="email@myumanitoba.ca"
               placeholderTextColor="white"
               returnKeyType="next"
               onSubmitEditing={() => this.passwordInput.focus()}
+              onChangeTest={(email) => this.setState({email})}
               keyboardType="email-address"
               autoCapitalize="none"
               autoCorrect={false}
-               style={styles.input}
+              style={styles.input}
             />
               
             <TextInput
@@ -50,19 +93,20 @@ class LoginForm extends React.Component {
               placeholderTextColor="white"
               secureTextEntry
               returnKeyType="go"
+              onChangeTest={(pw) => this.setState({pw})}
               style={styles.input}
               ref={input => (this.passwordInput = input)}
             />
 
             <TouchableOpacity
-              onPress={() => this.props.navigation.navigate("MainScreen")}
+              onPress={this.userLogin.bind(this)}
               style={styles.buttonContainer}
             >
               <Text style={styles.buttonText}>LOGIN</Text>
             </TouchableOpacity>
 
              <TouchableOpacity
-              onPress={() => this.props.navigation.navigate("SignUpForm")}
+              onPress={this.userSignup.bind(this)}
               style={styles.signUpContainer}
             >
               <Text style={styles.buttonText}>Not a meme-ber? Sign up now!</Text>
@@ -74,18 +118,7 @@ class LoginForm extends React.Component {
   }
 }
 
-export default SwitchNavigator({
-  LoginForm: {
-    screen: LoginForm
-  },
-   MainScreen: {
-    screen: MainScreen
-  }, 
-   SignUpForm: {
-    screen: SignUpForm
-  },
-  initialRouteName: "LoginForm"
-});
+export default LoginForm;
 
 const styles = StyleSheet.create({
   container: {
@@ -129,6 +162,7 @@ const styles = StyleSheet.create({
   title: {
     color: "black",
     marginTop: 10,
+    marginBottom: 10,
     fontSize: 20,
     fontWeight: "bold",
     width: 200,

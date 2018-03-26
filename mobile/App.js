@@ -1,20 +1,56 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { StackNavigator } from "react-navigation";
+import { 
+  StyleSheet, 
+  Text, 
+  View, 
+  AsyncStorage 
+} from "react-native";
+import {Router, Scene} from 'react-native-router-flux';
 
 import LoginForm from "./components/Login/LoginForm";
+import SignUpForm from "./components/SignUp/SignUpForm";
+import MainScreen from "./components/MainScreen";
 
-export default class App extends React.Component {
-  render() {    
-    return <AppStackNavigator />;
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = { hasToken: false, isLoaded: false };
+  }
+
+  componentDidMount() {
+    AsyncStorage.getItem('id_token').then((token) => {
+      this.setState({ hasToken: token !== null, isLoaded: true })
+    });
+  }
+
+  render() {
+    return(
+      <Router>
+        <Scene key='root'>
+          <Scene
+            component={LoginForm}
+            initial={true}
+            key='LoginForm'
+            title='Login'
+          />
+          <Scene
+            component={SignUpForm}
+            initial={true}
+            key='SignUpForm'
+            title='Sign Up'
+          />
+          <Scene
+            component={MainScreen}
+            key='MainScreen'
+            title='Home Page'
+          />
+        </Scene>
+      </Router>
+    )
   }
 }
 
-const AppStackNavigator = StackNavigator({
-  LoginForm: {
-    screen: LoginForm
-  }
-});
+export default App;
 
 const styles = StyleSheet.create({
   container: {

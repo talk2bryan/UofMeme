@@ -1,11 +1,62 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar, KeyboardAvoidingView, Image} from 'react-native';
-import { SwitchNavigator } from "react-navigation";
+import {
+  StyleSheet, 
+  View, 
+  TextInput, 
+  TouchableOpacity, 
+  Text, StatusBar, 
+  KeyboardAvoidingView, 
+  Image, 
+  AsyncStorage 
+} from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import { Container, Content } from "native-base";
 
 import MainScreen from "../MainScreen";
+import LoginForm from "../Login/LoginForm";
 
 class SignUpForm extends React.Component {
+  
+  constructor() {
+    super();
+    this.state = {username:'', email: '', pw: '', confirmpw: ''};
+  }
+  static navigationOptions =({navigation}) => {
+    return{ headerLeft: (<View></View>)};
+  };
+
+  async saveItem(item, selectedValue) {
+    try {
+      await AsyncStorage.setItem(item, selectedValue);
+    } catch (error) {
+      console.error('AsyncStorage error: ' + error.message);
+    }
+  }
+
+  userSignup() {
+    if (!this.state.username || !this.state.email || !this.state.password) return;
+    fetch('http://uofmeme.solutions/api/v1/users', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username:   this.state.username,
+        email:      this.state.email,
+        pw:         this.state.pw,
+        confirmpw:  this.state.confirmpw
+      })
+    })
+    .then((response) => response.json())
+    .then((responseData) => {
+      this.saveItem('id', responseData.id),
+      Alert.alert( 'Signup Success!'),
+      Actions.LoginForm();
+    })
+    .done();
+  }
+
+  userLogin() {
+    Actions.LoginForm();
+  }
 
   render() {
     return (
@@ -34,6 +85,7 @@ class SignUpForm extends React.Component {
               onSubmitEditing={() => this.emailInput.focus()}
               autoCorrect={false}
               style={styles.input}
+              onChangeText={(username) => this.setState({username})}
             />
 
             <TextInput 
@@ -46,6 +98,7 @@ class SignUpForm extends React.Component {
               autoCorrect={false}
               style={styles.input}
               ref={(input) => this.emailInput = input}
+              onChangeText={(email) => this.setState({email})}
             />
             <TextInput 
               placeholder="Password"
@@ -55,6 +108,7 @@ class SignUpForm extends React.Component {
               style={styles.input}
               ref={(input) => this.passwordInput = input}
               onSubmitEditing={() => this.passwordConfirmInput.focus()}
+              onChangeText={(pw) => this.setState({pw})}
             />
 
             <TextInput 
@@ -64,10 +118,15 @@ class SignUpForm extends React.Component {
               returnKeyType="go"
               style={styles.input}
               ref={(input) => this.passwordConfirmInput = input}
+              onChangeText={(confirmpw) => this.setState({confirmpw})}
             />        
 
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('MainScreen')} style={styles.buttonContainer}>
-              <Text style={styles.buttonText}>Sign Up</Text>
+            <TouchableOpacity onPress={this.userSignup.bind(this)} style={styles.buttonContainer}>
+              <Text style={styles.buttonText}>SIGN UP</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={this.userLogin.bind(this)} style={styles.loginContainer}>
+              <Text style={styles.buttonText}>Already have an account? Login here!</Text>
             </TouchableOpacity>
           </View>
         </KeyboardAvoidingView>
@@ -76,15 +135,7 @@ class SignUpForm extends React.Component {
   }
 }
 
-export default SwitchNavigator({
-  SignUpForm: {
-    screen: SignUpForm
-  },
-   MainScreen: {
-    screen: MainScreen
-  },
-  initialRouteName: "SignUpForm"
-});
+export default SignUpForm;
 
 const styles = StyleSheet.create({
   container: {
@@ -102,6 +153,11 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
      backgroundColor: "darkgrey",
+     paddingVertical: 15, 
+     marginBottom: 20
+  },
+  loginContainer: {
+    backgroundColor: "#337ab7",
      paddingVertical: 15, 
      marginBottom: 20
   },
