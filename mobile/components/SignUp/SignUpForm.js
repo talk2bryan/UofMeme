@@ -56,6 +56,8 @@ class SignUpForm extends React.Component {
           this.saveItem("id", responseData.id),
             Alert.alert("Signup Success!"),
             Actions.LoginForm();
+        } else {
+          Alert.alert(responseData._bodyInit);
         }
       })
       .done();
