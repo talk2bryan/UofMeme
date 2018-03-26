@@ -6,9 +6,11 @@ class Api::V1::PostsController < Api::V1::BaseController
 		@post = Post.find(params[:id])
 
 		@post.file_name = @post.image_file_name
-		@post.uploaded_image_for_io_adapters =Base64.encode64(@post.image.url)
+		path = File.join 'http://uofmeme.solutions/', @post.image.url
+		@post.uploaded_image_for_io_adapters = Base64.encode64(
+			open(path) { |io| io.read })
 
-		render json: @post
+		render json: @post, status: :ok
 	end
 
 	def create
