@@ -45,7 +45,7 @@ class LoginForm extends React.Component {
 
   userLogin() {
     if (!this.state.email || !this.state.pw) return;
-    fetch("http://uofmeme.solutions/api/v1/login", {
+    fetch("http://uofmeme.solutions/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -71,7 +71,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar barStyle="dark-content" />
+        {/* <StatusBar barStyle="dark-content" /> */}
 
         <KeyboardAvoidingView style={styles.container} behavior={"padding"}>
           <View style={styles.logoContainer}>
