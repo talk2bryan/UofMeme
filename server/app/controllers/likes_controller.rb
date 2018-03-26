@@ -80,7 +80,7 @@ class LikesController < ApplicationController
 	end
 
 	def get_posts
-		if @current_page && @current_page.include?("/users/#{current_user.id}")
+		if @current_page && @current_page.include?("users/#{current_user.id}") 
 			@posts = Post.where(user_id: current_user.id).all
 
 		else
