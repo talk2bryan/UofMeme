@@ -7,7 +7,10 @@ class Api::V1::PostsController < Api::V1::BaseController
 
 		@post.file_name = @post.image_file_name
 
-		path = File.join 'http://uofmeme.solutions/', @post.image.url
+		# this is what we need to be running serverside
+		# path = File.join 'http://uofmeme.solutions/', @post.image.url
+		path = File.join Rails.root, @post.image.url
+
 		@post.uploaded_image_for_io_adapters = Base64.encode64(
 			open(path) { |io| io.read })
 
