@@ -49,7 +49,7 @@ class LoginForm extends React.Component {
       },
       body: JSON.stringify({
         email: this.state.email,
-        pw: this.state.pw
+        password: this.state.pw
       })
     })
       .then(responseData => {
