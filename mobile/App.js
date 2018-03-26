@@ -1,11 +1,6 @@
 import React from "react";
-import { 
-  StyleSheet, 
-  Text, 
-  View, 
-  AsyncStorage 
-} from "react-native";
-import {Router, Scene} from 'react-native-router-flux';
+import { StyleSheet, Text, View, AsyncStorage } from "react-native";
+import { Router, Scene } from "react-native-router-flux";
 
 import LoginForm from "./components/Login/LoginForm";
 import SignUpForm from "./components/SignUp/SignUpForm";
@@ -18,35 +13,38 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    AsyncStorage.getItem('id_token').then((token) => {
-      this.setState({ hasToken: token !== null, isLoaded: true })
+    AsyncStorage.getItem("id_token").then(token => {
+      this.setState({ hasToken: token !== null, isLoaded: true });
     });
   }
 
   render() {
-    return(
+    return (
       <Router>
-        <Scene key='root'>
+        <Scene key="root">
           <Scene
             component={LoginForm}
+            hideNavBar={true}
             initial={true}
-            key='LoginForm'
-            title='Login'
+            key="LoginForm"
+            title="Login"
           />
           <Scene
             component={SignUpForm}
+            hideNavBar={true}
             initial={true}
-            key='SignUpForm'
-            title='Sign Up'
+            key="SignUpForm"
+            title="Sign Up"
           />
           <Scene
             component={MainScreen}
-            key='MainScreen'
-            title='Home Page'
+            hideNavBar={true}
+            key="MainScreen"
+            title="Home Page"
           />
         </Scene>
       </Router>
-    )
+    );
   }
 }
 
