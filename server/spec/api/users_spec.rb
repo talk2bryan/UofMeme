@@ -7,41 +7,56 @@ describe Api::V1::UsersController, type: :api do
 		context "when parameters are valid" do
 			before do
 				#create_ user
-				@user = attributes_for(:user, username: "John" , email: "John@myumanitoba.ca", password: "12345678",password_confirmation: "12345678")
-				post "/api/v1/users", user: @user.as_json, format: :json
+				@user = attributes_for(:user, username: "John" , email: "john@myumanitoba.ca", password: "12345678",password_confirmation: "12345678")
+				post "/api/v1/users", jsonapi_style(user: @user.as_json)
 			end
 
 			it_returns_status(201)
+
+			it_returns_no_attributes(
+				resource: 'user', attrs: [:id, :name, :username]
+			)
+
 		end
 
 		context "when parameters are invalid: password is different from password_confirmation" do
 			before do
 				#create_ user
 				@user = attributes_for(:user, username: "John" , email: "John@myumanitoba.ca", password: "1234678",password_confirmation: "12345678")
-				post "/api/v1/users", user: @user.as_json, format: :json
+				post "/api/v1/users", jsonapi_style(user: @user.as_json)
 			end
 
 			it_returns_status(422)
+			it_returns_no_attributes(
+				resource: 'user', attrs: [:id, :name, :username]
+			)
 		end
 
 		context "when parameters are invalid: email is not a muymanitoba domain" do
 			before do
 				#create_ user
 				@user = attributes_for(:user, username: "John" , email: "John@mumanitoba.ca", password: "12345678",password_confirmation: "12345678")
-				post "/api/v1/users", user: @user.as_json, format: :json
+				post "/api/v1/users", jsonapi_style(user: @user.as_json)
 			end
 
 			it_returns_status(422)
+			it_returns_no_attributes(
+				resource: 'user', attrs: [:id, :name, :username]
+			)
 		end
 
 		context "when parameters are invalid: username less than 3 characters" do
 			before do
 				#create_ user
 				@user = attributes_for(:user, username: "Jo" , email: "John@mumanitoba.ca", password: "12345678",password_confirmation: "12345678")
-				post "/api/v1/users", user: @user.as_json, format: :json
+				post "/api/v1/users", jsonapi_style(user: @user.as_json)
 			end
 
 			it_returns_status(422)
+			it_returns_no_attributes(
+				resource: 'user', attrs: [:id, :name, :username]
+			)
+
 		end
 
 	end
@@ -52,11 +67,12 @@ describe Api::V1::UsersController, type: :api do
 
 		context "gets an existing user" do
 			before do
-				@user = user
 				get "/api/v1/users/#{user_id}"
 			end
 
 			it_returns_status(200)
+
+
 		end
 
 		context "gets a non existing user" do
@@ -65,6 +81,15 @@ describe Api::V1::UsersController, type: :api do
 			end
 
 			it_returns_status(404)
+
+			it 'responds with a message of Not found' do 
+			#message = json["errors"].first["detail"] 
+			#expect(message).to eq("Not found")
+			end
+
+		it_returns_no_attributes(
+				resource: 'user', attrs: [:id, :name, :username]
+			)
 
 		end
 	end
