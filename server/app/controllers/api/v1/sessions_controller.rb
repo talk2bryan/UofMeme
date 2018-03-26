@@ -26,4 +26,10 @@ class Api::V1::SessionsController < Api::V1::BaseController
    normalized_params.permit(:email, :password)
   end
 
+  def normalized_params
+    ActionController::Parameters.new(
+       ActiveModelSerializers::Deserialization.jsonapi_parse(params)
+    )
+  end
+
 end

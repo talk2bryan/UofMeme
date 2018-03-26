@@ -6,6 +6,7 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 require 'rspec/api_helpers'
+require 'rspec/json_schema'
 require 'jsonapi/rspec'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'database_cleaner'

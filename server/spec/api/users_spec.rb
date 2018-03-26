@@ -8,14 +8,14 @@ describe Api::V1::UsersController, type: :api do
 			before do
 				#create_ user
 				@user = attributes_for(:user, username: "John" , email: "john@myumanitoba.ca", password: "12345678",password_confirmation: "12345678")
-				post "/api/v1/users", user: @user.as_json, format: :json
+				post "/api/v1/users", jsonapi_style(user: @user.as_json)
 			end
 
 			it_returns_status(201)
 
-			it_returns_attribute_values(resource: 'user', model: proc{@user}, attrs: [
-			   :email, :password, :username
-			])
+			it_returns_no_attributes(
+				resource: 'user', attrs: [:id, :name, :username]
+			)
 
 		end
 
@@ -23,7 +23,7 @@ describe Api::V1::UsersController, type: :api do
 			before do
 				#create_ user
 				@user = attributes_for(:user, username: "John" , email: "John@myumanitoba.ca", password: "1234678",password_confirmation: "12345678")
-				post "/api/v1/users", user: @user.as_json, format: :json
+				post "/api/v1/users", jsonapi_style(user: @user.as_json)
 			end
 
 			it_returns_status(422)
@@ -36,7 +36,7 @@ describe Api::V1::UsersController, type: :api do
 			before do
 				#create_ user
 				@user = attributes_for(:user, username: "John" , email: "John@mumanitoba.ca", password: "12345678",password_confirmation: "12345678")
-				post "/api/v1/users", user: @user.as_json, format: :json
+				post "/api/v1/users", jsonapi_style(user: @user.as_json)
 			end
 
 			it_returns_status(422)
@@ -49,7 +49,7 @@ describe Api::V1::UsersController, type: :api do
 			before do
 				#create_ user
 				@user = attributes_for(:user, username: "Jo" , email: "John@mumanitoba.ca", password: "12345678",password_confirmation: "12345678")
-				post "/api/v1/users", user: @user.as_json, format: :json
+				post "/api/v1/users", jsonapi_style(user: @user.as_json)
 			end
 
 			it_returns_status(422)
@@ -72,9 +72,6 @@ describe Api::V1::UsersController, type: :api do
 
 			it_returns_status(200)
 
-			it_returns_attribute_values(resource: 'user', model: proc{user}, attrs: [
-			  :email, :username
-			])
 
 		end
 
@@ -90,7 +87,7 @@ describe Api::V1::UsersController, type: :api do
 			#expect(message).to eq("Not found")
 			end
 
-			it_returns_no_attributes(
+		it_returns_no_attributes(
 				resource: 'user', attrs: [:id, :name, :username]
 			)
 

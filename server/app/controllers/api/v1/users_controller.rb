@@ -1,7 +1,5 @@
 class Api::V1::UsersController < Api::V1::BaseController
 
-	before_action :authenticate_user!, only: [:update, :destroy]
-
 	def index
 		@posts = Post.all
 
@@ -33,7 +31,13 @@ class Api::V1::UsersController < Api::V1::BaseController
 	private
 
 	def user_params
-		params.require(:user).permit(:username, :email, :password, :password_confirmation).delete_if{ |k,v| v.nil?}
+		normalized_params.permit(:username, :email, :password, :password_confirmation)
+	end
+
+	def normalized_params
+		ActionController::Parameters.new(
+		ActiveModelSerializers::Deserialization.jsonapi_parse(params)
+		)
 	end
 
 end
