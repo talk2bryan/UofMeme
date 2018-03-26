@@ -3,14 +3,16 @@ class Api::V1::SessionsController < Api::V1::BaseController
   end
 
   def create
-    user_password = params[:session][:password]
-    user_email = params[:session][:email]
-    user = User.find_by(email: user_email)
+    #user = User.find_by(email: params[:email])
 
-    if user && user.authenticate(params[:session][:password])
-      self.current_user = @user
+    user = User.find_by(
+          email: params[:email]
+        )&.authenticate(params[:password])
+
+    if user 
+      self.current_user = user
       render(
-        json: Api::V1::SessionSerializer.new(@user, root: false).to_json,
+        json: Api::V1::SessionSerializer.new(user, root: false).to_json,
         status: 201
       )
     else
@@ -21,7 +23,7 @@ class Api::V1::SessionsController < Api::V1::BaseController
   private
 
   def session_params
-    params.require(:user).permit(:email, :password)
+   normalized_params.permit(:email, :password)
   end
 
 end

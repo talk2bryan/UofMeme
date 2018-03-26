@@ -7,11 +7,16 @@ describe Api::V1::UsersController, type: :api do
 		context "when parameters are valid" do
 			before do
 				#create_ user
-				@user = attributes_for(:user, username: "John" , email: "John@myumanitoba.ca", password: "12345678",password_confirmation: "12345678")
+				@user = attributes_for(:user, username: "John" , email: "john@myumanitoba.ca", password: "12345678",password_confirmation: "12345678")
 				post "/api/v1/users", user: @user.as_json, format: :json
 			end
 
 			it_returns_status(201)
+
+			it_returns_attribute_values(resource: 'user', model: proc{@user}, attrs: [
+			   :email, :password, :username
+			])
+
 		end
 
 		context "when parameters are invalid: password is different from password_confirmation" do
@@ -22,6 +27,9 @@ describe Api::V1::UsersController, type: :api do
 			end
 
 			it_returns_status(422)
+			it_returns_no_attributes(
+				resource: 'user', attrs: [:id, :name, :username]
+			)
 		end
 
 		context "when parameters are invalid: email is not a muymanitoba domain" do
@@ -32,6 +40,9 @@ describe Api::V1::UsersController, type: :api do
 			end
 
 			it_returns_status(422)
+			it_returns_no_attributes(
+				resource: 'user', attrs: [:id, :name, :username]
+			)
 		end
 
 		context "when parameters are invalid: username less than 3 characters" do
@@ -42,6 +53,10 @@ describe Api::V1::UsersController, type: :api do
 			end
 
 			it_returns_status(422)
+			it_returns_no_attributes(
+				resource: 'user', attrs: [:id, :name, :username]
+			)
+
 		end
 
 	end
@@ -52,11 +67,15 @@ describe Api::V1::UsersController, type: :api do
 
 		context "gets an existing user" do
 			before do
-				@user = user
 				get "/api/v1/users/#{user_id}"
 			end
 
 			it_returns_status(200)
+
+			it_returns_attribute_values(resource: 'user', model: proc{user}, attrs: [
+			  :email, :username
+			])
+
 		end
 
 		context "gets a non existing user" do
@@ -65,6 +84,15 @@ describe Api::V1::UsersController, type: :api do
 			end
 
 			it_returns_status(404)
+
+			it 'responds with a message of Not found' do 
+			#message = json["errors"].first["detail"] 
+			#expect(message).to eq("Not found")
+			end
+
+			it_returns_no_attributes(
+				resource: 'user', attrs: [:id, :name, :username]
+			)
 
 		end
 	end
