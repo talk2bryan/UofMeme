@@ -6,9 +6,7 @@ class UserTest < ActiveSupport::TestCase
 		@validEmail = 'user@myumanitoba.ca'
 		@validPassword = 'Password'
 
-		# @validUser's email domain is myumanitoba.ca
 		@validUser = User.new(username: @validUsername, email: @validEmail, password: @validPassword, password_confirmation: @validPassword)
-		# @validUser2's email domain is umanitoba.ca
 		@validUser2 = User.new(username: 'mickeymouse', email: 'mmouse@umanitoba.ca', password: 'iloveminnie', password_confirmation: 'iloveminnie')
 	end
 
