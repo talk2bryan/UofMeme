@@ -4,6 +4,17 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 	include FactoryBot::Syntax::Methods
 	include SignInHelper
 
+    test 'valid post' do
+      @user = users(:user1)
+
+      @post = Post.new
+      @post.poster = 'mememe'
+      @post.image = File.new("test/fixtures/files/test.png")
+      @post.description = "I love memes"
+      @post.user_id = @user.id
+      assert @post.save
+    end
+
   	test "user can create a post" do
   		@user = build :user	
   		sign_in_as @user

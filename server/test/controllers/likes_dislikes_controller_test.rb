@@ -4,8 +4,8 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 	include FactoryBot::Syntax::Methods
 	include SignInHelper
 
-  	test "user can like a post" do
-  		@user = build :user	
+  	test "user can post score" do
+  		@user = build :user
   		sign_in_as @user
 
   		@post = build :post
