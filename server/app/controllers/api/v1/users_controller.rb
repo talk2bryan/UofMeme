@@ -1,5 +1,4 @@
 class Api::V1::UsersController < Api::V1::BaseController
-
 	def index
 		@posts = Post.all
 
@@ -8,7 +7,7 @@ class Api::V1::UsersController < Api::V1::BaseController
 			post.file_name = post.image_file_name
 
 			path = File.join 'http://uofmeme.solutions/', @post.image.url
-			@post.uploaded_image_for_io_adapters = Base64.encode64(
+			post.uploaded_image_for_io_adapters = Base64.encode64(
 				open(path) { |io| io.read })
 		end
 
