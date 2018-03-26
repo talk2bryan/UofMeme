@@ -7,7 +7,8 @@ import {
   Text, StatusBar, 
   KeyboardAvoidingView, 
   Image, 
-  AsyncStorage 
+  AsyncStorage,
+  Alert 
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Container, Content } from "native-base";
@@ -34,7 +35,7 @@ class SignUpForm extends React.Component {
   }
 
   userSignup() {
-    if (!this.state.username || !this.state.email || !this.state.password) return;
+    if (!this.state.username || !this.state.email || !this.state.pw) return;
     fetch('http://uofmeme.solutions/api/v1/users', {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
@@ -61,10 +62,6 @@ class SignUpForm extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar
-          barStyle="dark-content"
-        />
-      
         <KeyboardAvoidingView style={styles.container} behavior={'padding'}>
           <View style={styles.logoContainer}>
             <Image  

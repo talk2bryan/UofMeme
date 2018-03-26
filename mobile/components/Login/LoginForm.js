@@ -35,12 +35,18 @@ class LoginForm extends React.Component {
     }
   }
 
-  testText() {
-    Alert.alert(this.state.email + ": " + this.state.pw);
-  }
-
   userSignup() {
     Actions.SignUpForm();
+  }
+
+  processResponse(responseData) {
+        if(responseData.errors == null){
+          this.saveItem("id", responseData.id),
+          Alert.alert("Login Success!"),
+          Actions.MainScreen();
+        } else {
+          Alert.alert(responseData);
+        }
   }
 
   userLogin() {
@@ -56,14 +62,9 @@ class LoginForm extends React.Component {
         pw: this.state.pw
       })
     })
-      // console
-      //   .error()
       .then(response => response.json())
       .then(responseData => {
-        console.log(responseData);
-        this.saveItem("id", responseData.id),
-          Alert.alert("Login Success!"),
-          Actions.MainScreen();
+        processResponse(responseData){};
       })
       .done();
   }
@@ -71,8 +72,6 @@ class LoginForm extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar barStyle="dark-content" />
-
         <KeyboardAvoidingView style={styles.container} behavior={"padding"}>
           <View style={styles.logoContainer}>
             <Image
@@ -126,13 +125,6 @@ class LoginForm extends React.Component {
               <Text style={styles.buttonText}>
                 Not a meme-ber? Sign up now!
               </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={this.testText.bind(this)}
-              style={styles.signUpContainer}
-            >
-              <Text style={styles.buttonText}>Testing</Text>
             </TouchableOpacity>
           </View>
         </KeyboardAvoidingView>
