@@ -49,11 +49,10 @@ class SignUpForm extends React.Component {
         password_confirmation: this.state.confirmpw
       })
     })
-      // .then(response => response.json())
       .then(responseData => {
         console.log(responseData);
         if (responseData.ok) {
-          this.saveItem("id", responseData.id),
+          this.saveItem("id_token", responseData.id),
             Alert.alert("Signup Success!"),
             Actions.LoginForm();
         } else {
