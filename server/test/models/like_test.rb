@@ -3,7 +3,13 @@ require './test/test_helper'
 class LikesTest < ActiveSupport::TestCase
    def setup 
       @user = users(:user1)
-      @post = posts(:valid_post)
+     # @post = posts(:valid_post)
+     @post = Post.new
+     @post.poster =  'mmmmmmmm'
+     @post.image = File.new("test/fixtures/files/test.png")
+     @post.description = "my mememe"
+     @post.user_id = @user.id
+     assert @post.save
    end
 
    test 'Testing null like input' do
