@@ -1,8 +1,10 @@
 FactoryBot.define do
   factory :post do
-    image  { Rack::Test::UploadedFile.new(Rails.root.join('app', 'assets', 'images', 'uofmeme_logo.png'), 'image/png') }
-    file_name { Faker::File.file_name(Rails.root.join('app', 'assets', 'images',  'uofmeme_logo.png')) }
+    image  { Rack::Test::UploadedFile.new(Rails.root.join('app', 'assets', 'images', 'mememan.jpg'), 'image/jpg') }
     poster { Faker::Lorem.characters(30) }
     description { Faker::Lorem.sentence }
+    uploaded_image_for_io_adapters { "This is it" }
+    like { 1 }
+    dislike { 0 }
   end
 end
