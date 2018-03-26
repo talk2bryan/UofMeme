@@ -24,24 +24,19 @@ class App extends React.Component {
         <Scene key="root">
           <Scene
             component={LoginForm}
-            // hideNavBar={true}
+            hideNavBar={true}
             initial={true}
             key="LoginForm"
             title="Login"
           />
           <Scene
             component={SignUpForm}
-            // hideNavBar={true}
+            hideNavBar={true}
             initial={true}
             key="SignUpForm"
             title="Sign Up"
           />
-          <Scene
-            component={MainScreen}
-            // hideNavBar={true}
-            key="MainScreen"
-            title="Home Page"
-          />
+          <Scene component={MainScreen} key="MainScreen" title="Home Page" />
         </Scene>
       </Router>
     );
