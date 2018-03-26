@@ -1,5 +1,7 @@
 require_relative '../config/environment'
 require 'rails/test_help'
+require 'capybara'
+require 'capybara/dsl'
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
