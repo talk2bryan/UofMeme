@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# valid_post:
-#   poster: "meme man"
-#   description: "this is my meme"
-#   image_file_name: "test"
-#   image_content_type: ".png"
-#   image_file_size: 112
+ # valid_post:
+ #  poster: "meme man"
+ #  description: "this is my meme"
+ #  image_file_name: "test"
+ #  image_content_type: ".png"
+ #  image_file_size: 112
 
 # no_poster:
 #   poster: ""
