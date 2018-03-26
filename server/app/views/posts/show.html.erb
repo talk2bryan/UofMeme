@@ -1,15 +1,27 @@
-<h3>By: <%= @post.poster %></h3>
-
-<%= image_tag @post.image(:large) %>
-
-<p>Likes: <%= @post.like %></p>
-<p>DisLikes: <%= @post.dislike %></p>
-
-<p>Created Date: <%= @post.created_at %></p>
-
-<p>Description: <%= @post.description %></p>
-
-<p><a href="#" class="glyphicon glyphicon-flag"> Flag as inappropriate</a></p>
-
-
-<%= link_to 'Back', root_path %>
+<div class="container">
+  <center><table border="0" style="max-width: 500px;">
+    <tr>
+      <td colspan="2"><%= image_tag @post.image(:large) %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><h3 class="text-left"><%= @post.description %></h3></td>
+    </tr>
+    <tr valign="top">
+      <td>
+	<p>Posted by: <%= @post.poster %></p>
+	<p><small class="text-muted"><%= @post.created_at %></small></p>
+      </td>
+      <td><p class="text-right">
+		<div class="voting" style="text-align:center;" id="voting-div">
+			<%= render partial: 'posts/likes', locals: {post: @post}  %>
+			<%= render partial: 'posts/dislikes', locals: {post: @post}  %>
+			<%= render partial: 'posts/post_score', locals: {post: @post}  %>
+		</div>
+      </p></td>
+    </tr>
+    <tr>
+      <td colspan="2"><p><a href="#" class="glyphicon glyphicon-flag"> Flag as inappropriate</a></p></td>
+    </tr>
+  </table></center>
+  <%= link_to 'Back', url_for(:back) %>
+</div>

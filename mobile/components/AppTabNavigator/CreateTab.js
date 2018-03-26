@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { AppRegistry, StyleSheet, ActivityIndicator, ListView, Text, View, Alert,Image, Platform, TouchableHighlight, Modal} from 'react-native';
+import { AppRegistry, ImageBackground, StyleSheet, ActivityIndicator, ListView, TextInput, View, Alert,Image, Platform, TouchableHighlight, Modal,
+         TouchableOpacity, Button } from 'react-native';
 import { Icon } from "native-base";
  
 class CreateTab1 extends Component {
@@ -10,7 +11,8 @@ class CreateTab1 extends Component {
      modalVisible: false,
      isLoading: true,
      dataSource: [],
-     url: ''
+     url: '',
+     text: 'Add text here'
    }
  }
 
@@ -22,6 +24,7 @@ class CreateTab1 extends Component {
 
   setModalVisible(visible) {
     this.setState({modalVisible: visible});
+    this.setState({text: 'Add text here'});
   }
 
  
@@ -61,6 +64,10 @@ class CreateTab1 extends Component {
      />
    );
  }
+
+ inputText = () => {
+  
+ }
  
  
  render() {
@@ -92,17 +99,33 @@ class CreateTab1 extends Component {
         </View>
          }
        />
-       <Modal animationType="slide" visible={this.state.modalVisible}> 
+       <Modal animationType="slide" visible={this.state.modalVisible} onRequestClose={() => {alert('Modal has been closed.');}}> 
           <View style={{marginTop: 22}}> 
-
             <TouchableHighlight
                 onPress={() => {
                   this.setModalVisible(!this.state.modalVisible);
                 }}>
                 <Icon name="ios-close-circle" style={{textAlign: 'right'}}/>
 
-            </TouchableHighlight>     
-             <Image source = {{ uri: this.state.url  }} style={styles.imageViewContainer} />
+            </TouchableHighlight>              
+            <TouchableOpacity onPress={() => console.log(this.state.text)} style={styles.modal}>    
+              <ImageBackground source = {{ uri: this.state.url  }} style={styles.imageView}> 
+                <TextInput 
+                  style={{                 
+                  height: 27,                  
+                  fontSize: 27, 
+                  fontWeight: '600',
+                  backgroundColor: 'transparent', 
+                  color: 'white'                  
+                  }}                  
+                  onChangeText= {(text) => this.setState({text})}
+                  value = {this.state.text}
+                />
+              </ImageBackground>              
+            </TouchableOpacity> 
+            <View>
+              <Button title='Upload Meme' onPress={() => Alert.alert('meme posted')} style={styles.buttonStyle}/>
+            </View>            
           </View>
         </Modal> 
  
@@ -113,10 +136,8 @@ class CreateTab1 extends Component {
 
 export default CreateTab1;
  
-const styles = StyleSheet.create({
- 
+const styles = StyleSheet.create({ 
 MainContainer :{
-
 justifyContent: 'center',
 flex:1,
 margin: 5,
@@ -128,6 +149,21 @@ width: '75%',
 height: 175 ,
 margin: 5,
 borderRadius : 10 
-} 
+} ,
+imageView: {  
+width: '85%',
+height: 250 ,
+margin: 5,
+borderRadius : 10 
+} ,
+modal: {
+  justifyContent: "center",
+  alignItems: "center"
+},
+buttonStyle: {
+  color: 'blue',
+  borderRadius : 10,
+  width: '50%' 
+}
 });
  

@@ -1,15 +1,18 @@
 class UsersController < ApplicationController
+
     def new
     	@user = User.new
     end
 
     def index
       @posts = Post.all
+      save_my_previous_url
     end
 
     def show
    		@user = User.find(params[:id])
-    	redirect_to root_url 
+   		save_my_previous_url
+   		@posts = Post.where(user_id: current_user.id).all
    	end
 
     def create
@@ -32,6 +35,11 @@ class UsersController < ApplicationController
 	# Sends the activation email.
 	def send_activation_email
 		UserMailer.account_activation(self).deliver!
+	end
+
+	def save_my_previous_url
+		# session[:previous_url] is a Rails built-in variable to save last url.
+		session[:my_previous_url] = request.original_url
 	end
 
   private
