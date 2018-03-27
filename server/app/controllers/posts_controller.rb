@@ -19,14 +19,14 @@ class PostsController < ApplicationController
  		bottxt = params[:post][:bot_text]
 
  		unless toptxt.blank? && bottxt.blank?
-		  	uploaded_image = Magick::Image.read(post_params[:image].path)[0]
+		  	uploaded_image = Magick::ImageList.new(post_params[:image].path)[0]
 		  	temp = Tempfile.new("tmp")
 		  	width = uploaded_image.columns
 		  	height = uploaded_image.rows/3
 
 		  	unless toptxt.blank?
 			  	top_img = Magick::Image.read("caption:#{toptxt}") {
-				 	self.fill = '#A9A9A9'
+				 	self.fill = '#FFFFFF'
 				 	self.stroke = '#000000'
 				 	self.stroke_width = 0.1
 				 	self.pointsize = width/10
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
 
 			unless bottxt.blank?
 				bot_img = Magick::Image.read("caption:#{bottxt}") {
-					self.fill = '#A9A9A9'
+					self.fill = '#FFFFFF'
 				 	self.stroke = '#000000'
 					self.stroke_width = 0.01
 					self.pointsize = width/10
