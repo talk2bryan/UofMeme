@@ -45,14 +45,12 @@ class SignUpForm extends React.Component {
     })
       .then(responseData => {
         var response = JSON.parse(responseData._bodyInit);
-        console.log(responseData);
         if (responseData.ok) {
             Alert.alert("Signup Success! "),
             Actions.LoginForm();
         } else {
           var errorMsg = "";
 
-          console.log(response);
           if(typeof response.username != 'undefined'){
             errorMsg += "Username " + response.username[0].message + "\n"
           } else if(typeof response.email != 'undefined') {
