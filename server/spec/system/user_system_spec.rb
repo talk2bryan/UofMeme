@@ -1,4 +1,5 @@
 require "rails_helper"
+require "selenium-webdriver"
 
 RSpec.describe "User management", :type => :system do
   before do
