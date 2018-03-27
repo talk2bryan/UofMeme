@@ -1,16 +1,25 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Platform, TouchableOpacity, AppRegistry } from "react-native";
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  Platform, 
+  TouchableOpacity, 
+  AppRegistry,
+  AsyncStorage,
+  Alert 
+} from "react-native";
 
 import { Icon } from "native-base";
-import { TabNavigator, SwitchNavigator } from "react-navigation";
+import { TabNavigator } from "react-navigation";
 
 import HomeTab from "./AppTabNavigator/HomeTab";
 import UploadTab from "./AppTabNavigator/UploadTab";
 import CreateTab from "./AppTabNavigator/CreateTab";
 import LoginForm from './Login/LoginForm';
 
-
 class MainScreen extends Component {
+
   static navigationOptions =({navigation}) => {
     const{navigate} =  navigation;
     return{
@@ -18,17 +27,15 @@ class MainScreen extends Component {
       headerRight: 
       <TouchableOpacity onPress={() => navigate("LoginForm")}>
         <Icon style={{ paddingRight: 15 }} name="ios-log-out-outline" />
-      </TouchableOpacity>
+      </TouchableOpacity>,
+      headerLeft: (<View></View>)
     };
   };
-  render() {        
+
+  render() {
     return <AppTabNavigator />;
   }
-
- 
 }
-
-
 
 export default MainScreen;
 
