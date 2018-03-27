@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "User management", :type => :system do
 	  before do
-	    driven_by(:selenium_chrome) #switch :selenium_chrome_headless to :selenium_chrome to enjoy the gui tests
+	    driven_by(:selenium_chrome_headless )#switch :selenium_chrome_headless to :selenium_chrome to enjoy the gui tests
 	  end
    path =  "#{Rails.root}/app/assets/images/uofmeme_logo.png"
 

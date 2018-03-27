@@ -3,7 +3,7 @@ require "selenium-webdriver"
 
 RSpec.describe "User management", :type => :system do
   before do
-    driven_by(:selenium_chrome) #switch :selenium_chrome_headless to :selenium_chrome to enjoy the gui tests
+    driven_by(:selenium_chrome_headless) #switch :selenium_chrome_headless to :selenium_chrome to enjoy the gui tests
   end
 
   it "A new user can create an account" do
