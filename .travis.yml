@@ -1,11 +1,13 @@
 dist: trusty
-sudo: false
+sudo: required
 git:
   depth: 3
 language: ruby
 cache: bundler
 rvm:
   - 2.4.1
+addons:
+  chrome: stable
 env: 
   matrix:
     - DB=mysql
@@ -19,13 +21,9 @@ before_script:
   - mysql -e 'CREATE DATABASE uofmeme_app_test;'
 script:
   - whereis google-chrome-stable
+  - google-chrome-stable --version
   - whereis chromedriver
-  
-after_success:
-  - bash scripts/deploy.sh
 
-addons:
-  chrome: stable
 install: 
   - wget -N http://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip -P ~/
   - unzip ~/chromedriver_linux64.zip -d ~/
@@ -33,6 +31,9 @@ install:
   - sudo mv -f ~/chromedriver /usr/local/share/
   - sudo chmod +x /usr/local/share/chromedriver
   - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+
+after_success:
+  - bash scripts/deploy.sh
 
 notifications:
   email: false
