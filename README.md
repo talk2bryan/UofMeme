@@ -47,3 +47,6 @@
 ### Still feeling a bit lost? Start from the Wiki Homepage:
 * https://github.com/talk2bryan/UofMeme/wiki
 
+### Acknowledgements
+* Used pictures from this api for our application http://api.giphy.com/v1/gifs/search?q=javascript&api_key=dc6zaTOxFJmzC
+

@@ -107,9 +107,6 @@ GEM
       activesupport
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
-    chromedriver-helper (1.1.0)
-      archive-zip (~> 0.7.0)
-      nokogiri (~> 1.6)
     climate_control (0.2.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -141,6 +138,8 @@ GEM
     faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
     ffi (1.9.18)
+    geckodriver-helper (0.0.4)
+      archive-zip (~> 0.7.0)
     gh (0.14.0)
       addressable
       backports
@@ -356,11 +355,11 @@ DEPENDENCIES
   capistrano-rvm
   capistrano3-puma
   capybara (= 2.15)
-  chromedriver-helper
   coffee-rails (= 4.2.2)
   database_cleaner
   factory_bot_rails (~> 4.0)
   faker
+  geckodriver-helper
   jbuilder (= 2.7.0)
   jquery-rails
   jsonapi-rspec
