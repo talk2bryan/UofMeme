@@ -2,10 +2,10 @@
 <%= form_for @post, html: { multipart: true } do |f| %>
 
 <form>
-    <%= f.hidden_field :poster, value: current_user.username%>
-    <%= f.hidden_field :user_id, value: current_user.id%>
+    <%= f.hidden_field :poster, value: current_user.username, :id => "poster"%>
+    <%= f.hidden_field :user_id, value: current_user.id, :id => "user_id"%>
     <div class="form-group row">
-        <%= f.label :image, :class => "col-sm-2 col-form-label" %>
+        <%= f.label :image, :class => "col-sm-2 col-form-label"%>
         <div class="col-sm-10">
             <%= f.file_field :image %>
         </div>
