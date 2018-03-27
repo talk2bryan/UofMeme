@@ -1,235 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing CardComponent renders as expected 1`] = `
-<Styled(Card)>
-  <Styled(CardItem)>
-    <Styled(Left)>
-      <Styled(Body)>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-        >
-          Neil
-        </Text>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          note={true}
-        >
-          March 10, 2018
-        </Text>
-      </Styled(Body)>
-    </Styled(Left)>
-  </Styled(CardItem)>
-  <Styled(CardItem)
-    cardBody={true}
-  >
-    <Image
-      style={
-        Object {
-          "flex": 1,
-          "height": 300,
-          "width": null,
-        }
-      }
-    />
-  </Styled(CardItem)>
-  <Styled(CardItem)>
-    <Styled(Left)>
-      <Styled(Button)
-        transparent={true}
-      >
-        <Styled(Icon)
-          name="ios-thumbs-up-outline"
-          style={
-            Object {
-              "color": "black",
-            }
-          }
-        />
-      </Styled(Button)>
-      <Styled(Button)
-        transparent={true}
-      >
-        <Styled(Icon)
-          name="ios-thumbs-down-outline"
-          style={
-            Object {
-              "color": "black",
-            }
-          }
-        />
-      </Styled(Button)>
-      <Styled(Button)
-        transparent={true}
-      >
-        <Styled(Icon)
-          name="ios-chatbubbles-outline"
-          style={
-            Object {
-              "color": "black",
-            }
-          }
-        />
-      </Styled(Button)>
-    </Styled(Left)>
-  </Styled(CardItem)>
-  <Styled(CardItem)
-    style={
-      Object {
-        "height": 20,
-      }
+<View
+  style={
+    Object {
+      "flex": 1,
+      "paddingTop": 20,
     }
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
-       likes
-    </Text>
-  </Styled(CardItem)>
-  <Styled(CardItem)>
-    <Styled(Body)>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "fontWeight": "900",
-            }
-          }
-        >
-          neil
-        </Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam quas, sit praesentium debitis quasi delectus hic aut sed, velit ipsum nulla, suscipit sint impedit fugiat! Itaque sapiente modi explicabo voluptatem!
-      </Text>
-    </Styled(Body)>
-  </Styled(CardItem)>
-</Styled(Card)>
+  }
+>
+  <ActivityIndicator
+    animating={true}
+    color="#999999"
+    hidesWhenStopped={true}
+    size="small"
+  />
+</View>
 `;
 
 exports[`Testing CardComponent renders as expected 2`] = `
-<Styled(Card)>
-  <Styled(CardItem)>
-    <Styled(Left)>
-      <Styled(Body)>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-        >
-          Neil
-        </Text>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          note={true}
-        >
-          March 10, 2018
-        </Text>
-      </Styled(Body)>
-    </Styled(Left)>
-  </Styled(CardItem)>
-  <Styled(CardItem)
-    cardBody={true}
-  >
-    <Image
-      style={
-        Object {
-          "flex": 1,
-          "height": 300,
-          "width": null,
-        }
-      }
-    />
-  </Styled(CardItem)>
-  <Styled(CardItem)>
-    <Styled(Left)>
-      <Styled(Button)
-        transparent={true}
-      >
-        <Styled(Icon)
-          name="ios-thumbs-up-outline"
-          style={
-            Object {
-              "color": "black",
-            }
-          }
-        />
-      </Styled(Button)>
-      <Styled(Button)
-        transparent={true}
-      >
-        <Styled(Icon)
-          name="ios-thumbs-down-outline"
-          style={
-            Object {
-              "color": "black",
-            }
-          }
-        />
-      </Styled(Button)>
-      <Styled(Button)
-        transparent={true}
-      >
-        <Styled(Icon)
-          name="ios-chatbubbles-outline"
-          style={
-            Object {
-              "color": "black",
-            }
-          }
-        />
-      </Styled(Button)>
-    </Styled(Left)>
-  </Styled(CardItem)>
-  <Styled(CardItem)
-    style={
-      Object {
-        "height": 20,
-      }
+<View
+  style={
+    Object {
+      "flex": 1,
+      "paddingTop": 20,
     }
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
-       likes
-    </Text>
-  </Styled(CardItem)>
-  <Styled(CardItem)>
-    <Styled(Body)>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "fontWeight": "900",
-            }
-          }
-        >
-          neil
-        </Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam quas, sit praesentium debitis quasi delectus hic aut sed, velit ipsum nulla, suscipit sint impedit fugiat! Itaque sapiente modi explicabo voluptatem!
-      </Text>
-    </Styled(Body)>
-  </Styled(CardItem)>
-</Styled(Card)>
+  }
+>
+  <ActivityIndicator
+    animating={true}
+    color="#999999"
+    hidesWhenStopped={true}
+    size="small"
+  />
+</View>
 `;

@@ -54,6 +54,7 @@ exports[`renders correctly 1`] = `
             "color": "black",
             "fontSize": 20,
             "fontWeight": "bold",
+            "marginBottom": 10,
             "marginTop": 10,
             "textAlign": "center",
             "width": 200,
@@ -74,9 +75,11 @@ exports[`renders correctly 1`] = `
         allowFontScaling={true}
         autoCapitalize="none"
         autoCorrect={false}
+        editable={true}
         keyboardType="email-address"
+        onChangeText={[Function]}
         onSubmitEditing={[Function]}
-        placeholder="username@myumanitoba.ca"
+        placeholder="email@myumanitoba.ca"
         placeholderTextColor="white"
         returnKeyType="next"
         style={
@@ -88,9 +91,12 @@ exports[`renders correctly 1`] = `
             "paddingHorizontal": 10,
           }
         }
+        value={undefined}
       />
       <TextInput
         allowFontScaling={true}
+        editable={true}
+        onChangeText={[Function]}
         placeholder="Password"
         placeholderTextColor="white"
         returnKeyType="go"
@@ -104,6 +110,7 @@ exports[`renders correctly 1`] = `
             "paddingHorizontal": 10,
           }
         }
+        value={null}
       />
       <View
         accessibilityComponentType={undefined}
