@@ -69,6 +69,7 @@ exports[`renders correctly 1`] = `
   <Modal
     animationType="slide"
     hardwareAccelerated={false}
+    onRequestClose={[Function]}
     visible={false}
   >
     <View
@@ -101,38 +102,9 @@ exports[`renders correctly 1`] = `
         >
           <Text
             accessible={true}
-            allowFontScaling={false}
+            allowFontScaling={true}
             ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#000",
-                    "fontSize": 30,
-                  },
-                  Object {
-                    "color": "#000",
-                    "fontSize": 30,
-                  },
-                  Object {
-                    "textAlign": "right",
-                  },
-                ],
-                Object {
-                  "fontFamily": "Ionicons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-              ]
-            }
-            virtual={undefined}
-          >
-            
-          </Text>
+          />
         </View>
       </View>
       <View
