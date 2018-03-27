@@ -23,6 +23,7 @@ script:
   - whereis google-chrome-stable
   - google-chrome-stable --version
   - whereis chromedriver
+  - cd server 
   - bundle exec rake
 
 install: 
