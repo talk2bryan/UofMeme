@@ -1,13 +1,1 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-valid_post:
-  poster: "meme man"
-  description: "this is my meme"
-
-no_poster:
-  poster: ""
-  description: "I have no name"
-
-no_description:
-  poster: "mute man"
-  description: ""

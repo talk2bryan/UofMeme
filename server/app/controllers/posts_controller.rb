@@ -17,18 +17,18 @@ class PostsController < ApplicationController
 
 	  	toptxt = params[:post][:top_text]
  		bottxt = params[:post][:bot_text]
-
- 	if post_params[:image].present?
-
- 		unless toptxt.blank? && bottxt.blank? 
-		  	uploaded_image = Magick::Image.read(post_params[:image].path)[0]
+    
+if post_params[:image].present?
+  
+ 		unless toptxt.blank? && bottxt.blank?
+		  	uploaded_image = Magick::ImageList.new(post_params[:image].path)[0]
 		  	temp = Tempfile.new("tmp")
 		  	width = uploaded_image.columns
 		  	height = uploaded_image.rows/3
 
 		  	unless toptxt.blank?
 			  	top_img = Magick::Image.read("caption:#{toptxt}") {
-				 	self.fill = '#A9A9A9'
+				 	self.fill = '#FFFFFF'
 				 	self.stroke = '#000000'
 				 	self.stroke_width = 0.1
 				 	self.pointsize = width/10
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
 
 			unless bottxt.blank?
 				bot_img = Magick::Image.read("caption:#{bottxt}") {
-					self.fill = '#A9A9A9'
+					self.fill = '#FFFFFF'
 				 	self.stroke = '#000000'
 					self.stroke_width = 0.01
 					self.pointsize = width/10
@@ -55,7 +55,7 @@ class PostsController < ApplicationController
 			temp = File.open("_editedimage_.png", "r")	
  			@post = Post.new({:poster => post_params[:poster], :image => temp, :description => post_params[:description], :user_id => post_params[:user_id]})
  		end
- 	end
+end
 
 	  	if @post.save
 	  		flash[:info] = "Meme successfully created"
@@ -64,13 +64,12 @@ class PostsController < ApplicationController
 	  		flash[:info] = "There was an error. Your Meme wasn't created"
 	  		render "new"
 	  	end
-
-	  if post_params[:image].present?
+if post_params[:image].present?
 	  	if !toptxt.blank? || !bottxt.blank?
 	  		File.delete("_editedimage_.png")
 	  		temp.close
 	  	end
-	  end
+end
 	end
 
 	private
