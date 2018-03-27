@@ -90,7 +90,9 @@ exports[`renders correctly 1`] = `
     >
       <TextInput
         allowFontScaling={true}
+        autoCapitalize="none"
         autoCorrect={false}
+        onChangeText={[Function]}
         onSubmitEditing={[Function]}
         placeholder="Username"
         placeholderTextColor="white"
@@ -110,6 +112,7 @@ exports[`renders correctly 1`] = `
         autoCapitalize="none"
         autoCorrect={false}
         keyboardType="email-address"
+        onChangeText={[Function]}
         onSubmitEditing={[Function]}
         placeholder="example@myumanitoba.ca"
         placeholderTextColor="white"
@@ -126,6 +129,7 @@ exports[`renders correctly 1`] = `
       />
       <TextInput
         allowFontScaling={true}
+        onChangeText={[Function]}
         onSubmitEditing={[Function]}
         placeholder="Password"
         placeholderTextColor="white"
@@ -143,6 +147,7 @@ exports[`renders correctly 1`] = `
       />
       <TextInput
         allowFontScaling={true}
+        onChangeText={[Function]}
         placeholder="Confirm Password"
         placeholderTextColor="white"
         returnKeyType="go"
@@ -197,7 +202,50 @@ exports[`renders correctly 1`] = `
             }
           }
         >
-          Sign Up
+          SIGN UP
+        </Text>
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#337ab7",
+            "marginBottom": 20,
+            "opacity": 1,
+            "paddingVertical": 15,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "white",
+              "fontWeight": "700",
+              "textAlign": "center",
+            }
+          }
+        >
+          Already have an account? Login here!
         </Text>
       </View>
     </View>

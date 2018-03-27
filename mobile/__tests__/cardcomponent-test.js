@@ -1,5 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import "isomorphic-fetch";
+
 import CardComponent from '../components/CardComponent';
 import setupTests from '../setupTests';
 

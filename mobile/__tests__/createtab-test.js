@@ -1,8 +1,9 @@
 import 'react-native';
 import React from 'react';
-import CreateTab from '../components/AppTabNavigator/CreateTab';
 import "isomorphic-fetch";
 import renderer from 'react-test-renderer';
+
+import CreateTab from '../components/AppTabNavigator/CreateTab';
 
 it('renders correctly', () => {
   const tree = renderer.create(
