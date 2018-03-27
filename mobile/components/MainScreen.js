@@ -6,11 +6,12 @@ import {
   Platform, 
   TouchableOpacity, 
   AppRegistry,
-  AsyncStorage 
+  AsyncStorage,
+  Alert 
 } from "react-native";
 
 import { Icon } from "native-base";
-import { TabNavigator, SwitchNavigator } from "react-navigation";
+import { TabNavigator } from "react-navigation";
 
 import HomeTab from "./AppTabNavigator/HomeTab";
 import UploadTab from "./AppTabNavigator/UploadTab";
@@ -18,29 +19,20 @@ import CreateTab from "./AppTabNavigator/CreateTab";
 import LoginForm from './Login/LoginForm';
 
 class MainScreen extends Component {
+
   static navigationOptions =({navigation}) => {
     const{navigate} =  navigation;
     return{
       title: "UofMeme",
       headerRight: 
-      <TouchableOpacity onPress={() => this.userLogout.bind(this)}>
+      <TouchableOpacity onPress={() => navigate("LoginForm")}>
         <Icon style={{ paddingRight: 15 }} name="ios-log-out-outline" />
       </TouchableOpacity>,
       headerLeft: (<View></View>)
     };
   };
 
-  async userLogout() {
-    try {
-      await AsyncStorage.removeItem('id');
-      Alert.alert('Logged out of UofMeme');
-      navigate("LoginForm")
-    } catch (error) {
-      console.log('AsyncStorage error: ' + error.message);
-    }
-  }
-
-  render() {        
+  render() {
     return <AppTabNavigator />;
   }
 }

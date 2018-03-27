@@ -34,18 +34,23 @@ class App extends React.Component {
             <Scene
               component={LoginForm}
               hideNavBar={true}
-              initial={true}
+              initial={!this.state.hasToken}
               key="LoginForm"
               title="Login"
             />
             <Scene
               component={SignUpForm}
               hideNavBar={true}
-              initial={true}
+              initial={!this.state.hasToken}              
               key="SignUpForm"
               title="Sign Up"
             />
-            <Scene component={MainScreen} key="MainScreen" title="Home Page" />
+          <Scene 
+            component={MainScreen} 
+            initial={this.state.hasToken}
+            key="MainScreen" 
+            title="Home Page" 
+          />
           </Scene>
         </Router>
       );

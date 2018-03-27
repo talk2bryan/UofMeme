@@ -18,21 +18,15 @@ import MainScreen from "../MainScreen";
 import LoginForm from "../Login/LoginForm";
 
 class SignUpForm extends React.Component {
+  
   constructor() {
     super();
     this.state = { username: null, email: null, pw: null, confirmpw: null };
   }
+
   static navigationOptions = ({ navigation }) => {
     return { headerLeft: <View /> };
   };
-
-  async saveItem(item, selectedValue) {
-    try {
-      await AsyncStorage.setItem(item, selectedValue);
-    } catch (error) {
-      console.error("AsyncStorage error: " + error.message);
-    }
-  }
 
   userSignup() {
     if (!this.state.username || !this.state.email || !this.state.pw) return;
@@ -50,13 +44,12 @@ class SignUpForm extends React.Component {
       })
     })
       .then(responseData => {
+        var response = JSON.parse(responseData._bodyInit);
         console.log(responseData);
         if (responseData.ok) {
-          this.saveItem("id_token", responseData.id),
-            Alert.alert("Signup Success!"),
+            Alert.alert("Signup Success! "),
             Actions.LoginForm();
         } else {
-          var response = JSON.parse(responseData._bodyInit);
           var errorMsg = "";
 
           console.log(response);
