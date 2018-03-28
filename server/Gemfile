@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+# Ensure github repositories are fetched using HTTPS
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end if Gem::Version.new(Bundler::VERSION) < Gem::Version.new('2')
 
 ruby '2.4.1'
 
@@ -66,7 +71,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '2.15'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 3.11'
   # Easy installation and use of chromedriver to run system tests with Chrome
   # gem 'chromedriver-helper'
   # installs geckodriver for system tests on firefox
@@ -76,7 +81,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-api_helpers', '1.0.4', require: false
   gem 'jsonapi-rspec', require: false
-  gem 'rspec-json_schema', :git => "git://github.com/blazed/rspec-json_schema.git"
+  gem 'rspec-json_schema', github: "blazed/rspec-json_schema", ref: "65966858e9a45f7a62830d7d7c0858e0322410b5"
   
 end
 
@@ -95,7 +100,7 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data'
 
 # ImageMagick ruby interface
 gem 'rmagick', '~> 2.15'
