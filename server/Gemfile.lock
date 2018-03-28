@@ -1,6 +1,7 @@
 GIT
-  remote: git://github.com/blazed/rspec-json_schema.git
+  remote: https://github.com/blazed/rspec-json_schema.git
   revision: 65966858e9a45f7a62830d7d7c0858e0322410b5
+  ref: 65966858e9a45f7a62830d7d7c0858e0322410b5
   specs:
     rspec-json_schema (0.2.1)
       activesupport (>= 4.0.0)
@@ -161,7 +162,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.1.0)
-    json_schema (0.17.2)
+    json_schema (0.19.0)
     jsonapi-renderer (0.2.0)
     jsonapi-rspec (0.0.2)
     launchy (2.4.3)
