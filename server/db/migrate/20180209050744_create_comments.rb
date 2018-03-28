@@ -4,6 +4,9 @@ class CreateComments < ActiveRecord::Migration[5.2]
     	t.column :commenter, :text, :limit => 32, :null => false
     	t.column :description, :text
 
+    	t.references :post, foreign_key: true
+    	t.references :user, foreign_key: true
+
       t.timestamps
     end
   end
