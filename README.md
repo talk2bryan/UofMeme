@@ -40,6 +40,9 @@
 
 * Deployment instructions
   * https://github.com/talk2bryan/UofMeme/wiki/Deployment-and-Rollback-Instructions
+  
+ ### Tests
+ * https://github.com/talk2bryan/UofMeme/wiki/Tests
 
 ### Coding Standards
   * https://github.com/talk2bryan/UofMeme/wiki/Coding-Standards
