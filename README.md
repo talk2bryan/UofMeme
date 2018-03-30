@@ -1,6 +1,7 @@
 # UofMeme
 [![Build Status](https://travis-ci.com/talk2bryan/UofMeme.svg?token=5zYcc4ywcxmJpaRTBL7b&branch=master)](https://travis-ci.com/talk2bryan/UofMeme.svg?token=5zYcc4ywcxmJpaRTBL7b&branch=master)
 [![HitCount](http://hits.dwyl.io/talk2bryan/UofMeme.svg)](http://hits.dwyl.io/talk2bryan/UofMeme)
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors)
 
 
 
@@ -17,6 +18,7 @@
   
   * https://github.com/talk2bryan/UofMeme/wiki/Android-Development
 
+## About UofMeme
 ### tl;dr
 * https://github.com/talk2bryan/UofMeme/wiki/tl;dr
 
@@ -52,4 +54,8 @@
 
 ### Acknowledgements
 * Used pictures from this api for our application http://api.giphy.com/v1/gifs/search?q=javascript&api_key=dc6zaTOxFJmzC
+
+
+## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
+
 
