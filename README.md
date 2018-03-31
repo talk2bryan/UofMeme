@@ -6,7 +6,6 @@
 
 
 
-
 ## Ruby Version
   * Rails: 5.2.0.beta2
   * Ruby: 2.4.1
@@ -27,7 +26,7 @@
 ### Design docs
   * [Feature Breakdown](https://github.com/talk2bryan/UofMeme/wiki/Feature-Breakdown)
   * [MVP](https://github.com/talk2bryan/UofMeme/wiki/Minimum-Viable-Product)
-  * [Server AArchitecture](https://github.com/talk2bryan/UofMeme/wiki/Server-Architecture)
+  * [Server Architecture](https://github.com/talk2bryan/UofMeme/wiki/Server-Architecture)
   * The rest can be found in the Project Documentation
   
 ### Project Documentation
