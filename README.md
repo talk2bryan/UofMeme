@@ -2,7 +2,6 @@
 [![Build Status](https://travis-ci.com/talk2bryan/UofMeme.svg?token=5zYcc4ywcxmJpaRTBL7b&branch=master)](https://travis-ci.com/talk2bryan/UofMeme.svg?token=5zYcc4ywcxmJpaRTBL7b&branch=master)
 [![HitCount](http://hits.dwyl.io/talk2bryan/UofMeme.svg)](http://hits.dwyl.io/talk2bryan/UofMeme)
 [![NPM version](https://badge.fury.io/js/badge-list.svg)](http://badge.fury.io/js/badge-list)
-[![forthebadge](http://forthebadge.com/badges/built-with-love.svg)](http://forthebadge.com)
 
 
 
