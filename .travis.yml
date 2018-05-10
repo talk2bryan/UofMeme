@@ -5,36 +5,37 @@ git:
 language: ruby
 cache: bundler
 rvm:
-  - 2.4.1
+- 2.4.1
 addons:
   chrome: stable
-env: 
+env:
   matrix:
-    - DB=mysql
+  - DB=mysql
   global:
-    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
 before_install:
-  - cd server
-  - bash scripts/install.sh
+- cd server
+- bash scripts/install.sh
 before_script:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
-  - mysql -e 'CREATE DATABASE uofmeme_app_test;'
+- mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
+- mysql -e 'CREATE DATABASE uofmeme_app_test;'
 script:
-  - whereis google-chrome-stable
-  - google-chrome-stable --version
-  - whereis chromedriver
-  - bundle install --path vendor/cache
-  - bash scripts/tests.sh
-install: 
-  - wget -N http://chromedriver.storage.googleapis.com/2.36/chromedriver_linux64.zip -P ~/
-  - unzip ~/chromedriver_linux64.zip -d ~/
-  - rm ~/chromedriver_linux64.zip
-  - sudo mv -f ~/chromedriver /usr/local/share/
-  - sudo chmod +x /usr/local/share/chromedriver
-  - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+- whereis google-chrome-stable
+- google-chrome-stable --version
+- whereis chromedriver
+- bundle install --path vendor/cache
+- bash scripts/tests.sh
+install:
+- wget -N http://chromedriver.storage.googleapis.com/2.36/chromedriver_linux64.zip
+  -P ~/
+- unzip ~/chromedriver_linux64.zip -d ~/
+- rm ~/chromedriver_linux64.zip
+- sudo mv -f ~/chromedriver /usr/local/share/
+- sudo chmod +x /usr/local/share/chromedriver
+- sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
 after_success:
-  - bash scripts/deploy.sh
+- bash scripts/deploy.sh
 notifications:
   email: false
   slack:
-    secure: D9Pgr5v5xfg7L+AcAllIpLQnjcXNCVbxH3KqKfwVr37AUceqt7hq7DoSKjZX/QBG2OkZjndizU0a+QHUEAVYMR6TE3xwkMOskPip3rZCsVZYmCNG1QcmqqFVTdRG+zJt8srKFtFnJOlYHz47snNiRikbPpHS4cBMirSMljwmoSvU24GhyeDN0Qyh5qq2Xdv3BnZkOuD03ee1B1EmU+GCPLhOPfNN+5bryow0YdZs6rjonutQaSR3w1KpqgOZfKUSMTps5WY+wYRnE+07rKUEwYT5k7lkHUes14ojh+T0EAauk3EgWleayHIUCmMugtmSeOiKx14qC4F82d/dAozflQEPANWKNNefmCxWw2pN0Tj6eSuaNSBY8jVtpmJHqiHFAl7KE5irb/5BY/tkziRg9rLtBXlk01BcxT2m/dF0sopWQp3/vbw45J2ZZqqG8Wn3CyLaCRdWF8KDHrd6DusTquANmOoDfmnPwAfVQIRBGTWJG4v+ZQfPv+qIPYcNk3CBVOBXzt0m+xBIrexn8zPoEVk4agSZxrY3I5Gx6fIv4uN7X1EfcdgmVhFbAmGgUIuTzSWPeige17aa0FI+qZpy+mk9MzMfxFQ4kMHBKs+7Gx9Ia6YxEfdrYMz9wF4TeSG/eaRNmnlinbxAalZ96JSV9mV20TFZb+VN9NNreKcpMn0=
+    secure: TYPYxQMbXXh05KG2o+8Q4RTK61pDBeRoJfNmwQYCPyW5GYTw3NyjNrdXaXe0TLwvKf9vU1lO72LfQXsWPQnLKiFUGBhqnracdPbYdayeCbpYzsjybwPiiuXCuSe4/DLGhuLPTsutF3tq34cA3mZEkBLPieHQAneTAcmKCGRSOgss3G0lzHsgJHAY/tXxj6iqcmMlbUitbXvZJHG5pixGEZyMkvUHXz0rQ0Oka7dsy6Lswpp4LJBCUq3PtrvE4EbclqxAS5i0fIp7FkWa3Ksw3QgR/QUS0NYHFhkjjSqakapHg0VSgfsWQGETlCK1F/wH+woFm3OtlC3zPJ9lPkHPAbH94xpFp1GoRQbRk3eHRt2y0n/OG2MHV4MaGLVq3fH39wwN2jT/bW8gCINP86roYDTF4HmZm03L0AmPAaIULYEJctTPah6yfcj4xhhVCSngA1oe0bYjQkYuMcUEV+H3D/d8r9T10wyWzJB6pULszHQ9Wa75hBqTcDNIopDwJ1ZX1Hza0OCYEkgZuujT4rJ4Wqmpw5MUVFOI4o4BPhN/E4Y6p/C3UxSGfAYvyLUWWsYQmXT9ZdxICA7/DwDe1VEYJ4s9HXPcxFF0PGjv3GKilsSi0ks2HfueybfaK+8riGfZYkak4GkOGJ1zZbfxOj2uWkDjbPBV+MrEJbsSpd+yvNI=
