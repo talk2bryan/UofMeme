@@ -34,7 +34,7 @@
 ### Project Proposal
 * https://github.com/talk2bryan/UofMeme/wiki/Project-Proposal
 
-### Our Trello board can be hound here:
+### Our [deprecated] Trello board can be hound here:
 * https://trello.com/b/O7Ntftrz
 
 ### Getting the Application started:
