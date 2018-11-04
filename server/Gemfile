@@ -59,6 +59,9 @@ gem 'jquery-rails'
 
 gem 'rails-controller-testing'
 
+# Fix for Autoprefixer not supporting Node v4.2.6
+gem 'mini_racer'
+
 group :test do
   gem 'factory_bot_rails', '~> 4.0'
   gem 'shoulda-matchers', '~> 3.1'
