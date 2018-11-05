@@ -15,7 +15,6 @@
   * react-native: 0.52.0
   * NodeJS: v9.8.0
   * openjdk version: 1.8.0_141
-  
   * https://github.com/talk2bryan/UofMeme/wiki/Android-Development
 
 ## About UofMeme
