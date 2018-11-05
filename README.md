@@ -6,9 +6,9 @@
 
 
 ## Ruby Version
-  * Rails: 5.2.0.beta2
+  * Rails: 5.2.1
   * Ruby: 2.4.1
-  * RVM: 1.29.3
+  * RVM: 1.29.4
 
 ## Mobile (Android) Development
   * react-native-cli: 2.0.1
