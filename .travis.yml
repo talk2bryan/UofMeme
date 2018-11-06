@@ -23,15 +23,15 @@ script:
 - whereis google-chrome-stable
 - google-chrome-stable --version
 - whereis chromedriver
-- bundle install --path vendor/cache
+- bundle install --path vendor/cache --quiet
 - bash scripts/tests.sh
-- zip -r latest *
+- zip -r latest * --quiet
 - mkdir -p dpl_cd_upload
 - mv latest.zip dpl_cd_upload/latest.zip
 install:
 - wget -N http://chromedriver.storage.googleapis.com/2.36/chromedriver_linux64.zip
-  -P ~/
-- unzip ~/chromedriver_linux64.zip -d ~/
+  -P ~/ --quiet
+- unzip -q ~/chromedriver_linux64.zip -d ~/
 - rm ~/chromedriver_linux64.zip
 - sudo mv -f ~/chromedriver /usr/local/share/
 - sudo chmod +x /usr/local/share/chromedriver
