@@ -2,13 +2,6 @@ version: 0.0
 os: linux
 files:
   - source: ./
-    destination: /home/deploy/apps/UofMeme
-hooks:
-  AfterInstall:
-    - location: scripts/AfterInstall.sh
-      runas: deploy
-  ApplicationStart:
-    - location: scripts/ApplicationStart.sh
-      runas: deploy
+    destination: /home/ubuntu/UofMeme
 
 
