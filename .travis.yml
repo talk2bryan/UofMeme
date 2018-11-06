@@ -31,7 +31,7 @@ script:
 install:
 - wget -N http://chromedriver.storage.googleapis.com/2.36/chromedriver_linux64.zip
   -P ~/ --quiet
-- unzip ~/chromedriver_linux64.zip -d ~/ --quiet
+- unzip -q ~/chromedriver_linux64.zip -d ~/
 - rm ~/chromedriver_linux64.zip
 - sudo mv -f ~/chromedriver /usr/local/share/
 - sudo chmod +x /usr/local/share/chromedriver
