@@ -17,8 +17,6 @@ hooks:
     - location: scripts/arrange-deployment-folders.sh
       runas: root
   AfterInstall:
-    - location: scripts/db-config.sh
-      runas: nginx
     - location: scripts/install-gems.sh
       runas: nginx
     - location: scripts/compile-assets.sh
