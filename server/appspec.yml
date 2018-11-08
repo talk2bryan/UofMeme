@@ -2,6 +2,30 @@ version: 0.0
 os: linux
 files:
   - source: ./
-    destination: /home/ubuntu/UofMeme
+    destination: /var/www/UofMeme/deployment
+permissions:
+  - object: /var/www/UofMeme/deployment
+    owner: nginx
+    group: nginx
+    pattern: "*"
+    mode: 755
+    type:
+      - file
+      - directory
+hooks:
+  BeforeInstall:
+    - location: scripts/arrange-deployment-folders.sh
+      runas: root
+  AfterInstall:
+    - location: scripts/db-config.sh
+      runas: nginx
+    - location: scripts/install-gems.sh
+      runas: nginx
+    - location: scripts/compile-assets.sh
+      runas: nginx
+    - location: scripts/run-db-migrations.sh
+      runas: nginx
 
-
+  ApplicationStart:
+    - location: scripts/finish-installation.sh
+      runas: root
