@@ -18,11 +18,11 @@ hooks:
       runas: root
   AfterInstall:
     - location: scripts/install-gems.sh
-      runas: root
+      runas: ubuntu
     - location: scripts/compile-assets.sh
-      runas: root
+      runas: ubuntu
     - location: scripts/run-db-migrations.sh
-      runas: root
+      runas: ubuntu
 
   ApplicationStart:
     - location: scripts/finish-installation.sh
