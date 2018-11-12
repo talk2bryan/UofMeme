@@ -1,6 +1,6 @@
-require './test/test_helper'
+  require './test/test_helper'
 
-class PostsControllerTest < ActionDispatch::IntegrationTest
+  class PostsControllerTest < ActionDispatch::IntegrationTest
 	include FactoryBot::Syntax::Methods
 	include SignInHelper
 
