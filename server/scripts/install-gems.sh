@@ -2,8 +2,7 @@
 set -x
 
 cd /var/www/UofMeme/deployment
-rvm use ruby-2.4.1 --default
-gem install bundler
+sudo gem install bundler
 
 # Bundle location: /var/www/UofMeme/shared/bundle
 # Binary location: /var/www/UofMeme/shared/bin
