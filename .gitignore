@@ -472,3 +472,4 @@ mobile/.apdisk
 mobile/.expo/*
 mobile/.vscode/*
 mobile/.gitignore
+id_rsa
