@@ -25,9 +25,6 @@ script:
 - whereis chromedriver
 - bundle install --path vendor/cache --quiet
 - bash scripts/vagrant-tests.sh
-- zip -r latest * --quiet
-- mkdir -p dpl_cd_upload
-- mv latest.zip dpl_cd_upload/latest.zip
 install:
 - wget -N http://chromedriver.storage.googleapis.com/2.36/chromedriver_linux64.zip
   -P ~/ --quiet
@@ -37,26 +34,8 @@ install:
 - sudo chmod +x /usr/local/share/chromedriver
 - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
 
-deploy:
-- provider: s3
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
-  local_dir: dpl_cd_upload
-  skip_cleanup: true
-  on: &2
-    repo: talk2bryan/UofMeme
-  bucket: uofmemebucket
-  region: us-east-2
-- provider: codedeploy
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
-  bucket: uofmemebucket
-  key: latest.zip
-  bundle_type: zip
-  application: UofMeme
-  deployment_group: master
-  region: us-east-2
-  on: *2
+after_success:
+- bash scripts/deploy.sh
 
 notifications:
   email: false
