@@ -1,10 +1,10 @@
 # Change these
-server '18.188.3.137', port: 22, roles: [:web, :app, :db], primary: true
+server '3.16.108.107', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:talk2bryan/UofMeme.git'
 set :repo_tree,       'server'
 set :application,     'UofMeme'
-set :user,            'deploy'
+set :user,            'ubuntu'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
