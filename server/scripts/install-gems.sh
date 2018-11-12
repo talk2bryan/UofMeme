@@ -2,7 +2,6 @@
 set -x
 
 cd /var/www/UofMeme/deployment
-sudo gem install bundler
 rvm use 2.4.1
 # Bundle location: /var/www/UofMeme/shared/bundle
 # Binary location: /var/www/UofMeme/shared/bin
