@@ -14,6 +14,8 @@ env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
 before_install:
+- openssl aes-256-cbc -K $encrypted_611bf4b7f639_key -iv $encrypted_611bf4b7f639_iv
+  -in id_rsa.enc -out ./server/config/id_rsa -d
 - cd server
 - bash scripts/vagrant-install.sh
 before_script:
