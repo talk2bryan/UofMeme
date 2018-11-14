@@ -59,6 +59,10 @@ server/spec/test_files
 server/spec/test_files/
 server/spec/test_files/.
 
+# Ignore server encryption files:
+id_rsa
+master.key
+
 ## For bower-rails
 /vendor/assets/bower_components
 *.bowerrc
@@ -472,4 +476,3 @@ mobile/.apdisk
 mobile/.expo/*
 mobile/.vscode/*
 mobile/.gitignore
-id_rsa
