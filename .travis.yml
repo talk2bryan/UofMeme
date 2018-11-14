@@ -15,7 +15,7 @@ env:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
 before_install:
 - cd server
-- bash scripts/vagrant-install.sh
+- bash scripts/travis-before-install.sh
 before_script:
 - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
 - mysql -e 'CREATE DATABASE uofmeme_app_test;'
