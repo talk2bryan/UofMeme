@@ -67,8 +67,10 @@ gem 'tzinfo-data'
 gem 'rmagick', '~> 2.15'
 
 # Provision for AWS S3 Storage
-gem "aws-sdk-s3", require: false
+gem 'aws-sdk-s3', require: false
 
+# Locally running app in production mode
+gem 'rails_12factor'
 
 group :test do
   gem 'factory_bot_rails', '~> 4.0'
