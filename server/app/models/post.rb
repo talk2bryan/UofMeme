@@ -15,7 +15,7 @@ class Post < ApplicationRecord
 		large:  "500x550!"
 	},
 	:convert_options => {
-    :medium => "-quality 100 -strip"}, 
+    :medium => "-quality 100 -strip"} 
   	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   	validates_attachment :image, presence: true
   	validates_presence_of :poster
