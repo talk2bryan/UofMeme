@@ -86,7 +86,7 @@ server/.bundle/
 server/vendor/bundle
 server/lib/bundler/man/
 
-public/assets
+server/public/assets
 server/public/system
 server/public/system/posts/*
 
