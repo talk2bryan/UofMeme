@@ -32,7 +32,7 @@ hs_err_pid*
 !/log/.keep
 !/tmp/.keep
 
-mobile/node_modules
+node_modules
 mobile/yarn-error.log
 
 .byebug_history
@@ -44,6 +44,7 @@ server/.rspec
 server/.rvmrc
 server/.tmp
 
+yarn.lock
 /.config
 /coverage/
 /InstalledFiles
@@ -85,6 +86,7 @@ server/.bundle/
 server/vendor/bundle
 server/lib/bundler/man/
 
+server/public/assets
 server/public/system
 server/public/system/posts/*
 

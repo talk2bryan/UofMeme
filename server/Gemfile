@@ -33,14 +33,12 @@ gem 'jbuilder', '2.7.0'
 gem 'rack-cors'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -61,6 +59,18 @@ gem 'rails-controller-testing'
 
 # Fix for Autoprefixer not supporting Node v4.2.6
 gem 'mini_racer'
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data'
+
+# ImageMagick ruby interface
+gem 'rmagick', '~> 2.15'
+
+# Provision for AWS S3 Storage
+gem 'aws-sdk-s3', require: false
+
+# Locally running app in production mode
+gem 'rails_12factor'
 
 group :test do
   gem 'factory_bot_rails', '~> 4.0'
@@ -103,8 +113,4 @@ group :development do
   gem 'capistrano3-puma',   require: false
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data'
 
-# ImageMagick ruby interface
-gem 'rmagick', '~> 2.15'
