@@ -7,10 +7,7 @@ class Post < ApplicationRecord
 
 	
 	has_attached_file :image, styles: {   
-		original: "1920x1080>",
-		thumb:  "100x100>",
-		medium: "350x400!", 
-		square: "200x200#",
+		square: "250x250#",
 		large:  "500x550!"
 	}, 
     :convert_options => {
