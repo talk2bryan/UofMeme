@@ -50,7 +50,8 @@ Rails.application.configure do
       access_key_id: Rails.application.credentials.dig(:aws, :access_key_id), 
       secret_access_key: Rails.application.credentials.dig(:aws,
       :secret_access_key), 
-      s3_region: Rails.application.credentials.dig(:aws, :region) 
+      s3_region: Rails.application.credentials.dig(:aws, :region),
+      s3_storage_class: :reduced_redundancy
     }
   }
   # Mount Action Cable outside main process or domain
