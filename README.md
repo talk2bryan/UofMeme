@@ -54,6 +54,8 @@
 ### Acknowledgements
 * Used pictures from this api for our application http://api.giphy.com/v1/gifs/search?q=javascript&api_key=dc6zaTOxFJmzC
 
+### Common Bugs and their fixes
+* 
 
 ## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors) 
 
