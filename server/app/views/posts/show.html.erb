@@ -1,7 +1,7 @@
 <div class="container">
   <center><table border="0" style="max-width: 500px;">
     <tr>
-      <td colspan="2"><%= image_tag @post.image(:large) %></td>
+      <td colspan="2"><%= image_tag @post.image.url(:large) %></td>
     </tr>
     <tr>
       <td colspan="2"><h3 class="text-left"><%= @post.description %></h3></td>
