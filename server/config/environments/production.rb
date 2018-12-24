@@ -55,7 +55,8 @@ Rails.application.configure do
       s3_region: Rails.application.credentials.dig(:aws, :region),
       s3_host_name: 's3.us-east-2.amazonaws.com',
       #s3_storage_class: :reduced_redundancy
-    }    
+    },
+    s3_protocol: :https
   }
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
