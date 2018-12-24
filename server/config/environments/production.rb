@@ -45,14 +45,17 @@ Rails.application.configure do
   
   config.paperclip_defaults = {
     storage: :s3,
+    url: ':s3_domain_url',
+    path: ':class/:attachment/:id_partition/:style/:filename',
     s3_credentials: {
       bucket: Rails.application.credentials.dig(:aws, :bucket_name), 
       access_key_id: Rails.application.credentials.dig(:aws, :access_key_id), 
       secret_access_key: Rails.application.credentials.dig(:aws,
       :secret_access_key), 
       s3_region: Rails.application.credentials.dig(:aws, :region),
-      s3_storage_class: :reduced_redundancy
-    }
+      s3_host_name: 's3.us-east-2.amazonaws.com',
+      #s3_storage_class: :reduced_redundancy
+    }    
   }
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
