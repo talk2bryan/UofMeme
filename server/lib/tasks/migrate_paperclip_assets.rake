@@ -4,11 +4,12 @@ namespace :posts do
     Post.where.not(image_file_name: nil).find_each do |post|
       img = post.image_file_name
       ext = File.extname(img)
-      img_original = CGI.unescape(img.gsub(ext, '_original#{ext}'))
+      img_original = CGI.unescape(img.gsub(ext, "_original#{ext}"))
 
       image_url =
-      'https://s3.amazonaws.com/#{Rails.application.credentials.dig(:aws,
-      :bucket_name)}/posts/#{post.id}/#{img_original}'
+      "https://#{Rails.application.credentials.dig(:aws,
+      :bucket_name)}.#{Rails.application.credentials.dig(:aws,
+      :host_name)}/posts/#{post.id}/#{img_original}"
       puts image_url
       post.image.attach(io: open(image_url),
                             filename: post.image_file_name,
