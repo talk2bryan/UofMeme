@@ -53,8 +53,7 @@ Rails.application.configure do
       secret_access_key: Rails.application.credentials.dig(:aws,
       :secret_access_key), 
       s3_region: Rails.application.credentials.dig(:aws, :region),
-      s3_host_name: Rails.application.credentials.dig(:aws, :host_name),
-      #s3_storage_class: :reduced_redundancy
+      s3_host_name: Rails.application.credentials.dig(:aws, :host_name)
     },
     s3_protocol: :https
   }
