@@ -8,7 +8,8 @@ class Post < ApplicationRecord
 	
 	has_attached_file :image, styles: {   
 		square: "250x250#",
-		large:  "500x550!"
+		medium: "350x400!",
+    large:  "500x550!"
 	}, 
     :convert_options => {
       :medium => "-quality 100 -strip"
