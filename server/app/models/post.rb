@@ -6,15 +6,8 @@ class Post < ApplicationRecord
 	attr_accessor :uploaded_image_for_io_adapters, :file_name, :top_text, :bot_text
 
 	
-	has_attached_file :image, styles: {   
-		square: "250x250#",
-		medium: "350x400!",
-    large:  "500x550!"
-	}, 
-    :convert_options => {
-      :medium => "-quality 100 -strip"
-    }, 
-    default_url: "/images/:style/missing.png"
+	has_attached_file :image  
+  
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   validates_attachment :image, presence: true
   validates_presence_of :poster
