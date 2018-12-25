@@ -89,6 +89,7 @@ server/lib/bundler/man/
 server/public/assets
 server/public/system
 server/public/system/posts/*
+server/storage/
 
 server/.rspec
 mobile/node_modules
