@@ -6,7 +6,7 @@ class Post < ApplicationRecord
 	attr_accessor :uploaded_image_for_io_adapters, :file_name, :top_text, :bot_text
 
 	
-	has_attached_file :image  
+	has_one_attached :image  
   
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   validates_attachment :image, presence: true
