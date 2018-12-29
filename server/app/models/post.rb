@@ -8,8 +8,10 @@ class Post < ApplicationRecord
 	
 	has_one_attached :image  
   
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
-  validates_attachment :image, presence: true
+  validates :image, file_content_type: {
+    allow: ["image/jpeg", "image/png"],
+    if: -> { image.attached? },
+  }
   validates_presence_of :poster
 	validates_presence_of :description
 	validates :user, presence: true
