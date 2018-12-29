@@ -758,6 +758,9 @@ GEM
     faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
     ffi (1.9.25)
+    file_validators (2.3.0)
+      activemodel (>= 3.2)
+      mime-types (>= 1.0)
     geckodriver-helper (0.21.0)
       archive-zip (~> 0.7)
     gh (0.15.1)
@@ -993,6 +996,7 @@ DEPENDENCIES
   database_cleaner
   factory_bot_rails (~> 4.0)
   faker
+  file_validators
   geckodriver-helper
   jbuilder (= 2.7.0)
   jquery-rails
