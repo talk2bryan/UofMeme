@@ -53,8 +53,8 @@ assert_not user.save, 'email cannot be empty string'
 user = User.new(username: @validUsername, email: 'memememe', password: @validPassword, password_confirmation: @validPassword)
 assert_not user.save, 'Invalid email address format'
 
-#
-Not a valid email domain
+
+#Not a valid email domain
 user = User.new(username: @validUsername, email: 'memememe@gmail.com', password: @validPassword, password_confirmation: @validPassword)
 assert_not user.save, 'not a valid email domain'
 

@@ -28,24 +28,24 @@ assert_not post.save, 'Image is missing'
 post = Post.new(poster: @user.username, image: '', description: 'I love meme', user_id: @user.id)
 assert_not post.save, 'Image cannot not be empty string'
 
-#
-Image is not found
+
+#Image is not found
 assert_raises(SystemCallError) do
     testImage = File.new("test/fixtures/files/memememe.jpg")
   post = Post.new(poster: @user.username, image: testImage, description: 'I love meme', user_id: @user.id)
 end
 assert_not post.save, 'Image is not found'
 
-#
-Image path is invalid
+
+#Image path is invalid
 assert_raises(SystemCallError) do
     testImage = File.new("adsfasdf")
   post = Post.new(poster: @user.username, image: testImage, description: 'I love meme', user_id: @user.id)
 end
 assert_not post.save, 'Image path is invalid'
 
-#
-Image path is empty
+
+#Image path is empty
 assert_raises(SystemCallError) do
     testImage = File.new("")
   post = Post.new(poster: @user.username, image: testImage, description: 'I love meme', user_id: @user.id)
