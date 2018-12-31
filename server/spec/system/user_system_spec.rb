@@ -139,8 +139,8 @@ expect(page).to have_text("UofMeme is an application that allows students and em
 # click_link "Account"
 click_link "Log in"
 
-#
-page.find(: xpath, "//a[@href='/users/logout']").click
+
+#page.find(: xpath, "//a[@href='/users/logout']").click
 expect(page).to have_text("Email")
 
 fill_in "session_email", : with => "joe@myumanitoba.ca"
