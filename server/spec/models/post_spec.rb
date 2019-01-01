@@ -2,6 +2,8 @@ require 'rails_helper'
 require 'spec_helper'
 
 RSpec.describe Post, type: :model do
+  # Create the post using FactoryBot
+  let(:post) { create :post, :with_image }
   # Association test
   # ensure Post model has a 1:m relationship with the Comment model
   it { should have_many(:comments).dependent(:destroy) }
