@@ -87,8 +87,6 @@ server/vendor/bundle
 server/lib/bundler/man/
 
 server/public/assets
-server/public/system
-server/public/system/posts/*
 server/storage/
 
 server/.rspec
@@ -278,10 +276,6 @@ mobile/.TemporaryItems
 mobile/.Trashes
 mobile/.VolumeIcon.icns
 mobile/.com.apple.timemachine.donotpresent
-
-public/system
-public/system/posts/*
-
 
 
 ### ReactNative ###
