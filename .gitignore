@@ -85,6 +85,7 @@ server/.idea *
 server/.bundle/
 server/vendor/bundle
 server/lib/bundler/man/
+server/vendor/cache
 
 server/public/assets
 server/storage/
