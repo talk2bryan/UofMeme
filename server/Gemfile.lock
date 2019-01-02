@@ -1064,7 +1064,6 @@ DEPENDENCIES
   rspec-api_helpers (= 1.0.4)
   rspec-json_schema!
   rspec-rails
-  sassc
   sassc-rails
   selenium-webdriver (~> 3.11)
   shoulda-matchers (~> 3.1)
