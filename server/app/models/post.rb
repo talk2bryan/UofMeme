@@ -8,7 +8,8 @@ class Post < ApplicationRecord
 	
 	has_one_attached :image  
   
-  validates :image, attached: true, content_type: ["image/jpeg", "image/png"]
+  validates :image, attached: true, content_type: [ 'image/png', 'image/jpg',
+  'image/jpeg', 'image/gif']
   validates_presence_of :poster, :description
 	validates :user, presence: true
 	validates :user_id, presence: true
