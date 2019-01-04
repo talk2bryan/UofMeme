@@ -33,8 +33,8 @@ RSpec.describe "User management", :type => :system do
 	attach_file('post_image', path)
 	
 	fill_in "post_description", :with => "just a post"
-	fill_in "post_top_text", :with => "just a post"
-	fill_in "post_bot_text", :with => "just a post"
+	#fill_in "post_top_text", :with => "just a post"
+	#fill_in "post_bot_text", :with => "just a post"
 
   end
 
@@ -63,8 +63,8 @@ RSpec.describe "User management", :type => :system do
 	click_link "Upload Meme Now"
 	
 	fill_in "post_description", :with => "just a post"
-	fill_in "post_top_text", :with => "just a post"
-	fill_in "post_bot_text", :with => "just a post"
+	#fill_in "post_top_text", :with => "just a post"
+	#fill_in "post_bot_text", :with => "just a post"
 
 
 	click_button "Post my meme!"
@@ -98,8 +98,8 @@ RSpec.describe "User management", :type => :system do
 	click_link "Upload Meme Now"
 
 	attach_file('post_image', path)	
-	fill_in "post_top_text", :with => "just a post"
-	fill_in "post_bot_text", :with => "just a post"
+	#fill_in "post_top_text", :with => "just a post"
+	#fill_in "post_bot_text", :with => "just a post"
 
 
 	click_button "Post my meme!"

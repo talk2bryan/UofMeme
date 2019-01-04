@@ -18,6 +18,7 @@ class PostsController < ApplicationController
 	  	toptxt = params[:post][:top_text]
  		bottxt = params[:post][:bot_text]
 
+
  		if post_params[:image].present?
 
  		unless toptxt.blank? && bottxt.blank?
@@ -26,6 +27,7 @@ class PostsController < ApplicationController
 		  	width = uploaded_image.columns
 		  	height = uploaded_image.rows/3
 
+=begin
 		  	unless toptxt.blank?
 			  	top_img = Magick::Image.read("caption:#{toptxt}") {
 				 	self.fill = '#FFFFFF'
@@ -49,6 +51,7 @@ class PostsController < ApplicationController
 				}.first
 				uploaded_image = uploaded_image.composite(bot_img, Magick::SouthGravity, Magick::OverCompositeOp)
 		  	end
+=end
 
 			uploaded_image.format = "png"
 			uploaded_image.write("_editedimage_.png")
