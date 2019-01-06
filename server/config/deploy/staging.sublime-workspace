@@ -1,0 +1,224 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/vagrant/UofMeme/server/db/migrate/20180312043625_create_dislikes.rb",
+		"/home/vagrant/UofMeme/server/db/migrate/20180314020830_add_reference_to_dislike.rb",
+		"/home/vagrant/UofMeme/server/db/migrate/20180314020853_add_reference_to_post.rb",
+		"/home/vagrant/UofMeme/server/db/migrate/20180314021236_remove_columns_from_dislike_and_like.rb",
+		"/home/vagrant/UofMeme/server/db/migrate/20180323214108_add_post_to_comments.rb",
+		"/home/vagrant/UofMeme/server/db/migrate/20181224233822_convert_to_active_storage.rb",
+		"/home/vagrant/UofMeme/server/db/migrate/20180209050744_create_comments.rb",
+		"/home/vagrant/UofMeme/server/db/migrate/20180209044815_create_posts.rb",
+		"/home/vagrant/UofMeme/server/db/migrate/20180130194154_create_active_storage_tables.active_storage.rb",
+		"/home/vagrant/UofMeme/server/config/spring.rb",
+		"/home/vagrant/UofMeme/server/config/puma.rb",
+		"/home/vagrant/UofMeme/server/config/routes.rb",
+		"/home/vagrant/UofMeme/server/config/environment.rb",
+		"/home/vagrant/UofMeme/server/config/boot.rb",
+		"/home/vagrant/UofMeme/server/config/application.rb",
+		"/home/vagrant/UofMeme/server/config/initializers/content_security_policy.rb",
+		"/home/vagrant/UofMeme/server/config/initializers/wrap_parameters.rb",
+		"/home/vagrant/UofMeme/server/config/initializers/backtrace_silencers.rb",
+		"/home/vagrant/UofMeme/server/config/initializers/aws.rb",
+		"/home/vagrant/UofMeme/server/config/initializers/assets.rb",
+		"/home/vagrant/UofMeme/server/config/initializers/application_controller_renderer.rb",
+		"/home/vagrant/UofMeme/server/config/initializers/active_model_serializers.rb",
+		"/home/vagrant/UofMeme/server/config/environments/test.rb",
+		"/home/vagrant/UofMeme/server/config/environments/production.rb",
+		"/home/vagrant/UofMeme/server/config/environments/development.rb",
+		"/home/vagrant/UofMeme/server/config/deploy/production.rb",
+		"/home/vagrant/UofMeme/server/config/deploy.rb",
+		"/home/vagrant/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/vagrant/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/vagrant/UofMeme/server/db/migrate/20180305050241_add_dislike_to_posts.rb",
+		"/home/vagrant/UofMeme/server/db/migrate/20180311084536_add_activation_to_users.rb",
+		"/home/vagrant/UofMeme/server/test/system/system_test.rb",
+		"/home/vagrant/UofMeme/server/test/integration/registration_flows_test.rb",
+		"/home/vagrant/UofMeme/server/test/integration/login_test.rb",
+		"/home/vagrant/UofMeme/server/test/models/user_test.rb",
+		"/home/vagrant/UofMeme/server/test/models/post_test.rb",
+		"/home/vagrant/UofMeme/server/test/models/like_test.rb",
+		"/home/vagrant/UofMeme/server/test/models/dislike_test.rb",
+		"/home/vagrant/UofMeme/server/spec/spec_helper.rb",
+		"/home/vagrant/UofMeme/server/spec/rails_helper.rb",
+		"/home/vagrant/UofMeme/server/spec/support/factory_bot.rb",
+		"/home/vagrant/UofMeme/server/spec/support/request_spec_helper.rb",
+		"/home/vagrant/UofMeme/server/spec/support/api_helper.rb",
+		"/home/vagrant/UofMeme/server/spec/requests/comment_spec.rb",
+		"/home/vagrant/UofMeme/server/spec/requests/post_spec.rb",
+		"/home/vagrant/UofMeme/server/spec/requests/users_spec.rb",
+		"/home/vagrant/UofMeme/server/spec/mailers/user_mailer_spec.rb",
+		"/home/vagrant/UofMeme/server/spec/mailers/previews/user_mailer_preview.rb",
+		"/home/vagrant/UofMeme/server/spec/features/user_management_spec.rb",
+		"/home/vagrant/UofMeme/server/spec/controllers/users_controller_spec.rb",
+		"/home/vagrant/UofMeme/server/spec/controllers/sessions_controller_spec.rb",
+		"/home/vagrant/UofMeme/server/spec/api/users_spec.rb",
+		"/home/vagrant/UofMeme/server/spec/api/sessions_controller_spec.rb",
+		"/home/vagrant/UofMeme/server/db/seeds.rb",
+		"/home/vagrant/UofMeme/server/db/schema.rb",
+		"/home/vagrant/UofMeme/server/config/initializers/mime_types.rb",
+		"/home/vagrant/UofMeme/server/config/initializers/inflections.rb",
+		"/home/vagrant/UofMeme/server/config/initializers/filter_parameter_logging.rb",
+		"/home/vagrant/UofMeme/server/config/initializers/cookies_serializer.rb",
+		"/home/vagrant/UofMeme/server/config/deploy/staging.rb"
+	],
+	"find":
+	{
+		"height": 24.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "staging.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": false,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

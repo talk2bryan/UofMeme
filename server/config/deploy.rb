@@ -1,10 +1,10 @@
 # Change these
-server '18.188.3.137', port: 22, roles: [:web, :app, :db], primary: true
+server '18.224.72.202', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:talk2bryan/UofMeme.git'
 set :repo_tree,       'server'
 set :application,     'UofMeme'
-set :user,            'deploy'
+set :user,            'ubuntu'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
@@ -25,9 +25,8 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
-
 # Remove the need to deploy app to db server.
-set :migration_role,	:app
+set :migration_role,  :app
 
 set :migration_servers, -> { primary(fetch(:migration_role)) }
 
@@ -45,6 +44,7 @@ set :keep_releases, 5
 
 ## Linked Files & Directories (Default None):
 set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_files, %w{config/master.key}
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
@@ -74,7 +74,7 @@ namespace :deploy do
   desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
-      before 'deploy:restart', 'puma:start'
+            before 'deploy:restart', 'puma:start'
       invoke 'deploy'
     end
   end
