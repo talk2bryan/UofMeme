@@ -3,23 +3,14 @@
 [![HitCount](http://hits.dwyl.io/talk2bryan/UofMeme.svg)](http://hits.dwyl.io/talk2bryan/UofMeme)
 [![NPM version](https://badge.fury.io/js/badge-list.svg)](http://badge.fury.io/js/badge-list)
 
-
-
-## Ruby Version
-  * Rails: 5.2.1
-  * Ruby: 2.4.1
-  * RVM: 1.29.4
-
-## Mobile (Android) Development
-  * react-native-cli: 2.0.1
-  * react-native: 0.52.0
-  * NodeJS: v9.8.0
-  * openjdk version: 1.8.0_141
-  * https://github.com/talk2bryan/UofMeme/wiki/Android-Development
-
 ## About UofMeme
 ### tl;dr
 * https://github.com/talk2bryan/UofMeme/wiki/tl;dr
+### Project Documentation
+* https://github.com/talk2bryan/UofMeme/wiki/Documentation
+
+### Project Proposal
+* https://github.com/talk2bryan/UofMeme/wiki/Project-Proposal
 
 ### Design docs
   * [Feature Breakdown](https://github.com/talk2bryan/UofMeme/wiki/Feature-Breakdown)
@@ -27,19 +18,10 @@
   * [Server Architecture](https://github.com/talk2bryan/UofMeme/wiki/Server-Architecture)
   * The rest can be found in the Project Documentation
   
-### Project Documentation
-* https://github.com/talk2bryan/UofMeme/wiki/Documentation
-
-### Project Proposal
-* https://github.com/talk2bryan/UofMeme/wiki/Project-Proposal
-
-### Our [deprecated] Trello board can be hound here:
-* https://trello.com/b/O7Ntftrz
-
-### Getting the Application started:
+  ### Getting the Application started:
 * Instructions can be found in the [Documentation page](https://github.com/talk2bryan/UofMeme/wiki/Documentation)
 
-* Deployment instructions
+ ### Deployment instructions
   * https://github.com/talk2bryan/UofMeme/wiki/Deployment-and-Rollback-Instructions
   
  ### Tests
@@ -47,15 +29,35 @@
 
 ### Coding Standards
   * https://github.com/talk2bryan/UofMeme/wiki/Coding-Standards
+  
+
+
+ ## Bult With
+### Ruby Version
+  * Rails: 5.2.1
+  * Ruby: 2.4.1
+  * RVM: 1.29.4 
+
+### Mobile (Android) Development
+  * react-native-cli: 2.0.1
+  * react-native: 0.52.0
+  * NodeJS: v9.8.0
+  * openjdk version: 1.8.0_141
+  * https://github.com/talk2bryan/UofMeme/wiki/Android-Development
+  
+  ### Common Bugs and their fixes
+* https://github.com/talk2bryan/UofMeme/wiki/Common-Bugs-and-their-fixes
+
+
+### Our [deprecated] Trello board can be hound here:
+* https://trello.com/b/O7Ntftrz
+
 
 ### Still feeling a bit lost? Start from the Wiki Homepage:
 * https://github.com/talk2bryan/UofMeme/wiki
 
 ### Acknowledgements
 * Used pictures from this api for our application http://api.giphy.com/v1/gifs/search?q=javascript&api_key=dc6zaTOxFJmzC
-
-### Common Bugs and their fixes
-* https://github.com/talk2bryan/UofMeme/wiki/Common-Bugs-and-their-fixes
 
 ## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors) 
 
