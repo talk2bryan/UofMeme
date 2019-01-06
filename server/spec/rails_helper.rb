@@ -63,11 +63,11 @@ RSpec.configure do |config|
   end
 
   # start the transaction strategy as examples are run
-  config.around(: each) do |example |
-      DatabaseCleaner.cleaning do
-        example.run
-      end
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
     end
+  end
 
 
   # RSpec Rails can automatically mix in different behaviours to your tests

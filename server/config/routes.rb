@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :comments
     post :show
     get  :show
-  end
+   end
 
   resources :account_activations, only: [:edit]
 
