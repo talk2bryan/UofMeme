@@ -1,4 +1,4 @@
-require './test/test_helper'
+require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
 	include FactoryBot::Syntax::Methods
@@ -9,17 +9,19 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
       @post = Post.new
       @post.poster = 'mememe'
-      @post.image = File.new("test/fixtures/files/test.png")
+      file_path = Rails.root.join('test', 'fixtures', 'files', 'test.png')
+      @post.image = fixture_file_upload(file_path, 'image/png')
       @post.description = "I love memes"
       @post.user_id = @user.id
-      assert @post.save
+      assert @post.save!
     end
 
   	test "user can create a post" do
   		@user = build :user	
   		sign_in_as @user
 
-  		@post = build :post, poster: @user.username, description: "this is a test post"
+  		@post = build :post, poster: @user.username, description: "this is a test
+      post."
   		assert 'p#p_desc_h', :text => "this is a test post"
   	end
 
@@ -42,7 +44,9 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
       sign_in_as @user
 
       @post = build :post
-      assert 'a.glyphicon glyphicon-thumbs-up glyphicon-align-center'  #thumbs up icon
-      assert 'a.glyphicon glyphicon-thumbs-down glyphicon-align-center'  #thumbs up icon
+      # thumbs up icon
+      assert 'a.glyphicon glyphicon-thumbs-up glyphicon-align-center' 
+      # thumbs down icon
+      assert 'a.glyphicon glyphicon-thumbs-down glyphicon-align-center'
     end
 end
