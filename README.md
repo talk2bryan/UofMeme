@@ -32,7 +32,7 @@
   
 
 
- ## Bult With
+## Built With
 ### Ruby Version
   * Rails: 5.2.1
   * Ruby: 2.4.1
