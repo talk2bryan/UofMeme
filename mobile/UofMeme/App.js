@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
+import { Icon } from "native-base";
+
 import MainScreen from "./components/MainScreen";
 
 export default class App extends React.Component {
@@ -17,7 +19,9 @@ const AppStackNavigator = createStackNavigator(
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: "orange"
-      }
+      },
+      title: "U of Meme",
+      headerRight: <Icon style={{ paddingRight: 15 }} name="camera" />
     }
   }
 );

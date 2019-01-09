@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
+import CardComponent from "../CardComponent";
+
 class HomeTab extends Component {
   render() {
     return (
@@ -8,6 +10,15 @@ class HomeTab extends Component {
         <Text>HomeTab</Text>
       </View>
     );
+    // return (
+    //   <Container style={styles.container}>
+    //     <Content>
+    //       <CardComponent imageSource="1" likes="9001" />
+    //       <CardComponent imageSource="2" likes="623" />
+    //       <CardComponent imageSource="3" likes="8999" />
+    //     </Content>
+    //   </Container>
+    // );
   }
 }
 export default HomeTab;

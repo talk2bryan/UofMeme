@@ -1,28 +1,48 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { createBottomTabNavigator, createAppContainer } from "react-navigation";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 import HomeTab from "./AppTabNavigator/HomeTab";
 import UploadTab from "./AppTabNavigator/UploadTab";
 
-// class MainScreen extends Component {
-//   render() {
-//     return (
-//       <AppTabNavigator />
-//       //   <View style={styles.container}>
-//       //     <Text>U of Meme</Text>
-//       //     <Text>Main Screen</Text>
-//       //   </View>
-//     );
-//   }
-// }
+export default class MainScreen extends Component {
+  render() {
+    return <AppContainer />;
+  }
+}
 
-const AppTabNavigator = createBottomTabNavigator({
-  Home: HomeTab,
-  Upload: UploadTab
-});
+const AppTabNavigator = createBottomTabNavigator(
+  {
+    Home: HomeTab,
+    Upload: UploadTab
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, horizontal, tintColor }) => {
+        const { routeName } = navigation.state;
+        let IconComponent = Ionicons;
+        let iconName;
+        if (routeName === "Home") {
+          iconName = "ios-home";
+          // Sometimes we want to add badges to some icons.
+          // You can check the implementation below.
+        } else if (routeName === "Upload") {
+          iconName = "ios-cloud-upload";
+        }
 
-export default createAppContainer(AppTabNavigator);
+        // You can return any component that you like here!
+        return <IconComponent name={iconName} size={25} color={tintColor} />;
+      }
+    }),
+    tabBarOptions: {
+      activeTintColor: "orange",
+      inactiveTintColor: "gray"
+    }
+  }
+);
+
+const AppContainer = createAppContainer(AppTabNavigator);
 
 const styles = StyleSheet.create({
   container: {
