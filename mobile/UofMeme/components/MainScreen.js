@@ -35,9 +35,13 @@ const AppTabNavigator = createBottomTabNavigator(
         return <IconComponent name={iconName} size={25} color={tintColor} />;
       }
     }),
+    animationEnabled: true,
+    swipeEnabled: true,
     tabBarOptions: {
       activeTintColor: "orange",
       inactiveTintColor: "gray"
+      // showLabel: false,
+      // showIcon: true
     }
   }
 );
