@@ -29,7 +29,7 @@ class CardComponent extends Component {
           <Left>
             {/* <Thumbnail source={require("../assets/me.jpg")} /> */}
             <Body>
-              <Text style={{ fontWeight: "900" }}>nrmarzo</Text>
+              <Text style={{ fontWeight: "900", color: "black" }}>nrmarzo</Text>
               <Text note>Jan 9, 2019</Text>
             </Body>
           </Left>
@@ -56,13 +56,13 @@ class CardComponent extends Component {
           </Left>
         </CardItem>
         <CardItem style={{ height: 20 }}>
-          <Text>{this.props.likes} likes</Text>
+          <Text style={{ color: "black" }}>{this.props.likes} likes</Text>
         </CardItem>
 
         <CardItem>
           <Body>
             <Text>
-              <Text style={{ fontWeight: "900" }}>neil </Text>
+              <Text style={{ fontWeight: "900", color: "black" }}>neil </Text>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
               quas, sit praesentium debitis quasi delectus hic aut sed, velit
               ipsum nulla, suscipit sint impedit fugiat! Itaque sapiente modi

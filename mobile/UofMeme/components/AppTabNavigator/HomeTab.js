@@ -22,4 +22,5 @@ class HomeTab extends Component {
     );
   }
 }
+
 export default HomeTab;
