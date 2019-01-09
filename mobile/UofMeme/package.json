@@ -4,14 +4,21 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "android-dev": "ENVFILE=.env.dev react-native run-android",
+    "android-prod": "ENVFILE=.env.prod react-native run-android",
     "test": "jest"
   },
   "dependencies": {
     "native-base": "^2.10.0",
     "react": "16.6.3",
     "react-native": "0.57.8",
+    "react-native-config": "^0.11.7",
     "react-native-gesture-handler": "^1.0.12",
+<<<<<<< HEAD
     "react-native-vector-icons": "^6.1.0",
+=======
+    "react-native-router-flux": "^4.0.6",
+>>>>>>> f4aa6e02d584ffeef09c43db55fc7cae99d68dcf
     "react-navigation": "^3.0.9"
   },
   "devDependencies": {
