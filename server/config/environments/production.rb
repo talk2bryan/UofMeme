@@ -1,8 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  Paperclip.options[:command_path] = "/usr/bin/"
-
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -43,20 +41,6 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :amazon
   
-  config.paperclip_defaults = {
-    storage: :s3,
-    url: ':s3_domain_url',
-    path: ':class/:attachment/:id_partition/:style/:filename',
-    s3_credentials: {
-      bucket: Rails.application.credentials.dig(:aws, :bucket_name), 
-      access_key_id: Rails.application.credentials.dig(:aws, :access_key_id), 
-      secret_access_key: Rails.application.credentials.dig(:aws,
-      :secret_access_key), 
-      s3_region: Rails.application.credentials.dig(:aws, :region),
-      s3_host_name: Rails.application.credentials.dig(:aws, :host_name)
-    },
-    s3_protocol: :https
-  }
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'

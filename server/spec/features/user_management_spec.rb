@@ -11,7 +11,8 @@ RSpec.feature "User management", :type => :feature do
     fill_in "user_password_confirmation", :with => "12345678"
     click_button "Sign up"
 
-    expect(page).to have_text("UofMeme Home Help Log in Sign up Username Email Password Confirm password Back UofMeme 2018 Back to top Report a bug")
+    expect(page).to have_text("UofMeme Home Help Log in Sign up Username Email
+    Password Confirm password Back UofMeme 2019 Back to top Report a bug")
   end
 
 end
