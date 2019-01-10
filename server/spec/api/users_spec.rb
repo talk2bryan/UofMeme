@@ -19,7 +19,7 @@ describe Api::V1::UsersController, type: :api do
       )
 
     end
-  end
+ 
 
     context "when parameters are invalid: password is different from password_confirmation" do
       before do
