@@ -3,7 +3,8 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort("The Rails environment is running in production mode!") if Rails.env.produ
+ction?
 require 'rspec/rails'
 require 'rspec/api_helpers'
 require 'rspec/json_schema'
@@ -33,7 +34,8 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
-# configure shoulda matchers to use rspec as the test framework and full matcher libraries for rails
+# configure shoulda matchers to use rspec as the test framework and full matcher
+# libraries for rails
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
@@ -49,14 +51,15 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
- 
+
   config.include Rspec::ApiHelpers.with(adapter: :active_model)
-  
+
   config.include RequestSpecHelper
 
   #config.include Rspec::ApiHelpers, type: :api #apply to all spec for apis folder
 
-  # start by truncating all the tables but then use the faster transaction strategy the rest of the time.
+  # start by truncating all the tables but then use the faster transaction
+  #strategy the rest of the time.
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
     DatabaseCleaner.strategy = :transaction

@@ -1,4 +1,4 @@
-#!/bin/bash
+/bin/bash
 
 # Remove previous deployment if it exists
 rm -rf /var/www/UofMeme/prev-deployment
