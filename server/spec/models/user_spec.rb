@@ -1,48 +1,34 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-	subject {described_class.new(username: "joe", email: "joe@myumanitoba.ca", password: "12345678", password_confirmation: "12345678")}
+  describe "associations" do
+    it { should have_many(:posts) }
+    it { should have_many(:comments) }
+    it { should have_many(:likes) }
+    it { should have_many(:dislikes) }
+    # this should pass but it doesnt (because it passes with dislikes) TODO
+    # it { should have_many(:posts).through(:likes) }
+    it { should have_many(:posts).through(:dislikes) }
+  end
 
-  	it "is valid with valid attributes" do
-    	expect(subject).to be_valid
-  	end
+  describe "validations" do
+    it { should validate_presence_of(:username) }
+    it { should validate_length_of(:username).is_at_least(3) }
+    it { should validate_length_of(:username).is_at_most(30) }
+    it { should validate_uniqueness_of(:username).ignoring_case_sensitivity }
+    it { should validate_presence_of(:email) }
+    it { should validate_length_of(:email).is_at_most(255) }
+    it { should validate_uniqueness_of(:email).ignoring_case_sensitivity }
+    it { should validate_length_of(:password).is_at_least(8) }
+    it { should validate_presence_of(:password_confirmation) }
+    it { should validate_length_of(:password_confirmation).is_at_least(8) }
+    it { should have_secure_password }
 
-  	it "is not valid without a username"do
-  		subject.username = nil
-  		expect(subject).to_not be_valid
-	end
-
-	it "is not valid without an email"do
-  		subject.email = nil
-  		expect(subject).to_not be_valid
-	end
-
-	it "is not valid without a password"do
-  		subject.password = nil
-  		expect(subject).to_not be_valid
-	end
-
-	it "is not valid without a password confirmation"do
-  		subject.password_confirmation = nil
-  		expect(subject).to_not be_valid
-  	end
-
-  	it "is not valid without a myumanitoba.ca/umanitoba.ca email"do
-  		subject.email = "joe@gmail.com"
-  		expect(subject).to_not be_valid
-  	end
-
-  	it "is not valid if password length less than 8"do
-  		subject.password = "123456"
-  		subject.password_confirmation = "123456"
-  		expect(subject).to_not be_valid
-  	end
-
-  	it "is not valid if password and password_confirmation are different"do
-  		subject.password = "12345678"
-  		subject.password_confirmation = "123456789"
-  		expect(subject).to_not be_valid
-  	end
-
- 
+    it { should allow_value("john@umanitoba.ca").for(:email) }
+    it { should allow_value("john@myumanitoba.ca").for(:email) }
+    it { should_not allow_value("john@hotmail.ca").for(:email) }
+    it { should_not allow_value("john@umanitoba.com").for(:email) }
+    it { should_not allow_value("john@myumanitoba.com").for(:email) }
+    it { should_not allow_value("john@hotmail.com").for(:email) }
+  end
 end
