@@ -38,7 +38,7 @@ RSpec.describe "post creation", :type => :system do
 
     expect(page).to have_text("Meme successfully created")
 
-    visit "/posts/1/show"
+    visit root_path
 
     expect(page).to have_text(desc)
   end
