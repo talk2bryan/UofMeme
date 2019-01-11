@@ -5,7 +5,7 @@ RSpec.describe "post creation", :type => :system do
     driven_by(:selenium_chrome_headless)#switch :selenium_chrome_headless to :selenium_chrome to enjoy the gui tests
   end
 
-  path = "#{Rails.root}/app/assets/images/uofmeme_logo.png"
+  path = Rails.root.join('app', 'assets', 'images', 'mememan.jpg') # "#{Rails.root}/app/assets/images/mememan.jpg"
   desc = "just a post"
 
   it "views a post that has been uploaded successfully" do
@@ -30,7 +30,7 @@ RSpec.describe "post creation", :type => :system do
 
     click_link "Upload Meme Now!"
 
-    attach_file('post_image', path)
+    page.attach_file('post_image', path)
     fill_in "post_description", :with => desc
     # fill_in "post_top_text", :with => "just a post"
     # fill_in "post_bot_text", :with => "just a post"
