@@ -1,6 +1,6 @@
   require 'rails_helper'
 
-  RSpec.describe User, type: :model do
+RSpec.describe User, type: :model do
     subject {described_class.new(username: "joe", email: "joe@myumanitoba.ca",
        password: "12345678", password_confirmation: "12345678")}
 
@@ -11,7 +11,7 @@
       it "is not valid without a username"do
         subject.username = nil
         expect(subject).to_not be_valid
-    end
+      end
 
     it "is not valid without an email"do
         subject.email = nil
@@ -26,7 +26,7 @@
     it "is not valid without a password confirmation"do
         subject.password_confirmation = nil
         expect(subject).to_not be_valid
-      end
+    end
 
       it "is not valid without a myumanitoba.ca/umanitoba.ca email"do
         subject.email = "joe@gmail.com"
@@ -45,5 +45,4 @@
         expect(subject).to_not be_valid
       end
 
-
-  end
+end
