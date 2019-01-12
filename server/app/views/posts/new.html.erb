@@ -1,7 +1,7 @@
-<h2>Upload your own meme</h2>
+<h2 class="column">Upload your own meme</h2>
 <%= form_for @post, html: { multipart: true } do |f| %>
 
-<form>
+<form class="column">
     <%= f.hidden_field :poster, value: current_user.username, id: "poster"%>
     <%= f.hidden_field :user_id, value: current_user.id, id: "user_id"%>
     <div class="form-group row">
@@ -37,5 +37,7 @@
     </div>
 </form>
 
-<%= link_to 'Back', url_for(:back) %>
+<div class="column">
+    <%= link_to 'Back', url_for(:back) %>
+</div>
 <% end %>

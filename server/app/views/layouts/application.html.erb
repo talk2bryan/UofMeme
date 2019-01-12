@@ -49,17 +49,17 @@
 	
     <main role="main">
       <div class="container-fluid">
-        <div class="row">
+        <div class="column">
           <%= yield %>
         </div>
       </div>
     </main>
 
-    <footer class="nav navbar navbar-dark bg-warning box-shadow">
+    <footer class="nav navbar navbar-dark bg-warning box-shadow fixed-bottom">
       <div class="container d-flex justify-content-between">
         <div class="navbar-left">
           <span class="glyphicon glyphicon-copyright-mark"></span><a href="#">
-          UofMeme 2019</a>
+          UofMeme <%= Time.current.year%> </a>
         </div>
         <div class="navbar-right">
           <span class="glyphicon glyphicon-circle-arrow-up"></span><a href="#"> Back to top</a>
