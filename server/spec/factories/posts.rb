@@ -1,10 +1,12 @@
+include ActionDispatch::TestProcess
+
 FactoryBot.define do
   factory :post do
     trait :with_image do
-      after :create do |post|
+      before :create do |post|
         file_path = Rails.root.join('app', 'assets', 'images', 'mememan.jpg')
         file = fixture_file_upload(file_path, 'image/jpg')
-        post.image.attach(file )
+        post.image.attach(file)
       end
     end
     poster { Faker::Lorem.characters(30) }
