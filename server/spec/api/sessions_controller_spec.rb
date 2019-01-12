@@ -2,8 +2,8 @@
 
   describe Api::V1::SessionsController, type: :api do
     describe "POST /api/v1/login" do
-    let(:user) { create(:user, email: "jj@myumanitoba.ca", password: "12345678
-    ", password_confirmation: "12345678") }
+    let(:user) { create(:user, email: "jj@myumanitoba.ca", password: "12345678",
+    password_confirmation: "12345678") }
     let(:u_email) { user.email }
 
     context "when credentials are valid" do
