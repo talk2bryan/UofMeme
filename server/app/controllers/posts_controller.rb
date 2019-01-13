@@ -14,8 +14,6 @@ class PostsController < ApplicationController
 
 	def create
 	  @post = Post.new(post_params)
-    toptxt = params[:post][:top_text]
- 		bottxt = params[:post][:bot_text]
         
  		if post_params[:image].present?
       unless @post.image.content_type.starts_with?('image/gif')
