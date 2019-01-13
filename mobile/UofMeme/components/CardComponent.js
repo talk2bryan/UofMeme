@@ -45,13 +45,25 @@ class CardComponent extends Component {
         <CardItem>
           <Left>
             <Button transparent>
-              <Icon name="ios-thumbs-up" style={{ color: "black" }} />
+              <Icon
+                type="FontAwesome"
+                name="thumbs-o-up"
+                style={{ color: "black", fontSize: 24 }}
+              />
             </Button>
             <Button transparent>
-              <Icon name="ios-thumbs-down" style={{ color: "black" }} />
+              <Icon
+                type="FontAwesome"
+                name="thumbs-o-down"
+                style={{ color: "black", fontSize: 24 }}
+              />
             </Button>
             <Button transparent>
-              <Icon name="ios-chatbubbles" style={{ color: "black" }} />
+              <Icon
+                type="FontAwesome"
+                name="comment-o"
+                style={{ color: "black", fontSize: 24 }}
+              />
             </Button>
           </Left>
         </CardItem>

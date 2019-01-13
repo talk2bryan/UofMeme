@@ -20,6 +20,7 @@ const AppStackNavigator = createStackNavigator(
       headerStyle: {
         backgroundColor: "orange"
       },
+      headerTintColor: "#653600",
       title: "UofMeme",
       headerRight: <Icon style={{ paddingRight: 15 }} name="camera" />
     }

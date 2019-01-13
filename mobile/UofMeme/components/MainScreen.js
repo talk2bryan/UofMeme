@@ -9,6 +9,7 @@ import UploadTab from "./AppTabNavigator/UploadTab";
 export default class MainScreen extends Component {
   render() {
     return <AppContainer />;
+    // return <AppTabNavigator />;
   }
 }
 
