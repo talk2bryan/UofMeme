@@ -20,7 +20,7 @@ describe Post do
   describe 'ActiveRecord associations' do
     let(:post) { create :post_with_gif, :with_image }
     
-    context 'when comment is created' do
+    context 'when post is created' do
       it { is_expected.to belong_to(:user) }
       it { is_expected.to have_many(:likes).dependent(:destroy) }
       it { is_expected.to have_many(:dislikes).dependent(:destroy) }
