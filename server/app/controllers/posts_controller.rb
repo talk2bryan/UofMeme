@@ -18,8 +18,8 @@ class PostsController < ApplicationController
  		if post_params[:image].present?
       unless @post.image.content_type.starts_with?('image/gif')
         unless params[:post][:top_text].blank? && params[:post][:top_text].blank?
-          top_txt = params[:post][:top_text]
-          bot_txt = params[:post][:bot_text]
+          top_txt = params[:post][:top_text].upcase
+          bot_txt = params[:post][:bot_text].upcase
 
           if Rails.env.production?
             temp_img = MiniMagick::Image.open(url_for(@post.image))
@@ -28,17 +28,22 @@ class PostsController < ApplicationController
             MiniMagick::Image.open(ActiveStorage::Blob.service.send(:path_for,
             @post.image.key))
           end
-
+          
           temp_img.combine_options do |c|
             c.gravity 'North'
-            c.pointsize '35'
             c.draw "text 0, 0 '#{top_txt}'"
-            c.fill('#000000')
+            #c.annotate '0,0', "'#{top_txt}'"
             c.gravity 'South'
             c.draw "text 0, 0 '#{bot_txt}'"
-            c.fill('#000000')
-            c.font 'Helvetica'
+            #c.annotate '0,0', "'#{bot_txt}'"
+            c.stroke('#000000')
+            c.strokewidth 1
+            c.fill('#FFFFFF')
+            c.pointsize '40'
+            c.font "#{Rails.root.join('public', 'font',
+            'Franklin_Gothic_Heavy_Regular.ttf')}"
           end
+             
           ext = File.extname(@post.image.filename.to_s)
           temp_img_filename = "_editedimage_#{ext}"
           temp_img.write(temp_img_filename)
