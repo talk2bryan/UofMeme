@@ -1,14 +1,30 @@
 require 'rails_helper'
 require 'spec_helper'
 
-RSpec.describe Post, type: :model do
-  # Create the post using FactoryBot
-  let(:post) { create :post, :with_image }
-  # Association test
-  # ensure Post model has a 1:m relationship with the Comment model
-  it { should have_many(:comments).dependent(:destroy) }
-  # Validation tests
-  # ensure columns are present before saving
-  it { should validate_presence_of(:poster) }
-  it { should validate_presence_of(:description) }
+describe Post do
+  it 'has a valid factory' do
+    expect(build(:post, :with_image)).to be_valid
+  end
+
+  describe 'ActiveModel validations' do
+    let(:post) { create :post, :with_image }
+    
+    # Basic validations
+    it { should validate_presence_of(:poster) }
+    it { should validate_presence_of(:description) }
+    it { should validate_presence_of(:user) }
+    it { should validate_presence_of(:user_id) }
+    it { should validate_presence_of(:image) }
+  end
+
+  describe 'ActiveRecord associations' do
+    let(:post) { create :post_with_gif, :with_image }
+    
+    context 'when comment is created' do
+      it { is_expected.to belong_to(:user) }
+      it { is_expected.to have_many(:likes).dependent(:destroy) }
+      it { is_expected.to have_many(:dislikes).dependent(:destroy) }
+      it { is_expected.to have_many(:comments).dependent(:destroy) }
+    end
+  end
 end
