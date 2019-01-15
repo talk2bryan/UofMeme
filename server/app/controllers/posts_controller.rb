@@ -55,7 +55,7 @@ class PostsController < ApplicationController
           bottom.pointsize = 80
           bottom.gravity = Magick::SouthGravity
 
-          bottom.annotate(m_image, 0,0,2,2, south_text) {
+          bottom.annotate(m_image, 0,0,0,0, south_text) {
             self.fill = 'white'
             self.stroke = 'black'
             self.stroke_width = 2
