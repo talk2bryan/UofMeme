@@ -19,7 +19,7 @@ class PostsController < ApplicationController
  		if post_params[:image].present?
       unless @post.image.content_type.starts_with?('image/gif')
         unless params[:post][:top_text].blank? &&
-          params[:post][:top_text].blank?
+          params[:post][:bot_text].blank?
           top_txt = params[:post][:top_text].upcase
           bot_txt = params[:post][:bot_text].upcase
 
