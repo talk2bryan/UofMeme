@@ -1,7 +1,7 @@
 <div id="dislike_id">
-		<%= link_to " ",   dislike_create_path(post), class: 'glyphicon glyphicon-thumbs-down glyphicon-align-center',style: "color:#8B0000" ,method: :post, data: {:remote=>true, :id => post.id}%>
-		<end>
-		<span id="dislikes_count">
-			<strong id="dislikes"><%= post.dislike %></strong>
-		</span>
+  <%= link_to " ",   dislike_create_path(post), class: 'fas fa-thumbs-down',style: "color:#8B0000" ,method: :post, data: {:remote=>true, :id => post.id}%>
+  <end>
+  <span id="dislikes_count">
+    <strong id="dislikes"><%= post.dislike %></strong>
+  </span>
 </div>

@@ -821,6 +821,8 @@ GEM
     faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
     ffi (1.9.25)
+    font-awesome-sass (5.6.1)
+      sassc (>= 1.11)
     geckodriver-helper (0.23.0)
       archive-zip (~> 0.7)
     gh (0.15.1)
@@ -1045,6 +1047,7 @@ DEPENDENCIES
   database_cleaner
   factory_bot_rails (~> 4.0)
   faker
+  font-awesome-sass (~> 5.6.1)
   geckodriver-helper
   jbuilder (= 2.7.0)
   jquery-rails
