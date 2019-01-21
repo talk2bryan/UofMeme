@@ -3,47 +3,44 @@ class LikesController < ApplicationController
   end
 
   def show
-       @post = Post.find(params[:like_id])
-     end
+  @post = Post.find(params[:like_id])
+  end
 
   def create
     @post = Post.find_by(id: params[:like_id])
     @current_page = session[:my_previous_url]
 
+  if already_liked
+  #undo like
+  remove_like
+  get_posts
+  respond_to do |format|
+  format.js {render "/likes/create.js.erb" }
+  end
+  else
+  if @post.present?
+  #like the post
+  if already_disliked
+  remove_dislike
+  end
 
-    if already_liked
-      #undo like
-      remove_like
-      get_posts
-      respond_to do |format|
-        format.js {render "/likes/create.js.erb" } 
-      end
-    else
-      if @post.present?
-        #like the post
-
-        if already_disliked
-          remove_dislike
-        end
-
-        @like = Like.new(user_id: current_user.id, post_id: @post.id)
-
-        if @like.save
-          like
-          get_posts
-          respond_to do |format|
-            format.js {render "/likes/create.js.erb" } 
-          end
-        else
-          flash[:info] = "An error occurred"
-          redirect_to root_url
-        end
-      else
-        #redirect to root url
-        flash[:info] = "An error occurred"
-        redirect_to root_url
-      end
-    end
+  @like = Like.new(user_id: current_user.id, post_id: @post.id)
+  if @like.save
+  like
+  get_posts
+  respond_to do |format|
+  format.js {render "/likes/create.js.erb" }
+  end
+  else
+  flash[:info] = "An error occurred"
+  redirect_to root_url
+  end
+  else
+  #redirect to root url
+  flash[:info] = "An error occurred"
+  redirect_to root_url
+  end
+  end
   end
 
   private
@@ -64,8 +61,8 @@ class LikesController < ApplicationController
   end
 
   def like
-    @post.increment! :like  
-    @post.save  
+    @post.increment! :like
+    @post.save
   end
 
   def already_disliked
@@ -80,7 +77,7 @@ class LikesController < ApplicationController
   end
 
   def get_posts
-    if @current_page && @current_page.include?("users/#{current_user.id}") 
+    if @current_page && @current_page.include?("users/#{current_user.id}")
       @posts = Post.where(user_id: current_user.id).all
 
     else
