@@ -3,7 +3,8 @@ import { View, Text, StyleSheet } from "react-native";
 import { createBottomTabNavigator, createAppContainer } from "react-navigation";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import HomeTab from "./AppTabNavigator/HomeTab";
+// import HomeTab from "./AppTabNavigator/HomeTab";
+import HomeTabGrid from "./AppTabNavigator/HomeTabGrid";
 import UploadTab from "./AppTabNavigator/UploadTab";
 
 export default class MainScreen extends Component {
@@ -15,7 +16,7 @@ export default class MainScreen extends Component {
 
 const AppTabNavigator = createBottomTabNavigator(
   {
-    Home: HomeTab,
+    Home: HomeTabGrid,
     Upload: UploadTab
   },
   {
