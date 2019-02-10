@@ -48,6 +48,8 @@ gem 'responders'
 
 gem 'jquery-rails'
 
+gem 'mimemagic', '~> 0.3.3'
+
 gem 'rails-controller-testing'
 
 # Fix for Autoprefixer not supporting Node v4.2.6
