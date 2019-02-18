@@ -18,7 +18,7 @@ FactoryBot.define do
   end
    factory :post_with_gif do
     trait :with_image do
-      after :build do |post|
+      after :create do |post|
         file_path = Rails.root.join('app', 'assets', 'images', 'ruff.gif')
         post.image.attach(io: File.open(file_path), filename: 'ruff.gif',
         content_type: 'image/gif')
