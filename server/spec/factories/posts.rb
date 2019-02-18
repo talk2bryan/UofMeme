@@ -12,7 +12,7 @@ FactoryBot.define do
     poster { Faker::Lorem.characters(30) }
     description { Faker::Lorem.sentence }
     uploaded_image_for_io_adapters { "This is it" }
-    like { 1 }
+    like { 0 }
     dislike { 0 }
   end
 end
