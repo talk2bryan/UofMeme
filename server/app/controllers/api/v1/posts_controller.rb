@@ -1,3 +1,6 @@
+require 'base64'
+require 'stringio'
+
 class Api::V1::PostsController < Api::V1::BaseController
 	require "base64"
 
@@ -27,6 +30,7 @@ class Api::V1::PostsController < Api::V1::BaseController
 				filename: image_name,
 				content_type: image_data_type
 			)
+
 		end
 
 		if @post.save
