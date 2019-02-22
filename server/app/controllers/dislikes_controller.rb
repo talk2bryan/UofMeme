@@ -9,39 +9,45 @@ class DislikesController < ApplicationController
 	def create
 		@post = Post.find_by(id: params[:dislike_id])
 		@current_page = session[:my_previous_url]
+
+		if is_logged_in(params[:user_id]) && @post
 		
-		if already_disliked
-			#undo like
-			remove_dislike
-			get_posts
-			respond_to do |format|
-				format.js {render "/likes/create.js.erb" } 
-			end
-		else
-			if @post.present?
-				#like the post
-
-				if already_liked
-					remove_like
+			if already_disliked
+				#undo like
+				remove_dislike
+				get_posts
+				respond_to do |format|
+					format.js {render "/likes/create.js.erb" } 
 				end
+			else
+				if @post.present?
+					#like the post
 
-				@dislike = Dislike.new(user_id: current_user.id, post_id: @post.id)
+					if already_liked
+						remove_like
+					end
 
-				if @dislike.save
-					dislike
-					get_posts
-					respond_to do |format|
-						format.js {render "/dislikes/create.js.erb"} 
+					@dislike = Dislike.new(user_id: current_user.id, post_id: @post.id)
+
+					if @dislike.save
+						dislike
+						get_posts
+						respond_to do |format|
+							format.js {render "/dislikes/create.js.erb"} 
+						end
+					else
+						flash[:info] = "An error occurred"
+						redirect_to root_url
 					end
 				else
+					#redirect to root url
 					flash[:info] = "An error occurred"
 					redirect_to root_url
 				end
-			else
-				#redirect to root url
-				flash[:info] = "An error occurred"
-				redirect_to root_url
 			end
+		else
+			flash[:info] = "An error occurred, you are not logged in"
+			redirect_to root_url
 		end
 	end
 
@@ -79,13 +85,11 @@ class DislikesController < ApplicationController
 	end
 
 	def get_posts
-		if @current_page.include?("users/#{current_user.id}")
+		if @current_page && @current_page.include?("users/#{current_user.id}")
 			@posts = Post.where(user_id: current_user.id).all
 
 		else
 			@posts= Post.all
 		end
 	end
-
-
 end

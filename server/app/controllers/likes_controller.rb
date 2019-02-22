@@ -10,39 +10,44 @@ class LikesController < ApplicationController
 		@post = Post.find_by(id: params[:like_id])
 		@current_page = session[:my_previous_url]
 
-
-		if already_liked
-			#undo like
-			remove_like
-			get_posts
-			respond_to do |format|
-				format.js {render "/likes/create.js.erb" } 
-			end
-		else
-			if @post.present?
-				#like the post
-
-				if already_disliked
-					remove_dislike
+		if is_logged_in(params[:user_id]) && @post
+			
+			if already_liked
+				#undo like
+				remove_like
+				get_posts
+				respond_to do |format|
+					format.js {render "/likes/create.js.erb" } 
 				end
+			else
+				if @post.present?
+					#like the post
 
-				@like = Like.new(user_id: current_user.id, post_id: @post.id)
+					if already_disliked
+						remove_dislike
+					end
 
-				if @like.save
-					like
-					get_posts
-					respond_to do |format|
-						format.js {render "/likes/create.js.erb" } 
+					@like = Like.new(user_id: current_user.id, post_id: @post.id)
+
+					if @like.save
+						like
+						get_posts
+						respond_to do |format|
+							format.js {render "/likes/create.js.erb" } 
+						end
+					else
+						flash[:info] = "An error occurred"
+						redirect_to root_url
 					end
 				else
+					#redirect to root url
 					flash[:info] = "An error occurred"
 					redirect_to root_url
 				end
-			else
-				#redirect to root url
-				flash[:info] = "An error occurred"
-				redirect_to root_url
 			end
+		else
+			flash[:info] = "An error occurred, you are not logged in"
+			redirect_to root_url
 		end
 	end
 

@@ -43,4 +43,8 @@ module SessionsHelper
     cookies.delete(:remember_token)
   end
 
+  #checks if the logged in user matches the passed id
+  def is_logged_in(user_id)
+    !current_user.nil? && (user_id.to_s == current_user.id.to_s)
+  end
 end
