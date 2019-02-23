@@ -9,10 +9,7 @@ rvm:
 addons:
   chrome: stable
 env:
-  matrix:
-  - DB=mysql
-  global:
-  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+  secure: SfXwo6AwagHs58MSqsDILjcMEbtVpzmpXyCnfkZu1r0PJ2ZFxjF9YfyqYpRuJbCMS8OmHauLDYwbQwP0mh8U/EGhGq2ZLTGyjqUyniBWK5oFS2NqKADFhMtH/1G0rlSFDuL4ghHfTY+Wkfmr/Su7bvTyKXeTUzbP7kBxW2F1de9VlDO5WEpfjDPLu+IAI5dLTDypz1Gcvdo139nrBOLYwj+1djhYAhVdOXoaTchb/+8j/9i0r/EJsR0WvOGupVBQnyqCq73VTWkjJe+VbVdSV3CYWuvXWC8yp6ehQZDegPU+9Qy4LaWOQwEQkP0bUIUM4EPHCgqf3647E/0I2h4wjJbisgLO1VRZztfiXAtgjbchEBc4Dc2GzRCBLZijvFCPGK3TF5jpU8LXI8gVtZ5PoTFB67Gv9zSeWa+/Ww20P+8pZNttDInFkw1ZtkOw1F3HgDVgOOANI+5ebv9AvEgK85eo1W/WFrtuYpbtf3QWCWvG1F4qvjAjD+zepCQYwzId9cNVnH0kWVE9DVhzY5CX3e3n6okT2D2SGPTP05NSw6KJGTN7P6NDWDiSQ48f6odJDvLBMrM0MkB/o7gzfJ6gcz7Bb5iiH+AEubNQu8mzkiNBjmz9WnRsmGM/jS1o1ra+BLfX2W/Lnx4zOXO4pX31vRuwBgC/eTIxptPnN7ma06Y=
 before_install:
 - cd server
 - bash scripts/travis-before-install.sh
@@ -25,9 +22,6 @@ script:
 - whereis chromedriver
 - bundle install --path vendor/cache --quiet
 - bash scripts/vagrant-tests.sh
-- zip -r latest * --quiet
-- mkdir -p dpl_cd_upload
-- mv latest.zip dpl_cd_upload/latest.zip
 install:
 - wget -N http://chromedriver.storage.googleapis.com/2.36/chromedriver_linux64.zip
   -P ~/ --quiet
@@ -36,29 +30,9 @@ install:
 - sudo mv -f ~/chromedriver /usr/local/share/
 - sudo chmod +x /usr/local/share/chromedriver
 - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
-
-deploy:
-- provider: s3
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
-  local_dir: dpl_cd_upload
-  skip_cleanup: true
-  on: &2
-    repo: talk2bryan/UofMeme
-  bucket: uofmemebucket
-  region: us-east-2
-- provider: codedeploy
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
-  bucket: uofmemebucket
-  key: latest.zip
-  bundle_type: zip
-  application: UofMeme
-  deployment_group: master
-  region: us-east-2
-  on: *2
-
+after_success:
+- bash scripts/deploy.sh
 notifications:
   email: false
   slack:
-    secure: TYPYxQMbXXh05KG2o+8Q4RTK61pDBeRoJfNmwQYCPyW5GYTw3NyjNrdXaXe0TLwvKf9vU1lO72LfQXsWPQnLKiFUGBhqnracdPbYdayeCbpYzsjybwPiiuXCuSe4/DLGhuLPTsutF3tq34cA3mZEkBLPieHQAneTAcmKCGRSOgss3G0lzHsgJHAY/tXxj6iqcmMlbUitbXvZJHG5pixGEZyMkvUHXz0rQ0Oka7dsy6Lswpp4LJBCUq3PtrvE4EbclqxAS5i0fIp7FkWa3Ksw3QgR/QUS0NYHFhkjjSqakapHg0VSgfsWQGETlCK1F/wH+woFm3OtlC3zPJ9lPkHPAbH94xpFp1GoRQbRk3eHRt2y0n/OG2MHV4MaGLVq3fH39wwN2jT/bW8gCINP86roYDTF4HmZm03L0AmPAaIULYEJctTPah6yfcj4xhhVCSngA1oe0bYjQkYuMcUEV+H3D/d8r9T10wyWzJB6pULszHQ9Wa75hBqTcDNIopDwJ1ZX1Hza0OCYEkgZuujT4rJ4Wqmpw5MUVFOI4o4BPhN/E4Y6p/C3UxSGfAYvyLUWWsYQmXT9ZdxICA7/DwDe1VEYJ4s9HXPcxFF0PGjv3GKilsSi0ks2HfueybfaK+8riGfZYkak4GkOGJ1zZbfxOj2uWkDjbPBV+MrEJbsSpd+yvNI=
+    secure: T5Z6/s6fhPOjv671dWXfCSwl3p2dm7k2kKJKpNJiWymsojXLIg8bcOd0ocwnTyv59TPhIAmZkMxCHoEtuVKgcBnayMmQhSd/deomyXxL0N1RqiMUfa91S7PBeaRWe+5h8s0PmIWW4KSU/cw1MxWx/tsq3nVHvs2j5zWTUE1c7O4hSQD+y0FixNJn5QcUBG6GGIOEUVDYG7Z6wFEtQ0CKl66GCctFHl2YSq2fbERHK8RtEAFoYFoxAhd5o0FdO7E+6DlozKMJvo2C4fHgc+JlR2CIDPRPUHBu9EA1jjqe3ztt/m4DUjh/vf0r6h4gfp7m77xv83gxpCEPe1Icekla4xQvdrGgYuvpfoi+uahF556OmqLUzoxj4ae4YwtqpBhdd8V0PTI2f1FJjEeiElVCy1lsSRBlQrmRAyAEEU29Pcl/IadJmqdVtmJ9ovwfcB4T63t4N9o2OyW+QVOH/ATJG58o0fMTajHqzKSzQXYCtneGG34YQpeFR/JFpYnoFVZiIncMcSue8at2mtexMa5vpaAxGyEXVuMspLxvkeqzKlCt3hkHiv7pS1KxcUQF+GJE4CB0EAftomB2M04FAZHvWBcSzH95bo8Uuj9BP2xqynnfePIXqJ4ARgV7fZ7DB5y91ddsJ0oQGcgGEfIOJBiqSuS4PFg24j0VHxlsxKKKawY=
