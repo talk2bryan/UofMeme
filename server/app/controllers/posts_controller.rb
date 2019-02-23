@@ -2,168 +2,90 @@ class PostsController < ApplicationController
   include WrapText
 
   def new
-       @post = Post.new
+  @post = Post.new
   end
 
-<<<<<<< HEAD
   def index
-    @posts = Post.all.includes(image_attachment: :blob)
+  @posts = Post.all.includes(image_attachment: :blob)
   end
-=======
-	def index
-		@posts = Post.all.includes(image_attachment: :blob)
-	end
->>>>>>> master
-   
-     def show
-       @post = Post.find(params[:post_id])
-     end
 
-<<<<<<< HEAD
-  def create
-      @post = Post.new(post_params)
-
-      toptxt = params[:post][:top_text]
-     bottxt = params[:post][:bot_text]
-
-     if post_params[:image].present?
-
-     unless toptxt.blank? && bottxt.blank?
-        uploaded_image = Magick::ImageList.new(post_params[:image].path)[0]
-        temp = Tempfile.new("tmp")
-        width = uploaded_image.columns
-        height = uploaded_image.rows/3
-
-        unless toptxt.blank?
-          top_img = Magick::Image.read("caption:#{toptxt}") {
-           self.fill = '#FFFFFF'
-           self.stroke = '#000000'
-           self.stroke_width = 0.1
-           self.pointsize = width/10
-           self.size = "#{width}x#{height}"
-           self.background_color = "none"          
-        }.first
-        uploaded_image = uploaded_image.composite(top_img, Magick::NorthGravity, Magick::OverCompositeOp)
-      end
-
-      unless bottxt.blank?
-        bot_img = Magick::Image.read("caption:#{bottxt}") {
-          self.fill = '#FFFFFF'
-           self.stroke = '#000000'
-          self.stroke_width = 0.01
-          self.pointsize = width/10
-          self.size = "#{width}x#{height}"
-          self.background_color = "none"
-        }.first
-        uploaded_image = uploaded_image.composite(bot_img, Magick::SouthGravity, Magick::OverCompositeOp)
-        end
-
-      uploaded_image.format = "png"
-      uploaded_image.write("_editedimage_.png")
-      temp = File.open("_editedimage_.png", "r")  
-       @post = Post.new({:poster => post_params[:poster], :image => temp, :description => post_params[:description], :user_id => post_params[:user_id]})
-     end
-
-   end
-
-      if @post.save
-        flash[:info] = "Meme successfully created"
-         redirect_to root_url
-      else
-        flash[:info] = "There was an error. Your Meme wasn't created"
-        render "new"
-      end
-      
-      if post_params[:image].present?
-
-      if !toptxt.blank? || !bottxt.blank?
-        File.delete("_editedimage_.png")
-        temp.close
-      end
-    end
+  def show
+  @post = Post.find(params[:post_id])
   end
-=======
+
+
 	def create
-	  @post = Post.new(post_params)
-        
- 		if post_params[:image].present?
-      unless @post.image.content_type.starts_with?('image/gif')
-        unless params[:post][:top_text].blank? &&
-          params[:post][:top_text].blank?
-          top_txt = params[:post][:top_text].upcase
-          bot_txt = params[:post][:bot_text].upcase
+	 @post = Post.new(post_params)
 
-          if Rails.env.production?
-            imageUrl = url_for(@post.image)
-          else
-            imageUrl = ActiveStorage::Blob.service.send(:path_for,
-                                                        @post.image.key)
-          end
+ if post_params[:image].present?
+ unless @post.image.content_type.starts_with?('image/gif')
+ unless params[:post][:top_text].blank? &&
+ params[:post][:top_text].blank?
+ top_txt = params[:post][:top_text].upcase
+ bot_txt = params[:post][:bot_text].upcase
 
-          m_image = Magick::ImageList.new
-          urlImage = open(imageUrl)
-          m_image.from_blob(urlImage.read)
-          width = m_image.columns
+ if Rails.env.production?
+ imageUrl = url_for(@post.image)
+ else
+ imageUrl = ActiveStorage::Blob.service.send(:path_for,
+ @post.image.key)
+ end
 
-          north_text = wrap_text(top_txt, width)
-          south_text = wrap_text(bot_txt, width)
+  m_image = Magick::ImageList.new
+  urlImage = open(imageUrl)
+  m_image.from_blob(urlImage.read)
+  width = m_image.columns
+  north_text = wrap_text(top_txt, width)
+  south_text = wrap_text(bot_txt, width)
+  top = Magick::Draw.new
+  top.pointsize = 80
+  top.gravity = Magick::NorthGravity
+  top.annotate(m_image, 0,0,0,0, north_text) {
+  self.fill = 'white'
+  self.stroke = 'black'
+  self.stroke_width = 2
+  self.font = "#{Rails.root.join('public', 'font',
+  'Franklin_Gothic_Heavy_Regular.ttf')}"
+  self.font_weight = Magick::BoldWeight
+  }
 
-          top = Magick::Draw.new
-          top.pointsize = 80
-          top.gravity = Magick::NorthGravity
+  bottom = Magick::Draw.new
+  bottom.pointsize = 80
+  bottom.gravity = Magick::SouthGravity
+  bottom.annotate(m_image, 0,0,0,0, south_text) {
+  self.fill = 'white'
+  self.stroke = 'black'
+  self.stroke_width = 2
+  self.font = "#{Rails.root.join('public', 'font',
+                'Franklin_Gothic_Heavy_Regular.ttf')}"
+  self.font_weight = Magick::BoldWeight
+  }
 
-          top.annotate(m_image, 0,0,0,0, north_text) {
-            self.fill = 'white'
-            self.stroke = 'black'
-            self.stroke_width = 2
-            self.font = "#{Rails.root.join('public', 'font',
-                           'Franklin_Gothic_Heavy_Regular.ttf')}"
-            self.font_weight = Magick::BoldWeight
-          }
+ ext = File.extname(@post.image.filename.to_s)
+ temp_img_filename = "_editedimage_#{ext}"
+ m_image.write(temp_img_filename)
+ @post.image.attach(io: File.open(temp_img_filename), filename:
+ @post.image.filename, content_type: @post.image.content_type)
+ File.delete(temp_img_filename)
+ end
+ end
+ end
 
-          bottom = Magick::Draw.new
-          bottom.pointsize = 80
-          bottom.gravity = Magick::SouthGravity
+ if @post.save
+ flash[:info] = "Meme successfully created"
+ redirect_to root_url
+ else
+ flash[:info] = "There was an error. Your Meme wasn't created"
+ render "new"
+ end
+ end
 
-          bottom.annotate(m_image, 0,0,0,0, south_text) {
-            self.fill = 'white'
-            self.stroke = 'black'
-            self.stroke_width = 2
-            self.font = "#{Rails.root.join('public', 'font',
-                           'Franklin_Gothic_Heavy_Regular.ttf')}"
-            self.font_weight = Magick::BoldWeight
-          }
 
-          ext = File.extname(@post.image.filename.to_s)
-          temp_img_filename = "_editedimage_#{ext}"
-          m_image.write(temp_img_filename)
-          
-          @post.image.attach(io: File.open(temp_img_filename), filename:
-          @post.image.filename, content_type: @post.image.content_type)
-          File.delete(temp_img_filename)
-        end
-      end
-    end
+ private
 
-	  if @post.save
-	    flash[:info] = "Meme successfully created"
-	    redirect_to root_url
-	  else
-	    flash[:info] = "There was an error. Your Meme wasn't created"
-	  	render "new"
-	  end
-	end
->>>>>>> master
 
-  private
+ def post_params
+ params.require(:post).permit(:poster, :image, :description, :user_id, :top_text, :bot_text)
+end
 
-<<<<<<< HEAD
-  def post_params
-       params.require(:post).permit(:poster, :image, :description, :user_id, :top_text, :bot_text)
-  end
-=======
-	def post_params
-   		params.require(:post).permit(:poster, :image, :description, :user_id, :top_text, :bot_text)
-	end
->>>>>>> master
 end
