@@ -14,8 +14,8 @@ class PostsController < ApplicationController
   end
 
 
-	def create
-	 @post = Post.new(post_params)
+  def create
+  @post = Post.new(post_params)
 
  if post_params[:image].present?
  unless @post.image.content_type.starts_with?('image/gif')
