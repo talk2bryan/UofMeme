@@ -3,23 +3,23 @@ require "selenium-webdriver"
 
 RSpec.describe "User management", :type => :system do
   before do
-    driven_by(:selenium_chrome_headless) #switch :selenium_chrome_headless to :selenium_chrome to enjoy the gui tests
+  driven_by(:selenium_chrome_headless)
+   #switch :selenium_chrome_headless to :selenium_chrome to enjoy the gui tests
   end
 
   it "A new user can create an account" do
-    visit "/users/new"
+  visit "/users/new"
+  fill_in "user_username", :with => "joe"
+  fill_in "user_email", :with => "joe@myumanitoba.ca"
+  fill_in "user_password", :with => "12345678"
+  fill_in "user_password_confirmation", :with => "12345678"
+  click_button "Sign up"
 
-    fill_in "user_username", :with => "joe"
-    fill_in "user_email", :with => "joe@myumanitoba.ca"
-    fill_in "user_password", :with => "12345678"
-    fill_in "user_password_confirmation", :with => "12345678"
-    click_button "Sign up"
-
-    expect(page).to have_text("UofMeme is an application that allows")
+  expect(page).to have_text("UofMeme is an application that allows")
   end
 
-  it "Does not signup a user if email or username already exits" do 
-      visit "/users/new"
+it "Does not signup a user if email or username already exits" do 
+  visit "/users/new"
 
       fill_in "user_username", :with => "joe"
       fill_in "user_email", :with => "joe@myumanitoba.ca"
