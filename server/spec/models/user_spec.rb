@@ -1,16 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  #change to factorybot
-  @user = User.create(username: "john", email: "john@umanitoba.ca", password:  "password", password_confirmation: "password")
+  subject { User.new(username: "frank", email: "frank@umanitoba.ca", password:  "password", password_confirmation: "password") }
+  let(:dup_username) { User.new(username: "frank", email: "f@umanitoba.ca", password:  "password", password_confirmation: "password")}
+  let(:dup_email) { User.new(username: "fra", email: "frank@umanitoba.ca", password:  "password", password_confirmation: "password")}
 
-  describe "username" do
-    #could be create instead
-    #change to factorybot
-    subject { User.new(username: "frank", email: "frank@umanitoba.ca", password:  "password", password_confirmation: "password") }
-
-    it "is a valid username" do
-      expect(subject).to be_valid
+  context "username" do
+    it "is not valid without unique username" do
+      subject.save
+      expect{dup_username.save!}.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Username has already been taken")
     end
 
     it "is not valid without username" do
@@ -20,28 +18,24 @@ RSpec.describe User, type: :model do
 
     it "is not valid with short username" do
       subject.username = Faker::Lorem.characters(2)
-      # subject.username = "Jo"
       expect(subject).to_not be_valid
     end
 
     it "is not valid with long username" do
       subject.username = Faker::Lorem.characters(31)
-      # subject.username = "frankfrankfrankfrankfrankfrank1"
       expect(subject).to_not be_valid
     end
 
-    #could fail due to using new instead of create
-    it "is not valid without unique username" do
-      subject.username = "john"
-      expect(subject).to_not be_valid
+    it "is a valid username" do
+      subject.username = "frank"
+      expect(subject).to be_valid
     end
   end
 
-  describe "email" do
-    subject { User.new(username: "frank", email: "frank@umanitoba.ca", password:  "password", password_confirmation: "password") }
-
-    it "is a valid email" do
-      expect(subject).to be_valid
+  context "email" do
+    it "is not valid without unique email" do
+      subject.save
+      expect{dup_email.save!}.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Email has already been taken")
     end
 
     it "is not valid without email" do
@@ -59,17 +53,51 @@ RSpec.describe User, type: :model do
       expect(subject).to_not be_valid
     end
 
-    it "is not valid without unique email" do
-      subject.email = "john@umanitoba.ca"
-      expect(subject).to_not be_valid
+    it "is a valid email" do
+      subject.email = "frank@umanitoba.ca"
+      expect(subject).to be_valid
     end
   end
 
-  describe "password" do
-    subject { User.new(username: "frank", email: "frank@umanitoba.ca", password:  "password", password_confirmation: "password") }
+  context "password" do
+    it "is not valid without password" do
+      subject.password = nil
+      expect(subject).to_not be_valid
+    end
 
-    it "" do
+    it "is not valid with short password" do
+      subject.password = Faker::Lorem.characters(7)
+      expect(subject).to_not be_valid
+    end
 
+    it "is a valid password" do
+      subject.password = "password"
+      expect(subject).to be_valid
+    end
+
+    it "is not valid without password confirmation" do
+      subject.password_confirmation = nil
+      expect(subject).to_not be_valid
+    end
+
+    it "is not valid with short password confirmation" do
+      subject.password_confirmation = Faker::Lorem.characters(7)
+      expect(subject).to_not be_valid
+    end
+
+    it "is a valid password confirmation" do
+      subject.password_confirmation = "password"
+      expect(subject).to be_valid
+    end
+  end
+
+  context "remember, forget" do
+    it "successfully remembers a user then forgets that user" do
+      subject.remember
+      expect(subject.remember_digest).to_not eq(nil)
+      expect(subject.remember_token).to_not eq(nil)
+      subject.forget
+      expect(subject.remember_digest).to eq(nil)
     end
   end
 
@@ -105,6 +133,5 @@ RSpec.describe User, type: :model do
     it { should_not allow_value("john@myumanitoba.com").for(:email) }
     it { should_not allow_value("john@hotmail.com").for(:email) }
   end
-
-
 end
+
