@@ -45,8 +45,7 @@ set :keep_releases, 5
 # set :log_level,     :debug
 
 ## Linked Files & Directories (Default None):
-set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle publi
-c/system}
+set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 set :linked_files, %w{config/master.key}
 
 namespace :puma do

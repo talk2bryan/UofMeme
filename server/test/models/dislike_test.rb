@@ -1,21 +1,23 @@
 require 'test_helper'
 
 class DislikeTest < ActiveSupport::TestCase
-	def setup
-		@user = users(:user1)
-		@post = Post.new(poster: @user.username, description: 'I love meme', user_id: @user.id)
-		@post.image = File.new("test/fixtures/files/test.png")
-		@post.save
-	end
+	setup do
+    @user = users(:user1)
+    @post = Post.new
+    @post.poster =  'mmmmmmmm'
+    file_path = Rails.root.join('test', 'fixtures', 'files', 'test.png')
+    @post.image = fixture_file_upload(file_path, 'image/png')
+    @post.description = "my mememe"
+    @post.user_id = @user.id
+    assert @post.save!
+  end
 
-	test "Testing valid dislike input" do
-		# since there are existing user in user_id and post in post_id
-		# so this test should pass
+	test "should save dislike with valid input" do
 		dislike = Dislike.new(user_id: @user.id, post_id: @post.id)
-		assert dislike.save
+		assert dislike.save!
 	end
 
-	test "Testing invalid user_id input" do
+	test "should not save dislike with invalid user_id input" do
 		# missing out user_id input
 		dislike = Dislike.new(post_id: @post.id)
 		assert_not dislike.save
@@ -27,7 +29,7 @@ class DislikeTest < ActiveSupport::TestCase
 		assert_not dislike.save
 	end
 
-	test "Testing invalid post_id input" do
+	test "should not save dislike with invalid post_id input" do
 		# missing out post_id input
 		dislike = Dislike.new(user_id: @user.id)
 		assert_not dislike.save
@@ -39,7 +41,7 @@ class DislikeTest < ActiveSupport::TestCase
 		assert_not dislike.save
 	end
 
-	test "Testing null input" do
+	test "should not save dislike with null input" do
 		dislike = Dislike.new
 		assert_not dislike.save
 	end

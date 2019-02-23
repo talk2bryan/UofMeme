@@ -32,7 +32,7 @@ hs_err_pid*
 !/log/.keep
 !/tmp/.keep
 
-mobile/node_modules
+node_modules
 mobile/yarn-error.log
 
 .byebug_history
@@ -44,6 +44,7 @@ server/.rspec
 server/.rvmrc
 server/.tmp
 
+yarn.lock
 /.config
 /coverage/
 /InstalledFiles
@@ -58,6 +59,10 @@ server/tmp
 server/spec/test_files
 server/spec/test_files/
 server/spec/test_files/.
+
+# Ignore server encryption files:
+id_rsa
+master.key
 
 ## For bower-rails
 /vendor/assets/bower_components
@@ -80,9 +85,10 @@ server/.idea *
 server/.bundle/
 server/vendor/bundle
 server/lib/bundler/man/
+server/vendor/cache
 
-server/public/system
-server/public/system/posts/*
+server/public/assets
+server/storage/
 
 server/.rspec
 mobile/node_modules
@@ -271,10 +277,6 @@ mobile/.TemporaryItems
 mobile/.Trashes
 mobile/.VolumeIcon.icns
 mobile/.com.apple.timemachine.donotpresent
-
-public/system
-public/system/posts/*
-
 
 
 ### ReactNative ###
