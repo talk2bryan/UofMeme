@@ -8,7 +8,7 @@ describe Post do
 
   describe 'ActiveModel validations' do
     let(:post) { create :post, :with_image }
-    
+
     # Basic validations
     it { should validate_presence_of(:poster) }
     it { should validate_presence_of(:description) }
@@ -19,12 +19,12 @@ describe Post do
 
   describe 'ActiveRecord associations' do
     let(:post) { create :post_with_gif, :with_image }
-    
+
     context 'when post is created' do
       it { is_expected.to belong_to(:user) }
       it { is_expected.to have_many(:likes).dependent(:destroy) }
       it { is_expected.to have_many(:dislikes).dependent(:destroy) }
-      it { is_expected.to have_many(:comments).dependent(:destroy) }
+    
     end
   end
 end
