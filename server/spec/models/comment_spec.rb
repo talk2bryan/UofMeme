@@ -1,20 +1,33 @@
 require 'rails_helper'
+require "time"
 
 RSpec.describe Comment, type: :model do
-  subject { described_class.new}
+  subject {described_class.new }
 
   it "is valid with valid attributes" do
-    subject.comment_id=1
-    subject.post_id=3
-    subject.user_id=2
-    subject.commenter="Anything"
     subject.comment="Anything"
+    subject.commenter="Anything"
+    subject.created_at=Time.parse("Dec 8 2015 10:19")
+    subject.updated_at=Time.parse("Dec 8 2015 20:19")
 
-    subject.timeAttribute=DateTime.now
-    expect(subject).to be_valid
+
   end
   it "is not valid without a commenter" do
+    subject.commenter=nil
+    expect(subject).to_not be_valid
+  end
 
+  it "is not valid without a comment" do
+    subject.comment=nil
+    expect(subject).to_not be_valid
+  end
+  it "is not valid without a created time" do
+    subject.created_at=nil
+    expect(subject).to_not be_valid
+  end
+
+  it "is not valid without a updated time" do
+    subject.updated_at=nil
     expect(subject).to_not be_valid
   end
 
