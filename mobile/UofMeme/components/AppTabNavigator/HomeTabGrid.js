@@ -10,6 +10,8 @@ import {
   TouchableOpacity,
   Text
 } from "react-native";
+import { Container } from "native-base";
+import CardComponent from "../CardComponent";
 //import all the components we will need
 
 export default class App extends Component {

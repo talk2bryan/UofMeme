@@ -12,7 +12,7 @@ class HomeTab extends Component {
           <CardComponent imageSource="1" likes="9001" />
           <CardComponent imageSource="2" likes="623" />
           <CardComponent imageSource="3" likes="8999" />
-        </Content>
+        </Content>  
       </Container>
     );
   }
