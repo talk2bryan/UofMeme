@@ -887,7 +887,7 @@ GEM
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)
-    rack (2.0.6)
+    rack (2.0.8)
     rack-cors (1.0.5)
       rack (>= 1.6.0)
     rack-test (1.1.0)
@@ -1051,8 +1051,8 @@ DEPENDENCIES
   jquery-rails
   jsonapi-rspec
   listen (= 3.1.5)
-  mini_magick (~> 4.9)
   loofah (~> 2.3.1)
+  mini_magick (~> 4.9)
   mini_racer
   mysql2 (>= 0.3.18, < 0.5)
   puma (= 3.11)
