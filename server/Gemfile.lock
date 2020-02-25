@@ -880,7 +880,7 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (5.1.0)
     nio4r (2.3.1)
-    nokogiri (1.10.5)
+    nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
     popper_js (1.14.5)
     puma (3.11.0)
@@ -1051,8 +1051,8 @@ DEPENDENCIES
   jquery-rails
   jsonapi-rspec
   listen (= 3.1.5)
-  mini_magick (~> 4.9)
   loofah (~> 2.3.1)
+  mini_magick (~> 4.9)
   mini_racer
   mysql2 (>= 0.3.18, < 0.5)
   puma (= 3.11)
