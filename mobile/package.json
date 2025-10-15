@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "@expo/vector-icons": "^6.3.1",
-    "expo": "^25.0.0",
+    "expo": "^48.0.0",
     "native-base": "^2.3.10",
     "react": "16.2.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
